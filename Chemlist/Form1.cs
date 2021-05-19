@@ -59,5 +59,25 @@ namespace Chemlist
 			AddNewCompound addNewCompound = new AddNewCompound { parentForm = this };
 			addNewCompound.Show();
 		}
+
+		private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+
+		}
+
+		private void tlink_Wiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].wikiLink);
+		}
+
+		private void tlink_Purchase_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].purchaseLink);
+		}
+
+		private void tlink_MSDS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].msds);
+		}
 	}
 }
