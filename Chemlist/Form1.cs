@@ -60,11 +60,6 @@ namespace Chemlist
 			addNewCompound.Show();
 		}
 
-		private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-		{
-
-		}
-
 		private void tlink_Wiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].wikiLink);

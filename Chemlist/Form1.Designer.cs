@@ -38,7 +38,29 @@
 			this.btn_EditCurrentChemical = new System.Windows.Forms.Button();
 			this.panel_Info = new System.Windows.Forms.Panel();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.tlink_MSDS = new System.Windows.Forms.LinkLabel();
+			this.tlink_Purchase = new System.Windows.Forms.LinkLabel();
+			this.tlink_Wiki = new System.Windows.Forms.LinkLabel();
+			this.txt_LC50 = new System.Windows.Forms.Label();
+			this.txt_LD50 = new System.Windows.Forms.Label();
+			this.txt_FlashPoint = new System.Windows.Forms.Label();
+			this.txt_Acidity = new System.Windows.Forms.Label();
+			this.txt_VapourPressure = new System.Windows.Forms.Label();
+			this.label26 = new System.Windows.Forms.Label();
+			this.txt_Solubility = new System.Windows.Forms.Label();
+			this.label24 = new System.Windows.Forms.Label();
+			this.txt_SInWater = new System.Windows.Forms.Label();
+			this.txt_wiki = new System.Windows.Forms.Label();
+			this.txt_BoilingPoint = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label20 = new System.Windows.Forms.Label();
 			this.txt_MeltingPoint = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.txt_Density = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
@@ -49,7 +71,7 @@
 			this.txt_Names = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.lbox_UsedIn = new System.Windows.Forms.ListBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.cguid = new System.Windows.Forms.Label();
 			this.rtb_Description = new System.Windows.Forms.RichTextBox();
@@ -62,28 +84,6 @@
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.label10 = new System.Windows.Forms.Label();
-			this.txt_BoilingPoint = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.txt_SInWater = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
-			this.txt_Solubility = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
-			this.txt_VapourPressure = new System.Windows.Forms.Label();
-			this.label18 = new System.Windows.Forms.Label();
-			this.txt_Acidity = new System.Windows.Forms.Label();
-			this.label20 = new System.Windows.Forms.Label();
-			this.txt_FlashPoint = new System.Windows.Forms.Label();
-			this.label22 = new System.Windows.Forms.Label();
-			this.label24 = new System.Windows.Forms.Label();
-			this.label26 = new System.Windows.Forms.Label();
-			this.tlink_Wiki = new System.Windows.Forms.LinkLabel();
-			this.tlink_Purchase = new System.Windows.Forms.LinkLabel();
-			this.tlink_MSDS = new System.Windows.Forms.LinkLabel();
-			this.label3 = new System.Windows.Forms.Label();
-			this.txt_LD50 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.txt_LC50 = new System.Windows.Forms.Label();
 			this.tab_Switcher.SuspendLayout();
 			this.tab_Chemicals.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -255,7 +255,7 @@
 			this.groupBox3.Controls.Add(this.txt_Solubility);
 			this.groupBox3.Controls.Add(this.label24);
 			this.groupBox3.Controls.Add(this.txt_SInWater);
-			this.groupBox3.Controls.Add(this.label22);
+			this.groupBox3.Controls.Add(this.txt_wiki);
 			this.groupBox3.Controls.Add(this.txt_BoilingPoint);
 			this.groupBox3.Controls.Add(this.label7);
 			this.groupBox3.Controls.Add(this.label3);
@@ -283,6 +283,174 @@
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Properties";
 			// 
+			// tlink_MSDS
+			// 
+			this.tlink_MSDS.AutoSize = true;
+			this.tlink_MSDS.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.tlink_MSDS.LinkColor = System.Drawing.Color.Black;
+			this.tlink_MSDS.Location = new System.Drawing.Point(93, 271);
+			this.tlink_MSDS.Name = "tlink_MSDS";
+			this.tlink_MSDS.Size = new System.Drawing.Size(27, 13);
+			this.tlink_MSDS.TabIndex = 1;
+			this.tlink_MSDS.TabStop = true;
+			this.tlink_MSDS.Text = "Link";
+			this.tlink_MSDS.VisitedLinkColor = System.Drawing.Color.Black;
+			this.tlink_MSDS.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.tlink_MSDS_LinkClicked);
+			// 
+			// tlink_Purchase
+			// 
+			this.tlink_Purchase.AutoSize = true;
+			this.tlink_Purchase.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.tlink_Purchase.LinkColor = System.Drawing.Color.Black;
+			this.tlink_Purchase.Location = new System.Drawing.Point(93, 254);
+			this.tlink_Purchase.Name = "tlink_Purchase";
+			this.tlink_Purchase.Size = new System.Drawing.Size(27, 13);
+			this.tlink_Purchase.TabIndex = 1;
+			this.tlink_Purchase.TabStop = true;
+			this.tlink_Purchase.Text = "Link";
+			this.tlink_Purchase.VisitedLinkColor = System.Drawing.Color.Black;
+			this.tlink_Purchase.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.tlink_Purchase_LinkClicked);
+			// 
+			// tlink_Wiki
+			// 
+			this.tlink_Wiki.AutoSize = true;
+			this.tlink_Wiki.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.tlink_Wiki.LinkColor = System.Drawing.Color.Black;
+			this.tlink_Wiki.Location = new System.Drawing.Point(93, 237);
+			this.tlink_Wiki.Name = "tlink_Wiki";
+			this.tlink_Wiki.Size = new System.Drawing.Size(27, 13);
+			this.tlink_Wiki.TabIndex = 1;
+			this.tlink_Wiki.TabStop = true;
+			this.tlink_Wiki.Text = "Link";
+			this.tlink_Wiki.VisitedLinkColor = System.Drawing.Color.Black;
+			this.tlink_Wiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.tlink_Wiki_LinkClicked);
+			// 
+			// txt_LC50
+			// 
+			this.txt_LC50.AutoSize = true;
+			this.txt_LC50.Location = new System.Drawing.Point(93, 220);
+			this.txt_LC50.Name = "txt_LC50";
+			this.txt_LC50.Size = new System.Drawing.Size(27, 13);
+			this.txt_LC50.TabIndex = 0;
+			this.txt_LC50.Text = "N/A";
+			// 
+			// txt_LD50
+			// 
+			this.txt_LD50.AutoSize = true;
+			this.txt_LD50.Location = new System.Drawing.Point(93, 203);
+			this.txt_LD50.Name = "txt_LD50";
+			this.txt_LD50.Size = new System.Drawing.Size(27, 13);
+			this.txt_LD50.TabIndex = 0;
+			this.txt_LD50.Text = "N/A";
+			// 
+			// txt_FlashPoint
+			// 
+			this.txt_FlashPoint.AutoSize = true;
+			this.txt_FlashPoint.Location = new System.Drawing.Point(93, 186);
+			this.txt_FlashPoint.Name = "txt_FlashPoint";
+			this.txt_FlashPoint.Size = new System.Drawing.Size(27, 13);
+			this.txt_FlashPoint.TabIndex = 0;
+			this.txt_FlashPoint.Text = "N/A";
+			// 
+			// txt_Acidity
+			// 
+			this.txt_Acidity.AutoSize = true;
+			this.txt_Acidity.Location = new System.Drawing.Point(93, 169);
+			this.txt_Acidity.Name = "txt_Acidity";
+			this.txt_Acidity.Size = new System.Drawing.Size(27, 13);
+			this.txt_Acidity.TabIndex = 0;
+			this.txt_Acidity.Text = "N/A";
+			// 
+			// txt_VapourPressure
+			// 
+			this.txt_VapourPressure.AutoSize = true;
+			this.txt_VapourPressure.Location = new System.Drawing.Point(93, 152);
+			this.txt_VapourPressure.Name = "txt_VapourPressure";
+			this.txt_VapourPressure.Size = new System.Drawing.Size(27, 13);
+			this.txt_VapourPressure.TabIndex = 0;
+			this.txt_VapourPressure.Text = "N/A";
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.Location = new System.Drawing.Point(6, 271);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(41, 13);
+			this.label26.TabIndex = 0;
+			this.label26.Text = "MSDS:";
+			// 
+			// txt_Solubility
+			// 
+			this.txt_Solubility.AutoSize = true;
+			this.txt_Solubility.Location = new System.Drawing.Point(93, 135);
+			this.txt_Solubility.Name = "txt_Solubility";
+			this.txt_Solubility.Size = new System.Drawing.Size(27, 13);
+			this.txt_Solubility.TabIndex = 0;
+			this.txt_Solubility.Text = "N/A";
+			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.Location = new System.Drawing.Point(6, 254);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(55, 13);
+			this.label24.TabIndex = 0;
+			this.label24.Text = "Purchase:";
+			// 
+			// txt_SInWater
+			// 
+			this.txt_SInWater.AutoSize = true;
+			this.txt_SInWater.Location = new System.Drawing.Point(93, 118);
+			this.txt_SInWater.Name = "txt_SInWater";
+			this.txt_SInWater.Size = new System.Drawing.Size(27, 13);
+			this.txt_SInWater.TabIndex = 0;
+			this.txt_SInWater.Text = "N/A";
+			// 
+			// txt_wiki
+			// 
+			this.txt_wiki.AutoSize = true;
+			this.txt_wiki.Location = new System.Drawing.Point(6, 237);
+			this.txt_wiki.Name = "txt_wiki";
+			this.txt_wiki.Size = new System.Drawing.Size(31, 13);
+			this.txt_wiki.TabIndex = 0;
+			this.txt_wiki.Text = "Wiki:";
+			// 
+			// txt_BoilingPoint
+			// 
+			this.txt_BoilingPoint.AutoSize = true;
+			this.txt_BoilingPoint.Location = new System.Drawing.Point(93, 101);
+			this.txt_BoilingPoint.Name = "txt_BoilingPoint";
+			this.txt_BoilingPoint.Size = new System.Drawing.Size(27, 13);
+			this.txt_BoilingPoint.TabIndex = 0;
+			this.txt_BoilingPoint.Text = "N/A";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(6, 220);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(35, 13);
+			this.label7.TabIndex = 0;
+			this.label7.Text = "LC50:";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(6, 203);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(36, 13);
+			this.label3.TabIndex = 0;
+			this.label3.Text = "LD50:";
+			// 
+			// label20
+			// 
+			this.label20.AutoSize = true;
+			this.label20.Location = new System.Drawing.Point(6, 186);
+			this.label20.Name = "label20";
+			this.label20.Size = new System.Drawing.Size(61, 13);
+			this.label20.TabIndex = 0;
+			this.label20.Text = "Flash point:";
+			// 
 			// txt_MeltingPoint
 			// 
 			this.txt_MeltingPoint.AutoSize = true;
@@ -291,6 +459,51 @@
 			this.txt_MeltingPoint.Size = new System.Drawing.Size(27, 13);
 			this.txt_MeltingPoint.TabIndex = 0;
 			this.txt_MeltingPoint.Text = "N/A";
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(6, 169);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(69, 13);
+			this.label18.TabIndex = 0;
+			this.label18.Text = "Acidity (pKa):";
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(6, 152);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(87, 13);
+			this.label16.TabIndex = 0;
+			this.label16.Text = "Vapour pressure:";
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.Location = new System.Drawing.Point(6, 135);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(51, 13);
+			this.label14.TabIndex = 0;
+			this.label14.Text = "Solubility:";
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(6, 118);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(87, 13);
+			this.label12.TabIndex = 0;
+			this.label12.Text = "Sulibility in water:";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(6, 101);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(67, 13);
+			this.label10.TabIndex = 0;
+			this.label10.Text = "Boiling point:";
 			// 
 			// label8
 			// 
@@ -378,7 +591,7 @@
 			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.groupBox2.BackColor = System.Drawing.SystemColors.Window;
-			this.groupBox2.Controls.Add(this.listBox1);
+			this.groupBox2.Controls.Add(this.lbox_UsedIn);
 			this.groupBox2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.groupBox2.Location = new System.Drawing.Point(380, 135);
 			this.groupBox2.Name = "groupBox2";
@@ -387,13 +600,13 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Used In";
 			// 
-			// listBox1
+			// lbox_UsedIn
 			// 
-			this.listBox1.BackColor = System.Drawing.SystemColors.Window;
-			this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.listBox1.Items.AddRange(new object[] {
+			this.lbox_UsedIn.BackColor = System.Drawing.SystemColors.Window;
+			this.lbox_UsedIn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.lbox_UsedIn.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbox_UsedIn.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.lbox_UsedIn.Items.AddRange(new object[] {
             "a",
             "b",
             "c",
@@ -401,11 +614,10 @@
             "e",
             "f",
             "g"});
-			this.listBox1.Location = new System.Drawing.Point(3, 16);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(247, 210);
-			this.listBox1.TabIndex = 0;
-			this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+			this.lbox_UsedIn.Location = new System.Drawing.Point(3, 16);
+			this.lbox_UsedIn.Name = "lbox_UsedIn";
+			this.lbox_UsedIn.Size = new System.Drawing.Size(247, 210);
+			this.lbox_UsedIn.TabIndex = 0;
 			// 
 			// groupBox1
 			// 
@@ -538,219 +750,6 @@
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(6, 101);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(67, 13);
-			this.label10.TabIndex = 0;
-			this.label10.Text = "Boiling point:";
-			// 
-			// txt_BoilingPoint
-			// 
-			this.txt_BoilingPoint.AutoSize = true;
-			this.txt_BoilingPoint.Location = new System.Drawing.Point(93, 101);
-			this.txt_BoilingPoint.Name = "txt_BoilingPoint";
-			this.txt_BoilingPoint.Size = new System.Drawing.Size(27, 13);
-			this.txt_BoilingPoint.TabIndex = 0;
-			this.txt_BoilingPoint.Text = "N/A";
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(6, 118);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(87, 13);
-			this.label12.TabIndex = 0;
-			this.label12.Text = "Sulibility in water:";
-			// 
-			// txt_SInWater
-			// 
-			this.txt_SInWater.AutoSize = true;
-			this.txt_SInWater.Location = new System.Drawing.Point(93, 118);
-			this.txt_SInWater.Name = "txt_SInWater";
-			this.txt_SInWater.Size = new System.Drawing.Size(27, 13);
-			this.txt_SInWater.TabIndex = 0;
-			this.txt_SInWater.Text = "N/A";
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(6, 135);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(51, 13);
-			this.label14.TabIndex = 0;
-			this.label14.Text = "Solubility:";
-			// 
-			// txt_Solubility
-			// 
-			this.txt_Solubility.AutoSize = true;
-			this.txt_Solubility.Location = new System.Drawing.Point(93, 135);
-			this.txt_Solubility.Name = "txt_Solubility";
-			this.txt_Solubility.Size = new System.Drawing.Size(27, 13);
-			this.txt_Solubility.TabIndex = 0;
-			this.txt_Solubility.Text = "N/A";
-			// 
-			// label16
-			// 
-			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(6, 152);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(87, 13);
-			this.label16.TabIndex = 0;
-			this.label16.Text = "Vapour pressure:";
-			// 
-			// txt_VapourPressure
-			// 
-			this.txt_VapourPressure.AutoSize = true;
-			this.txt_VapourPressure.Location = new System.Drawing.Point(93, 152);
-			this.txt_VapourPressure.Name = "txt_VapourPressure";
-			this.txt_VapourPressure.Size = new System.Drawing.Size(27, 13);
-			this.txt_VapourPressure.TabIndex = 0;
-			this.txt_VapourPressure.Text = "N/A";
-			// 
-			// label18
-			// 
-			this.label18.AutoSize = true;
-			this.label18.Location = new System.Drawing.Point(6, 169);
-			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(69, 13);
-			this.label18.TabIndex = 0;
-			this.label18.Text = "Acidity (pKa):";
-			// 
-			// txt_Acidity
-			// 
-			this.txt_Acidity.AutoSize = true;
-			this.txt_Acidity.Location = new System.Drawing.Point(93, 169);
-			this.txt_Acidity.Name = "txt_Acidity";
-			this.txt_Acidity.Size = new System.Drawing.Size(27, 13);
-			this.txt_Acidity.TabIndex = 0;
-			this.txt_Acidity.Text = "N/A";
-			// 
-			// label20
-			// 
-			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(6, 186);
-			this.label20.Name = "label20";
-			this.label20.Size = new System.Drawing.Size(61, 13);
-			this.label20.TabIndex = 0;
-			this.label20.Text = "Flash point:";
-			// 
-			// txt_FlashPoint
-			// 
-			this.txt_FlashPoint.AutoSize = true;
-			this.txt_FlashPoint.Location = new System.Drawing.Point(93, 186);
-			this.txt_FlashPoint.Name = "txt_FlashPoint";
-			this.txt_FlashPoint.Size = new System.Drawing.Size(27, 13);
-			this.txt_FlashPoint.TabIndex = 0;
-			this.txt_FlashPoint.Text = "N/A";
-			// 
-			// label22
-			// 
-			this.label22.AutoSize = true;
-			this.label22.Location = new System.Drawing.Point(6, 237);
-			this.label22.Name = "label22";
-			this.label22.Size = new System.Drawing.Size(31, 13);
-			this.label22.TabIndex = 0;
-			this.label22.Text = "Wiki:";
-			// 
-			// label24
-			// 
-			this.label24.AutoSize = true;
-			this.label24.Location = new System.Drawing.Point(6, 254);
-			this.label24.Name = "label24";
-			this.label24.Size = new System.Drawing.Size(55, 13);
-			this.label24.TabIndex = 0;
-			this.label24.Text = "Purchase:";
-			// 
-			// label26
-			// 
-			this.label26.AutoSize = true;
-			this.label26.Location = new System.Drawing.Point(6, 271);
-			this.label26.Name = "label26";
-			this.label26.Size = new System.Drawing.Size(41, 13);
-			this.label26.TabIndex = 0;
-			this.label26.Text = "MSDS:";
-			// 
-			// tlink_Wiki
-			// 
-			this.tlink_Wiki.AutoSize = true;
-			this.tlink_Wiki.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.tlink_Wiki.LinkColor = System.Drawing.Color.Black;
-			this.tlink_Wiki.Location = new System.Drawing.Point(93, 237);
-			this.tlink_Wiki.Name = "tlink_Wiki";
-			this.tlink_Wiki.Size = new System.Drawing.Size(27, 13);
-			this.tlink_Wiki.TabIndex = 1;
-			this.tlink_Wiki.TabStop = true;
-			this.tlink_Wiki.Text = "Link";
-			this.tlink_Wiki.VisitedLinkColor = System.Drawing.Color.Black;
-			this.tlink_Wiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.tlink_Wiki_LinkClicked);
-			// 
-			// tlink_Purchase
-			// 
-			this.tlink_Purchase.AutoSize = true;
-			this.tlink_Purchase.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.tlink_Purchase.LinkColor = System.Drawing.Color.Black;
-			this.tlink_Purchase.Location = new System.Drawing.Point(93, 254);
-			this.tlink_Purchase.Name = "tlink_Purchase";
-			this.tlink_Purchase.Size = new System.Drawing.Size(27, 13);
-			this.tlink_Purchase.TabIndex = 1;
-			this.tlink_Purchase.TabStop = true;
-			this.tlink_Purchase.Text = "Link";
-			this.tlink_Purchase.VisitedLinkColor = System.Drawing.Color.Black;
-			this.tlink_Purchase.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.tlink_Purchase_LinkClicked);
-			// 
-			// tlink_MSDS
-			// 
-			this.tlink_MSDS.AutoSize = true;
-			this.tlink_MSDS.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.tlink_MSDS.LinkColor = System.Drawing.Color.Black;
-			this.tlink_MSDS.Location = new System.Drawing.Point(93, 271);
-			this.tlink_MSDS.Name = "tlink_MSDS";
-			this.tlink_MSDS.Size = new System.Drawing.Size(27, 13);
-			this.tlink_MSDS.TabIndex = 1;
-			this.tlink_MSDS.TabStop = true;
-			this.tlink_MSDS.Text = "Link";
-			this.tlink_MSDS.VisitedLinkColor = System.Drawing.Color.Black;
-			this.tlink_MSDS.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.tlink_MSDS_LinkClicked);
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(6, 203);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(36, 13);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "LD50:";
-			// 
-			// txt_LD50
-			// 
-			this.txt_LD50.AutoSize = true;
-			this.txt_LD50.Location = new System.Drawing.Point(93, 203);
-			this.txt_LD50.Name = "txt_LD50";
-			this.txt_LD50.Size = new System.Drawing.Size(27, 13);
-			this.txt_LD50.TabIndex = 0;
-			this.txt_LD50.Text = "N/A";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(6, 220);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(35, 13);
-			this.label7.TabIndex = 0;
-			this.label7.Text = "LC50:";
-			// 
-			// txt_LC50
-			// 
-			this.txt_LC50.AutoSize = true;
-			this.txt_LC50.Location = new System.Drawing.Point(93, 220);
-			this.txt_LC50.Name = "txt_LC50";
-			this.txt_LC50.Size = new System.Drawing.Size(27, 13);
-			this.txt_LC50.TabIndex = 0;
-			this.txt_LC50.Text = "N/A";
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -813,7 +812,7 @@
 		private System.Windows.Forms.RichTextBox rtb_Formula;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.ListBox listBox1;
+		private System.Windows.Forms.ListBox lbox_UsedIn;
 		private System.Windows.Forms.RichTextBox rtb_Description;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.Label label1;
@@ -842,7 +841,7 @@
 		private System.Windows.Forms.Label txt_FlashPoint;
 		private System.Windows.Forms.Label label26;
 		private System.Windows.Forms.Label label24;
-		private System.Windows.Forms.Label label22;
+		private System.Windows.Forms.Label txt_wiki;
 		private System.Windows.Forms.Label label20;
 		private System.Windows.Forms.Label txt_LC50;
 		private System.Windows.Forms.Label txt_LD50;

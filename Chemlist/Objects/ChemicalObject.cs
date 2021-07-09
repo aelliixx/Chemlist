@@ -18,7 +18,7 @@ namespace Chemlist
 		public float mPoint { get; set; }
 		public float bPoint { get; set; }
 		public float density { get; set; }
-		public String solubilityInWater { get; set; }
+		public float solubilityInWater { get; set; }
 		public bool miscible { get; set; }
 		public float vapourPressure { get; set; }
 		public float lethalDose50 { get; set; }

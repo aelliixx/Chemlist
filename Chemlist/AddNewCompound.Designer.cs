@@ -87,6 +87,7 @@
 			this.tbox_Description = new System.Windows.Forms.TextBox();
 			this.label20 = new System.Windows.Forms.Label();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+			this.check_Close = new System.Windows.Forms.CheckBox();
 			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -117,6 +118,7 @@
 			// 
 			this.btn_CancelEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_CancelEdit.BackColor = System.Drawing.Color.White;
+			this.btn_CancelEdit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btn_CancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btn_CancelEdit.Location = new System.Drawing.Point(570, 345);
 			this.btn_CancelEdit.Name = "btn_CancelEdit";
@@ -222,7 +224,7 @@
 			this.tbox_Solubility.Size = new System.Drawing.Size(124, 20);
 			this.tbox_Solubility.TabIndex = 8;
 			this.tbox_Solubility.Text = "N/A";
-			this.tbox_Solubility.Validating += new System.ComponentModel.CancelEventHandler(this.tbox_Solubility_Validating);
+			this.tbox_Solubility.TextChanged += new System.EventHandler(this.tbox_Solubility_TextChanged);
 			// 
 			// tbox_MSDS
 			// 
@@ -231,7 +233,7 @@
 			this.tbox_MSDS.Size = new System.Drawing.Size(159, 20);
 			this.tbox_MSDS.TabIndex = 18;
 			this.tbox_MSDS.Text = "N/A";
-			this.tbox_MSDS.Validating += new System.ComponentModel.CancelEventHandler(this.tbox_MSDS_Validating);
+			this.tbox_MSDS.TextChanged += new System.EventHandler(this.tbox_MSDS_TextChanged);
 			// 
 			// tbox_MSDSName
 			// 
@@ -240,7 +242,7 @@
 			this.tbox_MSDSName.Size = new System.Drawing.Size(124, 20);
 			this.tbox_MSDSName.TabIndex = 18;
 			this.tbox_MSDSName.Text = "N/A";
-			this.tbox_MSDSName.Validating += new System.ComponentModel.CancelEventHandler(this.tbox_MSDSName_Validating);
+			this.tbox_MSDSName.TextChanged += new System.EventHandler(this.tbox_MSDSName_TextChanged);
 			// 
 			// tbox_Wiki
 			// 
@@ -249,7 +251,7 @@
 			this.tbox_Wiki.Size = new System.Drawing.Size(159, 20);
 			this.tbox_Wiki.TabIndex = 16;
 			this.tbox_Wiki.Text = "N/A";
-			this.tbox_Wiki.Validating += new System.ComponentModel.CancelEventHandler(this.tbox_Wiki_Validating);
+			this.tbox_Wiki.TextChanged += new System.EventHandler(this.tbox_Wiki_TextChanged);
 			// 
 			// tbox_Purchase
 			// 
@@ -258,7 +260,7 @@
 			this.tbox_Purchase.Size = new System.Drawing.Size(159, 20);
 			this.tbox_Purchase.TabIndex = 17;
 			this.tbox_Purchase.Text = "N/A";
-			this.tbox_Purchase.Validating += new System.ComponentModel.CancelEventHandler(this.tbox_Purchase_Validating);
+			this.tbox_Purchase.TextChanged += new System.EventHandler(this.tbox_Purchase_TextChanged);
 			// 
 			// tbox_WikiName
 			// 
@@ -267,7 +269,7 @@
 			this.tbox_WikiName.Size = new System.Drawing.Size(124, 20);
 			this.tbox_WikiName.TabIndex = 16;
 			this.tbox_WikiName.Text = "N/A";
-			this.tbox_WikiName.Validating += new System.ComponentModel.CancelEventHandler(this.tbox_WikiName_Validating);
+			this.tbox_WikiName.TextChanged += new System.EventHandler(this.tbox_WikiName_TextChanged);
 			// 
 			// tbox_PurchaseName
 			// 
@@ -276,7 +278,7 @@
 			this.tbox_PurchaseName.Size = new System.Drawing.Size(124, 20);
 			this.tbox_PurchaseName.TabIndex = 17;
 			this.tbox_PurchaseName.Text = "N/A";
-			this.tbox_PurchaseName.Validating += new System.ComponentModel.CancelEventHandler(this.tbox_PurchaseName_Validating);
+			this.tbox_PurchaseName.TextChanged += new System.EventHandler(this.tbox_PurchaseName_TextChanged);
 			// 
 			// groupBox2
 			// 
@@ -448,6 +450,7 @@
 			this.tbox_MolarMass.Size = new System.Drawing.Size(110, 20);
 			this.tbox_MolarMass.TabIndex = 3;
 			this.tbox_MolarMass.Text = "0";
+			this.tbox_MolarMass.TextChanged += new System.EventHandler(this.tbox_MolarMass_TextChanged);
 			// 
 			// tbox_LC50
 			// 
@@ -456,6 +459,7 @@
 			this.tbox_LC50.Size = new System.Drawing.Size(110, 20);
 			this.tbox_LC50.TabIndex = 13;
 			this.tbox_LC50.Text = "0";
+			this.tbox_LC50.TextChanged += new System.EventHandler(this.tbox_LC50_TextChanged);
 			// 
 			// check_Miscible
 			// 
@@ -474,7 +478,7 @@
 			this.tbox_Appearance.Size = new System.Drawing.Size(110, 20);
 			this.tbox_Appearance.TabIndex = 4;
 			this.tbox_Appearance.Text = "N/A";
-			this.tbox_Appearance.Validating += new System.ComponentModel.CancelEventHandler(this.tbox_Appearance_Validating);
+			this.tbox_Appearance.TextChanged += new System.EventHandler(this.tbox_Appearance_TextChanged);
 			// 
 			// tbox_Density
 			// 
@@ -483,7 +487,7 @@
 			this.tbox_Density.Size = new System.Drawing.Size(110, 20);
 			this.tbox_Density.TabIndex = 5;
 			this.tbox_Density.Text = "0";
-			this.tbox_Density.Validating += new System.ComponentModel.CancelEventHandler(this.tbox_Density_Validating);
+			this.tbox_Density.TextChanged += new System.EventHandler(this.tbox_Density_TextChanged);
 			// 
 			// tbox_LD50
 			// 
@@ -492,6 +496,7 @@
 			this.tbox_LD50.Size = new System.Drawing.Size(110, 20);
 			this.tbox_LD50.TabIndex = 12;
 			this.tbox_LD50.Text = "0";
+			this.tbox_LD50.TextChanged += new System.EventHandler(this.tbox_LD50_TextChanged);
 			// 
 			// label5
 			// 
@@ -518,6 +523,7 @@
 			this.tbox_MeltingPoint.Size = new System.Drawing.Size(110, 20);
 			this.tbox_MeltingPoint.TabIndex = 6;
 			this.tbox_MeltingPoint.Text = "0";
+			this.tbox_MeltingPoint.TextChanged += new System.EventHandler(this.tbox_MeltingPoint_TextChanged);
 			// 
 			// label16
 			// 
@@ -553,6 +559,7 @@
 			this.tbox_FlashPoint.Size = new System.Drawing.Size(110, 20);
 			this.tbox_FlashPoint.TabIndex = 11;
 			this.tbox_FlashPoint.Text = "0";
+			this.tbox_FlashPoint.TextChanged += new System.EventHandler(this.tbox_FlashPoint_TextChanged);
 			// 
 			// label10
 			// 
@@ -570,6 +577,7 @@
 			this.tbox_BoilingPoint.Size = new System.Drawing.Size(110, 20);
 			this.tbox_BoilingPoint.TabIndex = 7;
 			this.tbox_BoilingPoint.Text = "0";
+			this.tbox_BoilingPoint.TextChanged += new System.EventHandler(this.tbox_BoilingPoint_TextChanged);
 			// 
 			// label15
 			// 
@@ -587,6 +595,7 @@
 			this.tbox_SInWater.Size = new System.Drawing.Size(110, 20);
 			this.tbox_SInWater.TabIndex = 8;
 			this.tbox_SInWater.Text = "0";
+			this.tbox_SInWater.TextChanged += new System.EventHandler(this.tbox_SInWater_TextChanged);
 			// 
 			// label12
 			// 
@@ -604,6 +613,7 @@
 			this.tbox_Acidity.Size = new System.Drawing.Size(110, 20);
 			this.tbox_Acidity.TabIndex = 10;
 			this.tbox_Acidity.Text = "0";
+			this.tbox_Acidity.TextChanged += new System.EventHandler(this.tbox_Acidity_TextChanged);
 			// 
 			// label13
 			// 
@@ -621,6 +631,7 @@
 			this.tbox_VapourPressure.Size = new System.Drawing.Size(110, 20);
 			this.tbox_VapourPressure.TabIndex = 9;
 			this.tbox_VapourPressure.Text = "0";
+			this.tbox_VapourPressure.TextChanged += new System.EventHandler(this.tbox_VapourPressure_TextChanged);
 			// 
 			// label14
 			// 
@@ -666,6 +677,7 @@
 			this.tbox_OtherNames.Size = new System.Drawing.Size(289, 20);
 			this.tbox_OtherNames.TabIndex = 14;
 			this.tbox_OtherNames.Text = "N/A";
+			this.tbox_OtherNames.TextChanged += new System.EventHandler(this.tbox_OtherNames_TextChanged);
 			// 
 			// tbox_Description
 			// 
@@ -678,7 +690,7 @@
 			// label20
 			// 
 			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(4, 68);
+			this.label20.Location = new System.Drawing.Point(6, 68);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(63, 13);
 			this.label20.TabIndex = 14;
@@ -689,6 +701,16 @@
 			this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 			this.errorProvider1.ContainerControl = this;
 			// 
+			// check_Close
+			// 
+			this.check_Close.AutoSize = true;
+			this.check_Close.Location = new System.Drawing.Point(19, 350);
+			this.check_Close.Name = "check_Close";
+			this.check_Close.Size = new System.Drawing.Size(136, 17);
+			this.check_Close.TabIndex = 23;
+			this.check_Close.Text = "Close after confirmation";
+			this.check_Close.UseVisualStyleBackColor = true;
+			// 
 			// AddNewCompound
 			// 
 			this.AcceptButton = this.btn_Confirm;
@@ -697,6 +719,7 @@
 			this.CancelButton = this.btn_CancelEdit;
 			this.CausesValidation = false;
 			this.ClientSize = new System.Drawing.Size(675, 382);
+			this.Controls.Add(this.check_Close);
 			this.Controls.Add(this.btn_CancelEdit);
 			this.Controls.Add(this.btn_Confirm);
 			this.Controls.Add(this.groupBox3);
@@ -715,6 +738,7 @@
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -777,5 +801,6 @@
 		private System.Windows.Forms.CheckBox check_bPoint;
 		private System.Windows.Forms.CheckBox check_Appearance;
 		private System.Windows.Forms.CheckBox check_OtherNames;
+		private System.Windows.Forms.CheckBox check_Close;
 	}
 }

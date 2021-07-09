@@ -48,7 +48,9 @@ namespace Chemlist
 
 		private void btn_Confirm_Click(object sender, EventArgs e)
 		{
-			if ((!String.IsNullOrEmpty(tbox_ChemName.Text) && !String.IsNullOrEmpty(tbox_ChemFormula.Text) && !String.IsNullOrEmpty(tbox_Description.Text)) && allowAdding)
+			validateConfirmation();
+			if ((!String.IsNullOrEmpty(tbox_ChemName.Text) && !String.IsNullOrEmpty(tbox_ChemFormula.Text)
+			&& !String.IsNullOrEmpty(tbox_Description.Text)) && allowAdding)
 			{
 				ChemicalObject newChemical = new ChemicalObject
 				{
@@ -62,16 +64,16 @@ namespace Chemlist
 					mPoint = float.Parse(tbox_MeltingPoint.Text),
 					bPoint = float.Parse(tbox_BoilingPoint.Text),
 					density = float.Parse(tbox_Density.Text),
-					solubilityInWater = tbox_SInWater.Text,
+					solubilityInWater = float.Parse(tbox_SInWater.Text),
 					miscible = check_Miscible.Checked,
 					vapourPressure = float.Parse(tbox_VapourPressure.Text),
 					lethalDose50 = float.Parse(tbox_LD50.Text),
 					lethalConcentration50 = float.Parse(tbox_LC50.Text),
 					flashPoint = float.Parse(tbox_FlashPoint.Text),
 					solubility = tbox_Solubility.Text,
-					wikiLink = tbox_WikiName.Text,
-					purchaseLink = tbox_PurchaseName.Text,
-					msds = tbox_MSDSName.Text,
+					wikiLink = tbox_Wiki.Text,
+					purchaseLink = tbox_Purchase.Text,
+					msds = tbox_MSDS.Text,
 
 					bAllNames = check_OtherNames.Checked,
 					bAppearance = check_Appearance.Checked,
@@ -92,26 +94,52 @@ namespace Chemlist
 				};
 
 				parentForm.addNewChemical(newChemical);
+
+				if (check_Close.Checked)
+					Close();
 			}
 
-
-			//Close();
 		}
 
-		private void tbox_Appearance_Validating(object sender, CancelEventArgs e)
+
+		public void validateConfirmation()
 		{
-
+			if (
+			validateCompoundValues(typeof(float), tbox_MolarMass) &&
+			validateCompoundValues(typeof(String), tbox_Solubility) &&
+			validateCompoundValues(typeof(String), tbox_WikiName) &&
+			validateCompoundValues(typeof(String), tbox_Wiki) &&
+			validateCompoundValues(typeof(String), tbox_PurchaseName) &&
+			validateCompoundValues(typeof(String), tbox_Purchase) &&
+			validateCompoundValues(typeof(String), tbox_MSDSName) &&
+			validateCompoundValues(typeof(String), tbox_MSDS) &&
+			validateCompoundValues(typeof(float), tbox_Density) &&
+			validateCompoundValues(typeof(float), tbox_MeltingPoint) &&
+			validateCompoundValues(typeof(float), tbox_BoilingPoint) &&
+			validateCompoundValues(typeof(float), tbox_SInWater) &&
+			validateCompoundValues(typeof(float), tbox_VapourPressure) &&
+			validateCompoundValues(typeof(float), tbox_Acidity) &&
+			validateCompoundValues(typeof(float), tbox_FlashPoint) &&
+			validateCompoundValues(typeof(float), tbox_LD50) &&
+			validateCompoundValues(typeof(float), tbox_LC50) &&
+			validateCompoundValues(typeof(String), tbox_OtherNames) &&
+			validateCompoundValues(typeof(String), tbox_Appearance))
+			{
+				allowAdding = true;
+				return;
+			}
+			allowAdding = false;
+			return;
 		}
 
 
-		public void validateCompoundValues(Type type, TextBox textBox)
+		public bool validateCompoundValues(Type type, TextBox textBox)
 		{
 			errorProvider1.SetError(textBox, "");
 			if (textBox.Text == "")
 			{
 				errorProvider1.SetError(textBox, "Please enter a value.");
-				allowAdding = false;
-				return;
+				return false;
 			}
 			if (type == typeof(float))
 			{
@@ -122,18 +150,12 @@ namespace Chemlist
 				catch
 				{
 					errorProvider1.SetError(textBox, "Please enter a float.");
-					allowAdding = false;
-					return;
+					return false;
 				}
-				allowAdding = true;
 			}
-			return;
+			return true;
 		}
 
-		private void tbox_Density_Validating(object sender, CancelEventArgs e)
-		{
-			validateCompoundValues(typeof(float), tbox_Density);
-		}
 
 		private void check_MolarMass_CheckedChanged(object sender, EventArgs e)
 		{
@@ -235,44 +257,101 @@ namespace Chemlist
 			if (!check_OtherNames.Checked) { tbox_OtherNames.Text = "N/A"; }
 		}
 
-		private void tbox_OtherNames_Validating(object sender, CancelEventArgs e)
+		/// Validation
+
+		private void tbox_MolarMass_TextChanged(object sender, EventArgs e)
 		{
-			validateCompoundValues(typeof(String), tbox_OtherNames);
+			validateCompoundValues(typeof(float), tbox_MolarMass);
 		}
 
-		private void tbox_Solubility_Validating(object sender, CancelEventArgs e)
+		private void tbox_Solubility_TextChanged(object sender, EventArgs e)
 		{
 			validateCompoundValues(typeof(String), tbox_Solubility);
 		}
 
-		private void tbox_WikiName_Validating(object sender, CancelEventArgs e)
+		private void tbox_WikiName_TextChanged(object sender, EventArgs e)
 		{
 			validateCompoundValues(typeof(String), tbox_WikiName);
 		}
 
-		private void tbox_PurchaseName_Validating(object sender, CancelEventArgs e)
+		private void tbox_Wiki_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(String), tbox_Wiki);
+		}
+
+		private void tbox_PurchaseName_TextChanged(object sender, EventArgs e)
 		{
 			validateCompoundValues(typeof(String), tbox_PurchaseName);
 		}
 
-		private void tbox_Purchase_Validating(object sender, CancelEventArgs e)
+		private void tbox_Purchase_TextChanged(object sender, EventArgs e)
 		{
 			validateCompoundValues(typeof(String), tbox_Purchase);
 		}
 
-		private void tbox_MSDSName_Validating(object sender, CancelEventArgs e)
+		private void tbox_MSDSName_TextChanged(object sender, EventArgs e)
 		{
 			validateCompoundValues(typeof(String), tbox_MSDSName);
 		}
 
-		private void tbox_MSDS_Validating(object sender, CancelEventArgs e)
+		private void tbox_MSDS_TextChanged(object sender, EventArgs e)
 		{
 			validateCompoundValues(typeof(String), tbox_MSDS);
 		}
 
-		private void tbox_Wiki_Validating(object sender, CancelEventArgs e)
+		private void tbox_Density_TextChanged(object sender, EventArgs e)
 		{
-			validateCompoundValues(typeof(String), tbox_Wiki);
+			validateCompoundValues(typeof(float), tbox_Density);
+		}
+
+		private void tbox_MeltingPoint_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(float), tbox_MeltingPoint);
+		}
+
+		private void tbox_BoilingPoint_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(float), tbox_BoilingPoint);
+		}
+
+		private void tbox_SInWater_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(float), tbox_SInWater);
+		}
+
+		private void tbox_VapourPressure_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(float), tbox_VapourPressure);
+		}
+
+		private void tbox_Acidity_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(float), tbox_Acidity);
+		}
+
+		private void tbox_FlashPoint_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(float), tbox_FlashPoint);
+		}
+
+		private void tbox_LD50_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(float), tbox_LD50);
+		}
+
+		private void tbox_LC50_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(float), tbox_LC50);
+		}
+
+		private void tbox_OtherNames_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(String), tbox_OtherNames);
+		}
+
+		private void tbox_Appearance_TextChanged(object sender, EventArgs e)
+		{
+			validateCompoundValues(typeof(String), tbox_Appearance);
 		}
 	}
 }
