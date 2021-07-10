@@ -224,6 +224,7 @@
 			this.btn_DeleteProject.TabIndex = 3;
 			this.btn_DeleteProject.Text = "Delete";
 			this.btn_DeleteProject.UseVisualStyleBackColor = false;
+			this.btn_DeleteProject.Click += new System.EventHandler(this.btn_DeleteProject_Click);
 			// 
 			// btn_AddNewProject
 			// 

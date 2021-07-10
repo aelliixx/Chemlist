@@ -10,6 +10,7 @@ namespace Chemlist
 	{
 		public String name;
 		public String chemFormula;
+		public String description;
 
 		public List<ChemicalObject> requiredCompounds = new List<ChemicalObject>();
 

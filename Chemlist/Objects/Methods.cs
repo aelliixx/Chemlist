@@ -124,6 +124,10 @@ namespace Chemlist
 				i++;
 			}
 		}
+		
+		/// <summary>
+		/// FIXME: If you delete all items in the list, ProjectObject current or ChemicalObject current try to access a non existent index.
+		/// </summary>
 
 		public void redrawCompoundInfoPanel()
 		{
@@ -194,6 +198,7 @@ namespace Chemlist
 			ProjectObject current = projectList[lbox_ProjectList.SelectedIndex];
 			txt_Project.Text = current.name;
 			rtb_ProjectChemFormula.Text = current.chemFormula;
+			rtb_ProjectDescription.Text = current.description;
 			foreach (ChemicalObject chemical in current.requiredCompounds)
 			{
 				lbox_RequiredChem.Items.Add(chemical.name);
@@ -205,6 +210,14 @@ namespace Chemlist
 			projectList.Add(newProject);
 			serialiseJsonProjects();
 			invalidateProjectList();
+		}
+
+		void removeSelectedProject(int index)
+		{
+			projectList.RemoveAt(index);
+			serialiseJsonProjects();
+			invalidateProjectList();
+			redrawProjectInfoPanel();
 		}
 
 

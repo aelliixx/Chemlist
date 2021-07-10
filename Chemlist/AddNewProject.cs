@@ -42,19 +42,24 @@ namespace Chemlist
 
 		private void btn_AddRequirement_Click(object sender, EventArgs e)
 		{
-			String unit;
-			if (check_MiliPrefix.Checked) unit = " m"; else unit = " ";
-			if (rb_Grams.Checked) unit += "g"; else if (rb_Litres.Checked) unit += "L";
-			dg_CompoundList.Rows.Add(cbox_CompundList.SelectedItem.ToString(), (float)num_Quantity.Value + unit);
-
-			foreach (ChemicalObject chemical in parentForm.chemicalList)
+			if (cbox_CompundList.SelectedItem != null)
 			{
-				if (chemical.name == cbox_CompundList.SelectedItem.ToString())
+				errorProvider1.SetError(cbox_CompundList, "");
+				String unit;
+				if (check_MiliPrefix.Checked) unit = " m"; else unit = " ";
+				if (rb_Grams.Checked) unit += "g"; else if (rb_Litres.Checked) unit += "L";
+				dg_CompoundList.Rows.Add(cbox_CompundList.SelectedItem.ToString(), (float)num_Quantity.Value + unit);
+
+				foreach (ChemicalObject chemical in parentForm.chemicalList)
 				{
-					compounds.Add(chemical);
+					if (chemical.name == cbox_CompundList.SelectedItem.ToString())
+					{
+						compounds.Add(chemical);
+					}
 				}
 			}
-
+			else
+				errorProvider1.SetError(cbox_CompundList, "Please add a valid compound.");
 		}
 
 		private void btn_RemoveRequirement_Click(object sender, EventArgs e)
@@ -72,11 +77,17 @@ namespace Chemlist
 		{
 			ProjectObject newProject = new ProjectObject
 			{
-				name = "test",
-				chemFormula = "H2O",
+				name = tbox_ChemName.Text,
+				chemFormula = tbox_ProjectFormula.Text,
+				description = rtbox_Methods.Text,
 				requiredCompounds = compounds
 			};
 			parentForm.addNewProject(newProject);
+		}
+
+		public void validateConfirmation()
+		{
+			// todo
 		}
 	}
 }

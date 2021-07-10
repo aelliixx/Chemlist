@@ -99,5 +99,10 @@ namespace Chemlist
 		{
 			redrawProjectInfoPanel();
 		}
+
+		private void btn_DeleteProject_Click(object sender, EventArgs e)
+		{
+			removeSelectedProject(lbox_ProjectList.SelectedIndex);
+		}
 	}
 }

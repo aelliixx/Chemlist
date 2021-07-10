@@ -87,7 +87,7 @@
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ProjectObject.cs" />
+    <Compile Include="Objects\ProjectObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddNewCompound.resx">
       <DependentUpon>AddNewCompound.cs</DependentUpon>
