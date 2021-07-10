@@ -657,7 +657,7 @@
 			this.groupBox1.Size = new System.Drawing.Size(378, 198);
 			this.groupBox1.TabIndex = 20;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Details";
+			this.groupBox1.Text = "Compound Details";
 			// 
 			// check_OtherNames
 			// 
@@ -726,7 +726,9 @@
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(691, 421);
 			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(691, 421);
 			this.Name = "AddNewCompound";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Add New Compound";

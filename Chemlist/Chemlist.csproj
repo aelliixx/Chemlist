@@ -58,6 +58,12 @@
     <Compile Include="AddNewCompound.Designer.cs">
       <DependentUpon>AddNewCompound.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddNewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewProject.Designer.cs">
+      <DependentUpon>AddNewProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditCompound.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,9 +87,13 @@
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddNewCompound.resx">
       <DependentUpon>AddNewCompound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewProject.resx">
+      <DependentUpon>AddNewProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditCompound.resx">
       <DependentUpon>EditCompound.cs</DependentUpon>

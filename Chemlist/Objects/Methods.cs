@@ -12,51 +12,83 @@ namespace Chemlist
 	public partial class Form1
 	{
 		// Populate chemicals
-		public List<ChemicalObject> chemicalList = new List<ChemicalObject>();
+		
 
-		void invalidateNamesList()
+		void invalidateCompoundNamesList()
 		{
 			chemicalNames.Clear();
 			chemicalList.Sort(delegate (ChemicalObject name1, ChemicalObject name2) { return name1.name.CompareTo(name2.name); });
 			foreach (ChemicalObject chemical in chemicalList)
 				chemicalNames.Add(chemical.name);
 
-			bs.DataSource = chemicalNames;
-			bs.ResetBindings(false);
+			compoundSource.DataSource = chemicalNames;
+			compoundSource.ResetBindings(false);
+		}
+
+		void invalidateProjectList()
+		{
+			projectNames.Clear();
+			projectList.Sort(delegate (ProjectObject name1, ProjectObject name2) { return name1.name.CompareTo(name2.name); });
+			foreach (ProjectObject project in projectList)
+				projectNames.Add(project.name);
+
+			projectSource.DataSource = projectNames;
+			projectSource.ResetBindings(false);
 		}
 
 
 
 		// Read and populate from json
-		String filePath = @".\chemicals.json";
+		String compoundJSON = @".\chemicals.json";
+		String projectJSON = @".\projects.json";
 		List<String> jsonChemicals;
-		String concatted;
-		void validateFile()
+		List<String> jsonProjects;
+		void validateFile(String fileName, ref List<String> json)
 		{
-			if (File.Exists(filePath))
+			if (File.Exists(fileName))
 			{
-				jsonChemicals = File.ReadAllLines(filePath).ToList();
-				concatted = String.Concat(jsonChemicals);
+				json = File.ReadAllLines(fileName).ToList();
 				return;
 			}
-			File.Create(filePath);
+			else
+			{
+				File.WriteAllText(fileName, "[]");
+				validateFile(fileName, ref json);
+			}
+		}
+		
+		void deserialiseJsonProjets()
+		{
+			List<ProjectObject> NewProject = JsonConvert.DeserializeObject<List<ProjectObject>>(String.Concat(jsonProjects));
+			foreach (ProjectObject item in NewProject)
+			{
+				projectList.Add(item);
+			}
+			invalidateProjectList();
 		}
 
 		void deserialiseJsonChem()
 		{
-			List<ChemicalObject> NewChemical = JsonConvert.DeserializeObject<List<ChemicalObject>>(concatted);
+			List<ChemicalObject> NewChemical = JsonConvert.DeserializeObject<List<ChemicalObject>>(String.Concat(jsonChemicals));
 			foreach (ChemicalObject item in NewChemical)
 			{
 				chemicalList.Add(item);
 			}
-			invalidateNamesList();
+			invalidateCompoundNamesList();
+		}
+
+		void serialiseJsonProjects()
+		{
+			String newJson = JsonConvert.SerializeObject(projectList);
+			File.WriteAllText(projectJSON, newJson);
+			invalidateProjectList();
 		}
 
 		void serialiseJsonChem()
 		{
 			String newJson = JsonConvert.SerializeObject(chemicalList);
-			File.WriteAllText(filePath, newJson);
-			invalidateNamesList();
+			File.WriteAllText(compoundJSON, newJson);
+			invalidateCompoundNamesList();
 		}
 
 
@@ -65,15 +97,15 @@ namespace Chemlist
 		{
 			chemicalList.Add(newChemical);
 			serialiseJsonChem();
-			invalidateNamesList();
+			invalidateCompoundNamesList();
 		}
 		// Remove chemical
 		void removeChemical(int index)
 		{
 			chemicalList.RemoveAt(index);
 			serialiseJsonChem();
-			invalidateNamesList();
-			redrawInfoPanel();
+			invalidateCompoundNamesList();
+			redrawCompoundInfoPanel();
 		}
 
 		// Edit compound
@@ -86,14 +118,14 @@ namespace Chemlist
 				{
 					chemicalList[i] = edited;
 					serialiseJsonChem();
-					redrawInfoPanel();
+					redrawCompoundInfoPanel();
 					return;
 				}
 				i++;
 			}
 		}
 
-		public void redrawInfoPanel()
+		public void redrawCompoundInfoPanel()
 		{
 			ChemicalObject current = chemicalList[lbox_ChemicalList.SelectedIndex];
 			float FontSize = rtb_Formula.Font.Size;
@@ -156,6 +188,26 @@ namespace Chemlist
 			else
 				cguid.Visible = false;
 		}
+
+		public void redrawProjectInfoPanel()
+		{
+			ProjectObject current = projectList[lbox_ProjectList.SelectedIndex];
+			txt_Project.Text = current.name;
+			rtb_ProjectChemFormula.Text = current.chemFormula;
+			foreach (ChemicalObject chemical in current.requiredCompounds)
+			{
+				lbox_RequiredChem.Items.Add(chemical.name);
+			}
+		}
+
+		public void addNewProject(ProjectObject newProject)
+		{
+			projectList.Add(newProject);
+			serialiseJsonProjects();
+			invalidateProjectList();
+		}
+
+
 	}
 
 

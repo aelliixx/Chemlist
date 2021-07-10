@@ -13,27 +13,39 @@ namespace Chemlist
 {
 	public partial class Form1 : Form
 	{
+		public List<ChemicalObject> chemicalList = new List<ChemicalObject>();
+		public List<ProjectObject> projectList = new List<ProjectObject>();
 		List<String> chemicalNames = new List<String>();
+		List<String> projectNames = new List<string>();
 
 		public Settings settings = new Settings();
-		BindingSource bs = new BindingSource();
+		BindingSource compoundSource = new BindingSource();
+		BindingSource projectSource = new BindingSource();
 		public Form1()
 		{
-
 			InitializeComponent();
-			invalidateNamesList();
 
-			validateFile();
+			invalidateCompoundNamesList();
+			invalidateProjectList();
+
+			validateFile(compoundJSON, ref jsonChemicals);
+			validateFile(projectJSON, ref jsonProjects);
+
 			deserialiseJsonChem();
 			serialiseJsonChem();
+			deserialiseJsonProjets();
+			serialiseJsonProjects();
 
-			lbox_ChemicalList.DataSource = bs;
-			bs.ResetBindings(false);
+			lbox_ChemicalList.DataSource = compoundSource;
+			compoundSource.ResetBindings(false);
+
+			lbox_ProjectList.DataSource = projectSource;
+			projectSource.ResetBindings(false);
 		}
 
 		private void lbox_ChemicalList_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			redrawInfoPanel();
+			redrawCompoundInfoPanel();
 		}
 
 		private void btn_RemoveChemicalFromList_Click(object sender, EventArgs e)
@@ -60,19 +72,32 @@ namespace Chemlist
 			addNewCompound.Show();
 		}
 
+		private void btn_AddNewProject_Click(object sender, EventArgs e)
+		{
+			AddNewProject addNewProject = new AddNewProject { parentForm = this };
+			addNewProject.Show();
+		}
+
+		/// FIXME: Fix opening links
+
 		private void tlink_Wiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].wikiLink);
+			//System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].wikiLink);
 		}
 
 		private void tlink_Purchase_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].purchaseLink);
+			//System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].purchaseLink);
 		}
 
 		private void tlink_MSDS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].msds);
+			//System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].msds);
+		}
+
+		private void lbox_ProjectList_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			redrawProjectInfoPanel();
 		}
 	}
 }

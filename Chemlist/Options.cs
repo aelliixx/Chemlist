@@ -22,7 +22,7 @@ namespace Chemlist
 		private void check_GUID_CheckedChanged(object sender, EventArgs e)
 		{
 			parentForm.settings.showGUID = check_GUID.Checked;
-			parentForm.redrawInfoPanel();
+			parentForm.redrawCompoundInfoPanel();
 		}
 	}
 }
