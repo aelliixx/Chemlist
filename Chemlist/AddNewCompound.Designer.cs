@@ -48,6 +48,8 @@
 			this.tbox_WikiName = new System.Windows.Forms.TextBox();
 			this.tbox_PurchaseName = new System.Windows.Forms.TextBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.btn_AdvancedSolubility = new System.Windows.Forms.Button();
+			this.check_Insoluble = new System.Windows.Forms.CheckBox();
 			this.check_LC50 = new System.Windows.Forms.CheckBox();
 			this.check_LD50 = new System.Windows.Forms.CheckBox();
 			this.check_FlashPoint = new System.Windows.Forms.CheckBox();
@@ -90,8 +92,18 @@
 			this.label20 = new System.Windows.Forms.Label();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.check_Close = new System.Windows.Forms.CheckBox();
-			this.check_Insoluble = new System.Windows.Forms.CheckBox();
-			this.btn_AdvancedSolubility = new System.Windows.Forms.Button();
+			this.checkBox4 = new System.Windows.Forms.CheckBox();
+			this.checkBox2 = new System.Windows.Forms.CheckBox();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.checkBox6 = new System.Windows.Forms.CheckBox();
+			this.checkBox5 = new System.Windows.Forms.CheckBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.checkBox3 = new System.Windows.Forms.CheckBox();
+			this.checkBox8 = new System.Windows.Forms.CheckBox();
+			this.checkBox7 = new System.Windows.Forms.CheckBox();
+			this.checkBox9 = new System.Windows.Forms.CheckBox();
+			this.btn_Clear = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -103,7 +115,7 @@
 			this.btn_Confirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_Confirm.BackColor = System.Drawing.Color.White;
 			this.btn_Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btn_Confirm.Location = new System.Drawing.Point(471, 345);
+			this.btn_Confirm.Location = new System.Drawing.Point(372, 457);
 			this.btn_Confirm.Name = "btn_Confirm";
 			this.btn_Confirm.Size = new System.Drawing.Size(93, 25);
 			this.btn_Confirm.TabIndex = 19;
@@ -124,7 +136,7 @@
 			this.btn_CancelEdit.BackColor = System.Drawing.Color.White;
 			this.btn_CancelEdit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btn_CancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btn_CancelEdit.Location = new System.Drawing.Point(570, 345);
+			this.btn_CancelEdit.Location = new System.Drawing.Point(570, 457);
 			this.btn_CancelEdit.Name = "btn_CancelEdit";
 			this.btn_CancelEdit.Size = new System.Drawing.Size(93, 25);
 			this.btn_CancelEdit.TabIndex = 20;
@@ -159,6 +171,17 @@
 			// 
 			// groupBox3
 			// 
+			this.groupBox3.Controls.Add(this.button1);
+			this.groupBox3.Controls.Add(this.checkBox4);
+			this.groupBox3.Controls.Add(this.checkBox2);
+			this.groupBox3.Controls.Add(this.checkBox1);
+			this.groupBox3.Controls.Add(this.checkBox6);
+			this.groupBox3.Controls.Add(this.checkBox5);
+			this.groupBox3.Controls.Add(this.label4);
+			this.groupBox3.Controls.Add(this.checkBox3);
+			this.groupBox3.Controls.Add(this.checkBox8);
+			this.groupBox3.Controls.Add(this.checkBox7);
+			this.groupBox3.Controls.Add(this.checkBox9);
 			this.groupBox3.Controls.Add(this.check_MSDS);
 			this.groupBox3.Controls.Add(this.check_Purchase);
 			this.groupBox3.Controls.Add(this.check_Wiki);
@@ -172,7 +195,7 @@
 			this.groupBox3.Controls.Add(this.tbox_PurchaseName);
 			this.groupBox3.Location = new System.Drawing.Point(13, 217);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(377, 120);
+			this.groupBox3.Size = new System.Drawing.Size(377, 236);
 			this.groupBox3.TabIndex = 22;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Misc";
@@ -327,6 +350,28 @@
 			this.groupBox2.TabIndex = 21;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Properties";
+			// 
+			// btn_AdvancedSolubility
+			// 
+			this.btn_AdvancedSolubility.BackColor = System.Drawing.Color.White;
+			this.btn_AdvancedSolubility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_AdvancedSolubility.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+			this.btn_AdvancedSolubility.Location = new System.Drawing.Point(152, 169);
+			this.btn_AdvancedSolubility.Name = "btn_AdvancedSolubility";
+			this.btn_AdvancedSolubility.Size = new System.Drawing.Size(69, 19);
+			this.btn_AdvancedSolubility.TabIndex = 24;
+			this.btn_AdvancedSolubility.Text = "Advanced";
+			this.btn_AdvancedSolubility.UseVisualStyleBackColor = false;
+			// 
+			// check_Insoluble
+			// 
+			this.check_Insoluble.AutoSize = true;
+			this.check_Insoluble.Location = new System.Drawing.Point(78, 171);
+			this.check_Insoluble.Name = "check_Insoluble";
+			this.check_Insoluble.Size = new System.Drawing.Size(68, 17);
+			this.check_Insoluble.TabIndex = 20;
+			this.check_Insoluble.Text = "Insoluble";
+			this.check_Insoluble.UseVisualStyleBackColor = true;
 			// 
 			// check_LC50
 			// 
@@ -732,35 +777,136 @@
 			// check_Close
 			// 
 			this.check_Close.AutoSize = true;
-			this.check_Close.Location = new System.Drawing.Point(19, 350);
+			this.check_Close.Location = new System.Drawing.Point(18, 462);
 			this.check_Close.Name = "check_Close";
 			this.check_Close.Size = new System.Drawing.Size(136, 17);
 			this.check_Close.TabIndex = 23;
 			this.check_Close.Text = "Close after confirmation";
 			this.check_Close.UseVisualStyleBackColor = true;
 			// 
-			// check_Insoluble
+			// checkBox4
 			// 
-			this.check_Insoluble.AutoSize = true;
-			this.check_Insoluble.Location = new System.Drawing.Point(78, 171);
-			this.check_Insoluble.Name = "check_Insoluble";
-			this.check_Insoluble.Size = new System.Drawing.Size(68, 17);
-			this.check_Insoluble.TabIndex = 20;
-			this.check_Insoluble.Text = "Insoluble";
-			this.check_Insoluble.UseVisualStyleBackColor = true;
+			this.checkBox4.AutoSize = true;
+			this.checkBox4.Location = new System.Drawing.Point(82, 122);
+			this.checkBox4.Name = "checkBox4";
+			this.checkBox4.Size = new System.Drawing.Size(68, 17);
+			this.checkBox4.TabIndex = 22;
+			this.checkBox4.Text = "Flamable";
+			this.checkBox4.UseVisualStyleBackColor = true;
 			// 
-			// btn_AdvancedSolubility
+			// checkBox2
 			// 
-			this.btn_AdvancedSolubility.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btn_AdvancedSolubility.BackColor = System.Drawing.Color.White;
-			this.btn_AdvancedSolubility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btn_AdvancedSolubility.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-			this.btn_AdvancedSolubility.Location = new System.Drawing.Point(152, 169);
-			this.btn_AdvancedSolubility.Name = "btn_AdvancedSolubility";
-			this.btn_AdvancedSolubility.Size = new System.Drawing.Size(69, 19);
-			this.btn_AdvancedSolubility.TabIndex = 24;
-			this.btn_AdvancedSolubility.Text = "Advanced";
-			this.btn_AdvancedSolubility.UseVisualStyleBackColor = false;
+			this.checkBox2.AutoSize = true;
+			this.checkBox2.Location = new System.Drawing.Point(82, 145);
+			this.checkBox2.Name = "checkBox2";
+			this.checkBox2.Size = new System.Drawing.Size(71, 17);
+			this.checkBox2.TabIndex = 23;
+			this.checkBox2.Text = "Explosive";
+			this.checkBox2.UseVisualStyleBackColor = true;
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(82, 168);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(94, 17);
+			this.checkBox1.TabIndex = 24;
+			this.checkBox1.Text = "Health Hazard";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			// 
+			// checkBox6
+			// 
+			this.checkBox6.AutoSize = true;
+			this.checkBox6.Location = new System.Drawing.Point(82, 191);
+			this.checkBox6.Name = "checkBox6";
+			this.checkBox6.Size = new System.Drawing.Size(70, 17);
+			this.checkBox6.TabIndex = 25;
+			this.checkBox6.Text = "Corrosive";
+			this.checkBox6.UseVisualStyleBackColor = true;
+			// 
+			// checkBox5
+			// 
+			this.checkBox5.AutoSize = true;
+			this.checkBox5.Location = new System.Drawing.Point(194, 191);
+			this.checkBox5.Name = "checkBox5";
+			this.checkBox5.Size = new System.Drawing.Size(106, 17);
+			this.checkBox5.TabIndex = 26;
+			this.checkBox5.Text = "Compressed Gas";
+			this.checkBox5.UseVisualStyleBackColor = true;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(5, 122);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(49, 13);
+			this.label4.TabIndex = 21;
+			this.label4.Text = "Hazards:";
+			// 
+			// checkBox3
+			// 
+			this.checkBox3.AutoSize = true;
+			this.checkBox3.Location = new System.Drawing.Point(194, 122);
+			this.checkBox3.Name = "checkBox3";
+			this.checkBox3.Size = new System.Drawing.Size(68, 17);
+			this.checkBox3.TabIndex = 27;
+			this.checkBox3.Text = "Oxidising";
+			this.checkBox3.UseVisualStyleBackColor = true;
+			// 
+			// checkBox8
+			// 
+			this.checkBox8.AutoSize = true;
+			this.checkBox8.Location = new System.Drawing.Point(194, 145);
+			this.checkBox8.Name = "checkBox8";
+			this.checkBox8.Size = new System.Drawing.Size(94, 17);
+			this.checkBox8.TabIndex = 28;
+			this.checkBox8.Text = "Harmful Irritant";
+			this.checkBox8.UseVisualStyleBackColor = true;
+			// 
+			// checkBox7
+			// 
+			this.checkBox7.AutoSize = true;
+			this.checkBox7.Location = new System.Drawing.Point(194, 168);
+			this.checkBox7.Name = "checkBox7";
+			this.checkBox7.Size = new System.Drawing.Size(90, 17);
+			this.checkBox7.TabIndex = 29;
+			this.checkBox7.Text = "Acutely Toxic";
+			this.checkBox7.UseVisualStyleBackColor = true;
+			// 
+			// checkBox9
+			// 
+			this.checkBox9.AutoSize = true;
+			this.checkBox9.Location = new System.Drawing.Point(194, 214);
+			this.checkBox9.Name = "checkBox9";
+			this.checkBox9.Size = new System.Drawing.Size(130, 17);
+			this.checkBox9.TabIndex = 30;
+			this.checkBox9.Text = "Environmental Hazard";
+			this.checkBox9.UseVisualStyleBackColor = true;
+			// 
+			// btn_Clear
+			// 
+			this.btn_Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btn_Clear.BackColor = System.Drawing.Color.White;
+			this.btn_Clear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btn_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_Clear.Location = new System.Drawing.Point(471, 457);
+			this.btn_Clear.Name = "btn_Clear";
+			this.btn_Clear.Size = new System.Drawing.Size(93, 25);
+			this.btn_Clear.TabIndex = 24;
+			this.btn_Clear.Text = "Clear All";
+			this.btn_Clear.UseVisualStyleBackColor = false;
+			// 
+			// button1
+			// 
+			this.button1.BackColor = System.Drawing.Color.White;
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.Location = new System.Drawing.Point(82, 210);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(94, 20);
+			this.button1.TabIndex = 31;
+			this.button1.Text = "Fire Diamond";
+			this.button1.UseVisualStyleBackColor = false;
 			// 
 			// AddNewCompound
 			// 
@@ -769,7 +915,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btn_CancelEdit;
 			this.CausesValidation = false;
-			this.ClientSize = new System.Drawing.Size(675, 382);
+			this.ClientSize = new System.Drawing.Size(675, 494);
+			this.Controls.Add(this.btn_Clear);
 			this.Controls.Add(this.check_Close);
 			this.Controls.Add(this.btn_CancelEdit);
 			this.Controls.Add(this.btn_Confirm);
@@ -777,9 +924,9 @@
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(691, 421);
+			this.MaximumSize = new System.Drawing.Size(691, 533);
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(691, 421);
+			this.MinimumSize = new System.Drawing.Size(691, 533);
 			this.Name = "AddNewCompound";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Add New Compound";
@@ -859,5 +1006,17 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btn_AdvancedSolubility;
 		private System.Windows.Forms.CheckBox check_Insoluble;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.CheckBox checkBox4;
+		private System.Windows.Forms.CheckBox checkBox2;
+		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.CheckBox checkBox6;
+		private System.Windows.Forms.CheckBox checkBox5;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.CheckBox checkBox3;
+		private System.Windows.Forms.CheckBox checkBox8;
+		private System.Windows.Forms.CheckBox checkBox7;
+		private System.Windows.Forms.CheckBox checkBox9;
+		private System.Windows.Forms.Button btn_Clear;
 	}
 }

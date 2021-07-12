@@ -2,12 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Chemlist
 {
 	public class ChemicalObject
 	{
+		public List<Molecule> molecules = new List<Molecule>();
+		public class Molecule // TODO: struct?
+		{
+			public String element { get; set; }
+			public int count { get; set; }
+
+			public Molecule (String _element, int _count)
+			{
+				element = _element;
+				count = _count;
+			}
+		}
+
 		public bool inStorage = false;
 
 		public String name { get; set; }
@@ -54,35 +68,37 @@ namespace Chemlist
 		public String purchaseLink { get; set; }
 		public String msds { get; set; }
 
+
+
 		public Guid chemID { get; set; } // FIXME: Const readonly?
 
 		public ChemicalObject()
 		{
-			name = "Compund"; chemFormula = "H2O"; chemID = Guid.NewGuid();
+			chemID = Guid.NewGuid();
+
+
+			// CuSO4 = Cu1 S1 O4
 		}
 
-
-		// Methods
-		public List<int> subscripts()
+		public static List<Molecule> parseMolecule(String formula)
 		{
-			List<int> digits = new List<int>();
-			for (int i = 0; i < chemFormula.Length; i++)
+			List<Molecule> m = new List<Molecule>();
+			String elementRegex = "([A-Z][a-z]*|\\(.*?\\))([0-9]*)";
+			String validateRegex = "^(" + elementRegex + ")+$";
+
+			if (!Regex.IsMatch(formula, validateRegex))
+				throw new FormatException("Invalid input");
+
+			foreach (Match match in Regex.Matches(formula, elementRegex))
 			{
-				if (chemFormula[i] == '*')
-				{
-					for (int o = i + 2 ; o < chemFormula.Length; o++)
-					{
-						i++;
-						if (!Char.IsDigit(chemFormula[o]))
-							break;
-					}
-				}
-				else if (Char.IsDigit(chemFormula[i]))
-				{
-					digits.Add(i);
-				}
+				String name = match.Groups[1].Value;
+				int count =
+				match.Groups[2].Value != "" ? int.Parse(match.Groups[2].Value) : 1;
+				
+				m.Add(new Molecule(name, count));
 			}
-			return digits;
+			return m;
 		}
+
 	}
 }

@@ -14,15 +14,35 @@ namespace Chemlist
 	{
 		public Form1 parentForm { get; set; }
 		public List<Guid> compoundID = new List<Guid>();
+		public List<ChemicalObject> chemicalList = new List<ChemicalObject>();
 		bool allowAdding = true;
+		public List<ProjectObject.RequiredChemicals> requiredChemicals = new List<ProjectObject.RequiredChemicals>();
 
 
-
-		public AddNewProject()
+		public AddNewProject(List<ChemicalObject> chemicals)
 		{
 			InitializeComponent();
 
+
+			chemicalList = chemicals;
+			populateMakesList();
+			
+			lbox_MakesChemicalList.DisplayMember = "name";
 			cbox_CompoundList.DisplayMember = "name";
+		}
+
+		void populateMakesList()
+		{
+			lbox_MakesChemicalList.Items.Clear();
+			foreach (ChemicalObject chemical in chemicalList)
+			{
+				if (chemical.name.ToLower().Contains(tbox_CompoundSearch.Text.ToLower())
+					|| tbox_CompoundSearch.Text == ""
+					|| tbox_CompoundSearch.Text == "Search"
+					|| chemical.chemFormula.ToLower().Contains(tbox_CompoundSearch.Text.ToLower())
+					|| chemical.allNames.ToLower().Contains(tbox_CompoundSearch.Text.ToLower()))
+					lbox_MakesChemicalList.Items.Add(chemical);
+			}
 		}
 
 		private void cbox_CompoundList_DropDown(object sender, EventArgs e)
@@ -45,35 +65,55 @@ namespace Chemlist
 			if (cbox_CompoundList.SelectedItem != null)
 			{
 				errorProvider1.SetError(cbox_CompoundList, "");
-				String unit;
-				if (check_MiliPrefix.Checked) unit = " m"; else unit = " ";
-				if (rb_Grams.Checked) unit += "g"; else if (rb_Litres.Checked) unit += "L";
-
 				ChemicalObject selectedChemical = (ChemicalObject)cbox_CompoundList.SelectedItem;
-				dg_CompoundList.Rows.Add(selectedChemical.name, (float)num_Quantity.Value + unit);
+				ProjectObject.RequiredChemicals chemical = new ProjectObject.RequiredChemicals()
+				{
+					compound = selectedChemical,
+					unit = (check_MiliPrefix.Checked ? " m" : " ") + (rb_Grams.Checked ? "g" : "L"),
+					quantity = (float)num_Quantity.Value,
+					concentration = (float)num_Concentration.Value
+				};
+				requiredChemicals.Add(chemical);
+				invalidateRequiredCompounds();
+
+			}
+			else
+				errorProvider1.SetError(cbox_CompoundList, "Please add a valid compound.");
+		}
+
+		private void invalidateRequiredCompounds()
+		{
+			dg_CompoundList.Rows.Clear();
+			compoundID.Clear();
+			foreach (ProjectObject.RequiredChemicals selected in requiredChemicals)
+			{
+				dg_CompoundList.Rows.Add(selected.compound.name, selected.quantity + selected.unit );
 				foreach (ChemicalObject chemical in parentForm.chemicalList)
 				{
-					if (chemical.chemID == selectedChemical.chemID)
+					if (chemical.chemID == selected.compound.chemID)
 					{
 						compoundID.Add(chemical.chemID);
 					}
 				}
+
 			}
-			else
-				errorProvider1.SetError(cbox_CompoundList, "Please add a valid compound.");
+
 		}
 
 		private void btn_RemoveRequirement_Click(object sender, EventArgs e)
 		{
 			if (dg_CompoundList.SelectedRows.Count > 0)
 			{
-				//foreach (ChemicalObject chemical in )
+				foreach (ProjectObject.RequiredChemicals chemical in requiredChemicals)
 				{
-					// FIXME: Removing doesn't work anymore.
+					if (dg_CompoundList.SelectedRows[0].Cells[0].Value.ToString() == chemical.compound.name)
+					{
+						requiredChemicals.Remove(chemical);
+						invalidateRequiredCompounds();
+						break;
+					}
 				}
-
-				dg_CompoundList.Rows.Remove(dg_CompoundList.SelectedRows[0]);
-
+				
 			}
 		}
 
@@ -81,10 +121,11 @@ namespace Chemlist
 		{
 			ProjectObject newProject = new ProjectObject
 			{
-				name = tbox_ChemName.Text,
-				chemFormula = tbox_ProjectFormula.Text,
-				description = rtbox_Methods.Text,
-				requiredCompounds = compoundID
+				name = tbox_ProjectName.Text,
+				chemFormula = rtb_ProjectFormula.Text,
+				description = tbox_Description.Text,
+				methods = rtb_Methods.Text,
+				requiredChemicals = requiredChemicals
 			};
 			parentForm.addNewProject(newProject);
 		}
@@ -92,6 +133,44 @@ namespace Chemlist
 		public void validateConfirmation()
 		{
 			// todo
+		}
+
+		private void lbox_MakesChemicalList_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			rtb_ProjectFormula.Clear();
+			foreach(ChemicalObject chemical in lbox_MakesChemicalList.SelectedItems)
+			{
+				rtb_ProjectFormula.Text += chemical.chemFormula + (lbox_MakesChemicalList.SelectedItems.Count > 1 ? "; " : "");
+			}
+
+			float FontSize = rtb_ProjectFormula.Font.Size;
+			Font Small_font = new Font(rtb_ProjectFormula.Font.FontFamily, FontSize * .8f);
+			foreach (int position in parentForm.subscripts(rtb_ProjectFormula.Text))
+			{
+				rtb_ProjectFormula.Select(position, 1);
+				rtb_ProjectFormula.SelectionCharOffset = -4;
+				rtb_ProjectFormula.SelectionFont = Small_font;
+				rtb_ProjectFormula.Select(0, 0);
+			}
+
+
+		}
+
+		private void tbox_CompoundSearch_Enter(object sender, EventArgs e)
+		{
+			if (tbox_CompoundSearch.Text == "Search")
+				tbox_CompoundSearch.Text = "";
+		}
+
+		private void tbox_CompoundSearch_Leave(object sender, EventArgs e)
+		{
+			if (tbox_CompoundSearch.Text == "")
+				tbox_CompoundSearch.Text = "Search";
+		}
+
+		private void tbox_CompoundSearch_TextChanged(object sender, EventArgs e)
+		{
+			populateMakesList();
 		}
 	}
 }

@@ -12,7 +12,7 @@ namespace Chemlist
 	public partial class Form1
 	{
 		// Populate chemicals
-		
+
 
 		void invalidateCompoundNamesList()
 		{
@@ -31,7 +31,8 @@ namespace Chemlist
 				if (chemical.name.ToLower().Contains(tbox_CompoundSearch.Text.ToLower())
 				|| tbox_CompoundSearch.Text == ""
 				|| tbox_CompoundSearch.Text == "Search"
-				|| chemical.chemFormula.ToLower().Contains(tbox_CompoundSearch.Text.ToLower()))
+				|| chemical.chemFormula.ToLower().Contains(tbox_CompoundSearch.Text.ToLower())
+				|| chemical.allNames.ToLower().Contains(tbox_CompoundSearch.Text.ToLower()))
 				{
 					chemicalNames.Add(chemical);
 				}
@@ -158,7 +159,7 @@ namespace Chemlist
 				// Pupulate
 				txt_chemName.Text = current.name;
 				rtb_Formula.Text = current.chemFormula;
-				foreach (int position in current.subscripts())
+				foreach (int position in subscripts(current.chemFormula))
 				{
 					rtb_Formula.Select(position, 1);
 					rtb_Formula.SelectionCharOffset = -4;
@@ -170,9 +171,9 @@ namespace Chemlist
 				lbox_UsedIn.Items.Clear();
 				foreach (ProjectObject project in projectList)
 				{
-					foreach (Guid chemical in project.requiredCompounds)
+					foreach (ProjectObject.RequiredChemicals chemical in project.requiredChemicals)
 					{
-						if (chemical == current.chemID)
+						if (chemical.compound.chemID == current.chemID)
 							lbox_UsedIn.Items.Add(project);
 					}
 				}
@@ -248,8 +249,12 @@ namespace Chemlist
 				Font Small_font = new Font(rtb_ProjectChemFormula.Font.FontFamily, FontSize * .8f);
 
 				txt_Project.Text = current.name;
+				rtb_Methods.Text = current.methods;
+
+
+
 				rtb_ProjectChemFormula.Text = current.chemFormula;
-				foreach (int position in current.subscripts())
+				foreach (int position in subscripts(current.chemFormula))
 				{
 					rtb_ProjectChemFormula.Select(position, 1);
 					rtb_ProjectChemFormula.SelectionCharOffset = -4;
@@ -262,9 +267,9 @@ namespace Chemlist
 				pguid.Text = current.projectID.ToString();
 
 				lbox_RequiredChem.Items.Clear();
-				foreach (Guid ID in current.requiredCompounds)
+				foreach (ProjectObject.RequiredChemicals chemical in current.requiredChemicals)
 				{
-					lbox_RequiredChem.Items.Add(matchChemicalIDs(ID));
+					lbox_RequiredChem.Items.Add(matchChemicalObject(chemical.compound));
 				}
 				if (checkProjectAvailability(current))
 				{
@@ -287,26 +292,23 @@ namespace Chemlist
 
 		bool checkProjectAvailability(ProjectObject project)
 		{
-			foreach (Guid ID in project.requiredCompounds)
+			foreach (ProjectObject.RequiredChemicals requiredChemical in project.requiredChemicals)
 			{
-				if (!matchChemicalIDs(ID).inStorage)
+				if (!matchChemicalObject(requiredChemical.compound).inStorage)
 					return false;
+
 			}
 			return true;
 		}
 
-		ChemicalObject matchChemicalIDs(Guid ID)
+		ChemicalObject matchChemicalObject(ChemicalObject match)
 		{
-			ChemicalObject invalidChemical = new ChemicalObject
-			{
-				name = "Invalid Compound!"
-			};
 			foreach (ChemicalObject chemical in chemicalList)
 			{
-				if (chemical.chemID == ID)
+				if (chemical.chemID == match.chemID)
 					return chemical;
 			}
-			return invalidChemical;
+			return new ChemicalObject() { name = "Invalid Compound" };
 		}
 
 		public void addNewProject(ProjectObject newProject)
@@ -324,8 +326,29 @@ namespace Chemlist
 			redrawProjectInfoPanel();
 		}
 
-
+		public List<int> subscripts(String formula)
+		{
+			List<int> digits = new List<int>();
+			for (int i = 0; i < formula.Length; i++)
+			{
+				if (formula[i] == '*')
+				{
+					for (int o = i + 2; o < formula.Length; o++)
+					{
+						i++;
+						if (!Char.IsDigit(formula[o]))
+							break;
+					}
+				}
+				else if (Char.IsDigit(formula[i]))
+				{
+					digits.Add(i);
+				}
+			}
+			return digits;
+		}
 	}
+
 
 
 

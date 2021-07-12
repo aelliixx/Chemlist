@@ -123,7 +123,7 @@ namespace Chemlist
 					wikiName = tbox_WikiName.Text,
 					purchaseName = tbox_PurchaseName.Text,
 					msdsName = tbox_MSDSName.Text,
-
+					
 					chemID = currentID,
 					inStorage = check_Available.Checked,
 
