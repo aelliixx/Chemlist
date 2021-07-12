@@ -15,8 +15,6 @@ namespace Chemlist
 	{
 		public List<ChemicalObject> chemicalList = new List<ChemicalObject>();
 		public List<ProjectObject> projectList = new List<ProjectObject>();
-		List<String> chemicalNames = new List<String>();
-		List<String> projectNames = new List<string>();
 
 		public Settings settings = new Settings();
 		BindingSource compoundSource = new BindingSource();
@@ -36,11 +34,18 @@ namespace Chemlist
 			deserialiseJsonProjets();
 			serialiseJsonProjects();
 
+			lbox_ChemicalList.DisplayMember = "name";
 			lbox_ChemicalList.DataSource = compoundSource;
 			compoundSource.ResetBindings(false);
 
+			lbox_ProjectList.DisplayMember = "name";
 			lbox_ProjectList.DataSource = projectSource;
 			projectSource.ResetBindings(false);
+
+			tbox_CompoundSearch.Text = "Search";
+			cbox_CompoundSort.SelectedIndex = 0;
+			lbox_RequiredChem.DisplayMember = "name";
+			lbox_UsedIn.DisplayMember = "name";
 		}
 
 		private void lbox_ChemicalList_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,7 +60,7 @@ namespace Chemlist
 
 		private void btn_EditCurrentChemical_Click(object sender, EventArgs e)
 		{
-			ChemicalObject temp = chemicalList[lbox_ChemicalList.SelectedIndex];
+			ChemicalObject temp = (ChemicalObject)lbox_ChemicalList.SelectedItem;
 			EditCompound compoundEditor = new EditCompound(temp) { parentForm = this };
 			compoundEditor.Show();
 		}
@@ -103,6 +108,63 @@ namespace Chemlist
 		private void btn_DeleteProject_Click(object sender, EventArgs e)
 		{
 			removeSelectedProject(lbox_ProjectList.SelectedIndex);
+		}
+
+		// Searching and sorting.
+		private void tbox_ProjectSearch_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void cbox_ProjectSort_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void cbox_CompoundSort_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			invalidateCompoundNamesList();
+		}
+
+		private void tbox_CompoundSearch_TextChanged(object sender, EventArgs e)
+		{
+			invalidateCompoundNamesList();
+		}
+
+		private void lbox_ChemicalList_DrawItem(object sender, DrawItemEventArgs e)
+		{
+			//if (e.Index >= 0 && lbox_ChemicalList.Items[e.Index] is ChemicalObject item)
+			//{
+			//	e.Graphics.DrawString(
+			//		item.name,
+			//		lbox_ChemicalList.Font,
+			//		new SolidBrush(Color.Red),
+			//		0,
+			//		e.Index * lbox_ChemicalList.ItemHeight
+			//		);
+			//}
+		}
+
+		private void tbox_CompoundSearch_Enter(object sender, EventArgs e)
+		{
+			if (tbox_CompoundSearch.Text == "Search")
+				tbox_CompoundSearch.Text = "";
+		}
+
+		private void tbox_CompoundSearch_Leave(object sender, EventArgs e)
+		{
+			if (tbox_CompoundSearch.Text == "")
+				tbox_CompoundSearch.Text = "Search";
+		}
+
+		private void lbox_UsedIn_DoubleClick(object sender, EventArgs e)
+		{
+			if (lbox_UsedIn.SelectedItem != null)
+			{
+				tab_Switcher.SelectTab(0);
+
+				// todo
+			}
 		}
 	}
 }

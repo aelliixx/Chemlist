@@ -16,21 +16,37 @@ namespace Chemlist
 
 		void invalidateCompoundNamesList()
 		{
+			List<ChemicalObject> chemicalNames = new List<ChemicalObject>();
 			chemicalNames.Clear();
 			chemicalList.Sort(delegate (ChemicalObject name1, ChemicalObject name2) { return name1.name.CompareTo(name2.name); });
 			foreach (ChemicalObject chemical in chemicalList)
-				chemicalNames.Add(chemical.name);
+			{
+				if (cbox_CompoundSort.SelectedIndex == 1 && !chemical.inStorage)
+				{
+					continue;
+				}
+				else if (cbox_CompoundSort.SelectedIndex == 2 && chemical.inStorage)
+					continue;
 
+				if (chemical.name.ToLower().Contains(tbox_CompoundSearch.Text.ToLower())
+				|| tbox_CompoundSearch.Text == ""
+				|| tbox_CompoundSearch.Text == "Search"
+				|| chemical.chemFormula.ToLower().Contains(tbox_CompoundSearch.Text.ToLower()))
+				{
+					chemicalNames.Add(chemical);
+				}
+			}
 			compoundSource.DataSource = chemicalNames;
 			compoundSource.ResetBindings(false);
 		}
 
 		void invalidateProjectList()
 		{
+			List<ProjectObject> projectNames = new List<ProjectObject>();
 			projectNames.Clear();
 			projectList.Sort(delegate (ProjectObject name1, ProjectObject name2) { return name1.name.CompareTo(name2.name); });
 			foreach (ProjectObject project in projectList)
-				projectNames.Add(project.name);
+				projectNames.Add(project);
 
 			projectSource.DataSource = projectNames;
 			projectSource.ResetBindings(false);
@@ -57,6 +73,7 @@ namespace Chemlist
 			}
 		}
 		
+		// fix empty file same crash
 		void deserialiseJsonProjets()
 		{
 			List<ProjectObject> NewProject = JsonConvert.DeserializeObject<List<ProjectObject>>(String.Concat(jsonProjects));
@@ -92,6 +109,8 @@ namespace Chemlist
 		}
 
 
+
+
 		// Add new chemical
 		public void addNewChemical(ChemicalObject newChemical)
 		{
@@ -102,10 +121,13 @@ namespace Chemlist
 		// Remove chemical
 		void removeChemical(int index)
 		{
-			chemicalList.RemoveAt(index);
-			serialiseJsonChem();
-			invalidateCompoundNamesList();
-			redrawCompoundInfoPanel();
+			if (index >= 0)
+			{
+				chemicalList.RemoveAt(index);
+				serialiseJsonChem();
+				invalidateCompoundNamesList();
+				redrawCompoundInfoPanel();
+			}
 		}
 
 		// Edit compound
@@ -124,85 +146,167 @@ namespace Chemlist
 				i++;
 			}
 		}
-		
-		/// <summary>
-		/// FIXME: If you delete all items in the list, ProjectObject current or ChemicalObject current try to access a non existent index.
-		/// </summary>
 
 		public void redrawCompoundInfoPanel()
 		{
-			ChemicalObject current = chemicalList[lbox_ChemicalList.SelectedIndex];
-			float FontSize = rtb_Formula.Font.Size;
-			Font Small_font = new Font(rtb_Formula.Font.FontFamily, FontSize * .8f);
-
-			// Pupulate
-			txt_chemName.Text = current.name;
-			rtb_Formula.Text = current.chemFormula;
-			foreach (int position in current.subscripts())
+			if (lbox_ChemicalList.Items.Count > 0 && lbox_ChemicalList.SelectedItem != null)
 			{
-				rtb_Formula.Select(position, 1);
-				rtb_Formula.SelectionCharOffset = -4;
-				rtb_Formula.SelectionFont = Small_font;
-				rtb_Formula.Select(0, 0);
-			}
-			
-			rtb_Description.Text = current.descripion;
+				ChemicalObject current = (ChemicalObject)lbox_ChemicalList.SelectedItem;
+				float FontSize = rtb_Formula.Font.Size;
+				Font Small_font = new Font(rtb_Formula.Font.FontFamily, FontSize * .8f);
 
-			tlink_MSDS.Enabled = current.bMSDS;
-			tlink_Wiki.Enabled = current.bWikiLink;
-			tlink_Purchase.Enabled = current.bPurchaseLink;
+				// Pupulate
+				txt_chemName.Text = current.name;
+				rtb_Formula.Text = current.chemFormula;
+				foreach (int position in current.subscripts())
+				{
+					rtb_Formula.Select(position, 1);
+					rtb_Formula.SelectionCharOffset = -4;
+					rtb_Formula.SelectionFont = Small_font;
+					rtb_Formula.Select(0, 0);
+				}
 
-			if (current.bAllNames) { txt_Names.Text = current.allNames; }
-			else { txt_Names.Text = "None"; }
-			if (current.bMolarMass) { txt_MolarMass.Text = current.molarMass.ToString() + " g/mol"; }
-			else { txt_MolarMass.Text = "Unavailable"; }
-			if (current.bAppearance) { txt_Appearance.Text = current.appearance; }
-			else { txt_Appearance.Text = "Unavailable"; }
-			if (current.bDensity) { txt_Density.Text = current.density.ToString() + " g/ccm"; }
-			else { txt_Density.Text = "Unavailable"; }
-			if (current.bMeltingPoint) { txt_MeltingPoint.Text = current.mPoint.ToString() + " °C"; }
-			else { txt_MeltingPoint.Text = "Unavailable"; }
-			if (current.bBoilingPoint) { txt_BoilingPoint.Text = current.bPoint.ToString() + " °C"; }
-			else { txt_BoilingPoint.Text = "Unavailable"; }
-			if (current.bSolubility) { txt_Solubility.Text = current.solubility; }
-			else { txt_Solubility.Text = "Unavailable"; }
-			if (current.bVapourPressure) { txt_VapourPressure.Text = current.vapourPressure.ToString() + " mmHg"; }
-			else { txt_VapourPressure.Text = "Unavailable"; }
-			if (current.bAcidity) { txt_Acidity.Text = current.pKa.ToString(); }
-			else { txt_Acidity.Text = "Unavailable"; }
-			if (current.bFlashPoint) { txt_FlashPoint.Text = current.flashPoint.ToString() + " °C"; }
-			else { txt_FlashPoint.Text = "Unavailable"; }
-			if (current.bLD50) { txt_LD50.Text = current.lethalDose50.ToString() + " mg/kg"; }
-			else { txt_LD50.Text = "Unavailable"; }
-			if (current.bLC50) { txt_LC50.Text = current.lethalConcentration50.ToString() + " ppm"; }
-			else { txt_LC50.Text = "Unavailable"; }
-			
-			if (current.bSInWater && !current.miscible) { txt_SInWater.Text = current.solubilityInWater.ToString() + " g/100 ml"; }
-			else { txt_SInWater.Text = "Unavailable"; }
-			if (current.miscible) { txt_SInWater.Text = "Miscible"; }
+				// Used in
+				lbox_UsedIn.Items.Clear();
+				foreach (ProjectObject project in projectList)
+				{
+					foreach (Guid chemical in project.requiredCompounds)
+					{
+						if (chemical == current.chemID)
+							lbox_UsedIn.Items.Add(project);
+					}
+				}
+
+				// Made in
+				/// TODO: Made in
 
 
+				rtb_Description.Text = current.descripion;
+
+				if (current.inStorage) { txt_Availability.Text = "Available in Storage"; } else { txt_Availability.Text = "Unavailable"; }
+
+				if (current.bAllNames) { txt_Names.Text = current.allNames; } else { txt_Names.Text = "None"; }
+				if (current.bMolarMass) { txt_MolarMass.Text = current.molarMass.ToString() + " g/mol"; } else { txt_MolarMass.Text = "-"; }
+				if (current.bAppearance) { txt_Appearance.Text = current.appearance; } else { txt_Appearance.Text = "-"; }
+				if (current.bDensity) { txt_Density.Text = current.density.ToString() + " g/ccm"; } else { txt_Density.Text = "-"; }
+				if (current.bMeltingPoint) { txt_MeltingPoint.Text = current.mPoint.ToString() + " °C"; } else { txt_MeltingPoint.Text = "-"; }
+				if (current.bBoilingPoint) { txt_BoilingPoint.Text = current.bPoint.ToString() + " °C"; } else { txt_BoilingPoint.Text = "-"; }
+				if (current.bSolubility) { rtb_Solubility.Text = current.solubility; } else { rtb_Solubility.Text = "-"; }
+				if (current.bVapourPressure) { txt_VapourPressure.Text = current.vapourPressure.ToString() + " mmHg"; } else { txt_VapourPressure.Text = "-"; }
+				if (current.bAcidity) { txt_Acidity.Text = current.pKa.ToString(); } else { txt_Acidity.Text = "-"; }
+				if (current.bFlashPoint) { txt_FlashPoint.Text = current.flashPoint.ToString() + " °C"; } else { txt_FlashPoint.Text = "-"; }
+				if (current.bLD50) { txt_LD50.Text = current.lethalDose50.ToString() + " mg/kg"; } else { txt_LD50.Text = "-"; }
+				if (current.bLC50) { txt_LC50.Text = current.lethalConcentration50.ToString() + " ppm"; } else { txt_LC50.Text = "-"; }
+				if (current.bWikiLink) { tlink_Wiki.Enabled = true; tlink_Wiki.Text = current.wikiName; } else { tlink_Wiki.Enabled = false; tlink_Wiki.Text = "-"; }
+				if (current.bPurchaseLink) { tlink_Purchase.Enabled = true; tlink_Purchase.Text = current.purchaseName; } else { tlink_Purchase.Enabled = false; tlink_Purchase.Text = "-"; }
+				if (current.bMSDS) { tlink_MSDS.Enabled = true; tlink_MSDS.Text = current.msdsName; } else { tlink_MSDS.Enabled = false; tlink_MSDS.Text = "-"; }
 
 
-			if (settings.showGUID)
-			{
-				cguid.Text = current.chemID.ToString();
-				cguid.Visible = true;
+				if (current.bSInWater && !current.miscible) { txt_SInWater.Text = current.solubilityInWater.ToString() + " g/100 ml"; }
+				else { txt_SInWater.Text = "-"; }
+				if (current.miscible) { txt_SInWater.Text = "Miscible"; }
+
+				if (settings.showGUID)
+				{
+					cguid.Text = current.chemID.ToString();
+					cguid.Visible = true;
+				}
+				else
+					cguid.Visible = false;
 			}
 			else
-				cguid.Visible = false;
+			{
+				txt_chemName.Text = "Please select a compound.";
+				rtb_Formula.Text = "";
+				rtb_Description.Text = "";
+				cguid.Text = "";
+				lbox_UsedIn.Items.Clear();
+
+				txt_Names.Text = "None";
+				txt_MolarMass.Text = "-";
+				txt_Appearance.Text = "-";
+				txt_Density.Text = "-";
+				txt_MeltingPoint.Text = "-";
+				txt_BoilingPoint.Text = "-";
+				rtb_Solubility.Text = "-";
+				txt_VapourPressure.Text = "-";
+				txt_Acidity.Text = "-";
+				txt_FlashPoint.Text = "-";
+				txt_LD50.Text = "-";
+				txt_LC50.Text = "-";
+				txt_SInWater.Text = "-";
+
+			}
 		}
 
 		public void redrawProjectInfoPanel()
 		{
-			ProjectObject current = projectList[lbox_ProjectList.SelectedIndex];
-			txt_Project.Text = current.name;
-			rtb_ProjectChemFormula.Text = current.chemFormula;
-			rtb_ProjectDescription.Text = current.description;
-			foreach (ChemicalObject chemical in current.requiredCompounds)
+			if (lbox_ProjectList.Items.Count > 0 && lbox_ProjectList.SelectedItem != null)
 			{
-				lbox_RequiredChem.Items.Add(chemical.name);
+				ProjectObject current = (ProjectObject)lbox_ProjectList.SelectedItem;
+				float FontSize = rtb_ProjectChemFormula.Font.Size;
+				Font Small_font = new Font(rtb_ProjectChemFormula.Font.FontFamily, FontSize * .8f);
+
+				txt_Project.Text = current.name;
+				rtb_ProjectChemFormula.Text = current.chemFormula;
+				foreach (int position in current.subscripts())
+				{
+					rtb_ProjectChemFormula.Select(position, 1);
+					rtb_ProjectChemFormula.SelectionCharOffset = -4;
+					rtb_ProjectChemFormula.SelectionFont = Small_font;
+					rtb_ProjectChemFormula.Select(0, 0);
+				}
+
+				rtb_ProjectDescription.Text = current.description;
+
+				pguid.Text = current.projectID.ToString();
+
+				lbox_RequiredChem.Items.Clear();
+				foreach (Guid ID in current.requiredCompounds)
+				{
+					lbox_RequiredChem.Items.Add(matchChemicalIDs(ID));
+				}
+				if (checkProjectAvailability(current))
+				{
+					txt_ProjectDoable.Text = "Available";
+				}
+				else
+				{
+					txt_ProjectDoable.Text = "Unavailable";
+				}
 			}
+			else
+			{
+				txt_Project.Text = "Please add a new project.";
+				rtb_ProjectChemFormula.Text = "";
+				rtb_ProjectDescription.Text = "";
+				pguid.Text = "";
+				lbox_RequiredChem.Items.Clear();
+			}
+		}
+
+		bool checkProjectAvailability(ProjectObject project)
+		{
+			foreach (Guid ID in project.requiredCompounds)
+			{
+				if (!matchChemicalIDs(ID).inStorage)
+					return false;
+			}
+			return true;
+		}
+
+		ChemicalObject matchChemicalIDs(Guid ID)
+		{
+			ChemicalObject invalidChemical = new ChemicalObject
+			{
+				name = "Invalid Compound!"
+			};
+			foreach (ChemicalObject chemical in chemicalList)
+			{
+				if (chemical.chemID == ID)
+					return chemical;
+			}
+			return invalidChemical;
 		}
 
 		public void addNewProject(ProjectObject newProject)

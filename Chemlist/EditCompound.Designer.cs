@@ -79,6 +79,8 @@
 			this.tbox_VapourPressure = new System.Windows.Forms.TextBox();
 			this.label14 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.check_Available = new System.Windows.Forms.CheckBox();
+			this.label1 = new System.Windows.Forms.Label();
 			this.check_OtherNames = new System.Windows.Forms.CheckBox();
 			this.tbox_ChemName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
@@ -608,6 +610,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.check_Available);
+			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.check_OtherNames);
 			this.groupBox1.Controls.Add(this.tbox_ChemName);
 			this.groupBox1.Controls.Add(this.label2);
@@ -622,6 +626,25 @@
 			this.groupBox1.TabIndex = 23;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Details";
+			// 
+			// check_Available
+			// 
+			this.check_Available.AutoSize = true;
+			this.check_Available.Location = new System.Drawing.Point(83, 65);
+			this.check_Available.Name = "check_Available";
+			this.check_Available.Size = new System.Drawing.Size(120, 17);
+			this.check_Available.TabIndex = 22;
+			this.check_Available.Text = "Available in Storage";
+			this.check_Available.UseVisualStyleBackColor = true;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(6, 66);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(47, 13);
+			this.label1.TabIndex = 21;
+			this.label1.Text = "Formula:";
 			// 
 			// check_OtherNames
 			// 
@@ -676,16 +699,17 @@
 			// 
 			// tbox_Description
 			// 
-			this.tbox_Description.Location = new System.Drawing.Point(83, 65);
+			this.tbox_Description.Location = new System.Drawing.Point(83, 88);
 			this.tbox_Description.Multiline = true;
 			this.tbox_Description.Name = "tbox_Description";
-			this.tbox_Description.Size = new System.Drawing.Size(289, 101);
+			this.tbox_Description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.tbox_Description.Size = new System.Drawing.Size(289, 78);
 			this.tbox_Description.TabIndex = 15;
 			// 
 			// label20
 			// 
 			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(4, 68);
+			this.label20.Location = new System.Drawing.Point(6, 91);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(63, 13);
 			this.label20.TabIndex = 14;
@@ -781,5 +805,7 @@
 		private System.Windows.Forms.TextBox tbox_ChemFormula;
 		private System.Windows.Forms.TextBox tbox_Description;
 		private System.Windows.Forms.Label label20;
+		private System.Windows.Forms.CheckBox check_Available;
+		private System.Windows.Forms.Label label1;
 	}
 }

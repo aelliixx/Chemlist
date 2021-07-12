@@ -29,15 +29,16 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.tbox_ProjectFormula = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.tbox_ChemName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.rtbox_Methods = new System.Windows.Forms.RichTextBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.dg_CompoundList = new System.Windows.Forms.DataGridView();
@@ -49,12 +50,11 @@
 			this.rb_Grams = new System.Windows.Forms.RadioButton();
 			this.rb_Litres = new System.Windows.Forms.RadioButton();
 			this.num_Quantity = new System.Windows.Forms.NumericUpDown();
-			this.cbox_CompundList = new System.Windows.Forms.ComboBox();
+			this.cbox_CompoundList = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.btn_Cancel = new System.Windows.Forms.Button();
 			this.btn_Confirm = new System.Windows.Forms.Button();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-			this.rtbox_Methods = new System.Windows.Forms.RichTextBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -122,6 +122,15 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Methods";
 			// 
+			// rtbox_Methods
+			// 
+			this.rtbox_Methods.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.rtbox_Methods.Location = new System.Drawing.Point(3, 16);
+			this.rtbox_Methods.Name = "rtbox_Methods";
+			this.rtbox_Methods.Size = new System.Drawing.Size(646, 353);
+			this.rtbox_Methods.TabIndex = 0;
+			this.rtbox_Methods.Text = "";
+			// 
 			// groupBox3
 			// 
 			this.groupBox3.Controls.Add(this.splitContainer1);
@@ -151,7 +160,7 @@
 			this.splitContainer1.Panel2.Controls.Add(this.rb_Grams);
 			this.splitContainer1.Panel2.Controls.Add(this.rb_Litres);
 			this.splitContainer1.Panel2.Controls.Add(this.num_Quantity);
-			this.splitContainer1.Panel2.Controls.Add(this.cbox_CompundList);
+			this.splitContainer1.Panel2.Controls.Add(this.cbox_CompoundList);
 			this.splitContainer1.Panel2.Controls.Add(this.label1);
 			this.splitContainer1.Size = new System.Drawing.Size(310, 481);
 			this.splitContainer1.SplitterDistance = 300;
@@ -167,26 +176,26 @@
 			this.dg_CompoundList.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dg_CompoundList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dg_CompoundList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dg_CompoundList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dg_CompoundList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.dg_CompoundList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dg_CompoundList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Compounds,
             this.Quantity});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dg_CompoundList.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dg_CompoundList.DefaultCellStyle = dataGridViewCellStyle5;
 			this.dg_CompoundList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dg_CompoundList.GridColor = System.Drawing.SystemColors.Control;
 			this.dg_CompoundList.Location = new System.Drawing.Point(0, 0);
@@ -194,14 +203,14 @@
 			this.dg_CompoundList.Name = "dg_CompoundList";
 			this.dg_CompoundList.ReadOnly = true;
 			this.dg_CompoundList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dg_CompoundList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dg_CompoundList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this.dg_CompoundList.RowHeadersVisible = false;
 			this.dg_CompoundList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dg_CompoundList.Size = new System.Drawing.Size(310, 300);
@@ -291,14 +300,15 @@
 			this.num_Quantity.Size = new System.Drawing.Size(120, 20);
 			this.num_Quantity.TabIndex = 2;
 			// 
-			// cbox_CompundList
+			// cbox_CompoundList
 			// 
-			this.cbox_CompundList.FormattingEnabled = true;
-			this.cbox_CompundList.Location = new System.Drawing.Point(6, 21);
-			this.cbox_CompundList.Name = "cbox_CompundList";
-			this.cbox_CompundList.Size = new System.Drawing.Size(301, 21);
-			this.cbox_CompundList.TabIndex = 1;
-			this.cbox_CompundList.DropDown += new System.EventHandler(this.cbox_CompundList_DropDown);
+			this.cbox_CompoundList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbox_CompoundList.FormattingEnabled = true;
+			this.cbox_CompoundList.Location = new System.Drawing.Point(6, 21);
+			this.cbox_CompoundList.Name = "cbox_CompoundList";
+			this.cbox_CompoundList.Size = new System.Drawing.Size(301, 21);
+			this.cbox_CompoundList.TabIndex = 1;
+			this.cbox_CompoundList.DropDown += new System.EventHandler(this.cbox_CompoundList_DropDown);
 			// 
 			// label1
 			// 
@@ -340,15 +350,6 @@
 			// 
 			this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 			this.errorProvider1.ContainerControl = this;
-			// 
-			// rtbox_Methods
-			// 
-			this.rtbox_Methods.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rtbox_Methods.Location = new System.Drawing.Point(3, 16);
-			this.rtbox_Methods.Name = "rtbox_Methods";
-			this.rtbox_Methods.Size = new System.Drawing.Size(646, 353);
-			this.rtbox_Methods.TabIndex = 0;
-			this.rtbox_Methods.Text = "";
 			// 
 			// AddNewProject
 			// 
@@ -396,7 +397,7 @@
 		private System.Windows.Forms.RadioButton rb_Grams;
 		private System.Windows.Forms.RadioButton rb_Litres;
 		private System.Windows.Forms.NumericUpDown num_Quantity;
-		private System.Windows.Forms.ComboBox cbox_CompundList;
+		private System.Windows.Forms.ComboBox cbox_CompoundList;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ErrorProvider errorProvider1;
 		private System.Windows.Forms.CheckBox check_MiliPrefix;

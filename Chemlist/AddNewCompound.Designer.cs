@@ -82,12 +82,16 @@
 			this.tbox_VapourPressure = new System.Windows.Forms.TextBox();
 			this.label14 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.check_Available = new System.Windows.Forms.CheckBox();
+			this.label1 = new System.Windows.Forms.Label();
 			this.check_OtherNames = new System.Windows.Forms.CheckBox();
 			this.tbox_OtherNames = new System.Windows.Forms.TextBox();
 			this.tbox_Description = new System.Windows.Forms.TextBox();
 			this.label20 = new System.Windows.Forms.Label();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.check_Close = new System.Windows.Forms.CheckBox();
+			this.check_Insoluble = new System.Windows.Forms.CheckBox();
+			this.btn_AdvancedSolubility = new System.Windows.Forms.Button();
 			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -282,6 +286,8 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.btn_AdvancedSolubility);
+			this.groupBox2.Controls.Add(this.check_Insoluble);
 			this.groupBox2.Controls.Add(this.check_LC50);
 			this.groupBox2.Controls.Add(this.check_LD50);
 			this.groupBox2.Controls.Add(this.check_FlashPoint);
@@ -325,7 +331,7 @@
 			// check_LC50
 			// 
 			this.check_LC50.AutoSize = true;
-			this.check_LC50.Location = new System.Drawing.Point(6, 298);
+			this.check_LC50.Location = new System.Drawing.Point(6, 300);
 			this.check_LC50.Name = "check_LC50";
 			this.check_LC50.Size = new System.Drawing.Size(54, 17);
 			this.check_LC50.TabIndex = 17;
@@ -336,7 +342,7 @@
 			// check_LD50
 			// 
 			this.check_LD50.AutoSize = true;
-			this.check_LD50.Location = new System.Drawing.Point(6, 272);
+			this.check_LD50.Location = new System.Drawing.Point(6, 274);
 			this.check_LD50.Name = "check_LD50";
 			this.check_LD50.Size = new System.Drawing.Size(55, 17);
 			this.check_LD50.TabIndex = 17;
@@ -347,7 +353,7 @@
 			// check_FlashPoint
 			// 
 			this.check_FlashPoint.AutoSize = true;
-			this.check_FlashPoint.Location = new System.Drawing.Point(6, 246);
+			this.check_FlashPoint.Location = new System.Drawing.Point(6, 248);
 			this.check_FlashPoint.Name = "check_FlashPoint";
 			this.check_FlashPoint.Size = new System.Drawing.Size(80, 17);
 			this.check_FlashPoint.TabIndex = 17;
@@ -358,7 +364,7 @@
 			// check_Acidity
 			// 
 			this.check_Acidity.AutoSize = true;
-			this.check_Acidity.Location = new System.Drawing.Point(6, 220);
+			this.check_Acidity.Location = new System.Drawing.Point(6, 222);
 			this.check_Acidity.Name = "check_Acidity";
 			this.check_Acidity.Size = new System.Drawing.Size(60, 17);
 			this.check_Acidity.TabIndex = 17;
@@ -369,7 +375,7 @@
 			// check_VapourPoint
 			// 
 			this.check_VapourPoint.AutoSize = true;
-			this.check_VapourPoint.Location = new System.Drawing.Point(6, 194);
+			this.check_VapourPoint.Location = new System.Drawing.Point(6, 196);
 			this.check_VapourPoint.Name = "check_VapourPoint";
 			this.check_VapourPoint.Size = new System.Drawing.Size(89, 17);
 			this.check_VapourPoint.TabIndex = 17;
@@ -454,7 +460,7 @@
 			// 
 			// tbox_LC50
 			// 
-			this.tbox_LC50.Location = new System.Drawing.Point(111, 296);
+			this.tbox_LC50.Location = new System.Drawing.Point(111, 298);
 			this.tbox_LC50.Name = "tbox_LC50";
 			this.tbox_LC50.Size = new System.Drawing.Size(110, 20);
 			this.tbox_LC50.TabIndex = 13;
@@ -464,11 +470,11 @@
 			// check_Miscible
 			// 
 			this.check_Miscible.AutoSize = true;
-			this.check_Miscible.Location = new System.Drawing.Point(111, 169);
+			this.check_Miscible.Location = new System.Drawing.Point(6, 171);
 			this.check_Miscible.Name = "check_Miscible";
-			this.check_Miscible.Size = new System.Drawing.Size(70, 17);
+			this.check_Miscible.Size = new System.Drawing.Size(64, 17);
 			this.check_Miscible.TabIndex = 19;
-			this.check_Miscible.Text = "Miscible?";
+			this.check_Miscible.Text = "Miscible";
 			this.check_Miscible.UseVisualStyleBackColor = true;
 			// 
 			// tbox_Appearance
@@ -491,7 +497,7 @@
 			// 
 			// tbox_LD50
 			// 
-			this.tbox_LD50.Location = new System.Drawing.Point(111, 270);
+			this.tbox_LD50.Location = new System.Drawing.Point(111, 272);
 			this.tbox_LD50.Name = "tbox_LD50";
 			this.tbox_LD50.Size = new System.Drawing.Size(110, 20);
 			this.tbox_LD50.TabIndex = 12;
@@ -528,7 +534,7 @@
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(227, 299);
+			this.label16.Location = new System.Drawing.Point(227, 301);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(27, 13);
 			this.label16.TabIndex = 16;
@@ -554,7 +560,7 @@
 			// 
 			// tbox_FlashPoint
 			// 
-			this.tbox_FlashPoint.Location = new System.Drawing.Point(111, 244);
+			this.tbox_FlashPoint.Location = new System.Drawing.Point(111, 246);
 			this.tbox_FlashPoint.Name = "tbox_FlashPoint";
 			this.tbox_FlashPoint.Size = new System.Drawing.Size(110, 20);
 			this.tbox_FlashPoint.TabIndex = 11;
@@ -582,7 +588,7 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(227, 273);
+			this.label15.Location = new System.Drawing.Point(227, 275);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(38, 13);
 			this.label15.TabIndex = 16;
@@ -600,7 +606,7 @@
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(227, 195);
+			this.label12.Location = new System.Drawing.Point(227, 197);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(37, 13);
 			this.label12.TabIndex = 16;
@@ -608,7 +614,7 @@
 			// 
 			// tbox_Acidity
 			// 
-			this.tbox_Acidity.Location = new System.Drawing.Point(111, 218);
+			this.tbox_Acidity.Location = new System.Drawing.Point(111, 220);
 			this.tbox_Acidity.Name = "tbox_Acidity";
 			this.tbox_Acidity.Size = new System.Drawing.Size(110, 20);
 			this.tbox_Acidity.TabIndex = 10;
@@ -618,7 +624,7 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(227, 222);
+			this.label13.Location = new System.Drawing.Point(227, 224);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(26, 13);
 			this.label13.TabIndex = 16;
@@ -626,7 +632,7 @@
 			// 
 			// tbox_VapourPressure
 			// 
-			this.tbox_VapourPressure.Location = new System.Drawing.Point(111, 192);
+			this.tbox_VapourPressure.Location = new System.Drawing.Point(111, 194);
 			this.tbox_VapourPressure.Name = "tbox_VapourPressure";
 			this.tbox_VapourPressure.Size = new System.Drawing.Size(110, 20);
 			this.tbox_VapourPressure.TabIndex = 9;
@@ -636,7 +642,7 @@
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(227, 247);
+			this.label14.Location = new System.Drawing.Point(227, 249);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(18, 13);
 			this.label14.TabIndex = 16;
@@ -644,6 +650,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.check_Available);
+			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.check_OtherNames);
 			this.groupBox1.Controls.Add(this.tbox_ChemName);
 			this.groupBox1.Controls.Add(this.label2);
@@ -658,6 +666,25 @@
 			this.groupBox1.TabIndex = 20;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Compound Details";
+			// 
+			// check_Available
+			// 
+			this.check_Available.AutoSize = true;
+			this.check_Available.Location = new System.Drawing.Point(83, 65);
+			this.check_Available.Name = "check_Available";
+			this.check_Available.Size = new System.Drawing.Size(120, 17);
+			this.check_Available.TabIndex = 20;
+			this.check_Available.Text = "Available in Storage";
+			this.check_Available.UseVisualStyleBackColor = true;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(6, 66);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(47, 13);
+			this.label1.TabIndex = 19;
+			this.label1.Text = "Formula:";
 			// 
 			// check_OtherNames
 			// 
@@ -681,16 +708,17 @@
 			// 
 			// tbox_Description
 			// 
-			this.tbox_Description.Location = new System.Drawing.Point(83, 65);
+			this.tbox_Description.Location = new System.Drawing.Point(83, 88);
 			this.tbox_Description.Multiline = true;
 			this.tbox_Description.Name = "tbox_Description";
-			this.tbox_Description.Size = new System.Drawing.Size(289, 101);
+			this.tbox_Description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.tbox_Description.Size = new System.Drawing.Size(289, 78);
 			this.tbox_Description.TabIndex = 15;
 			// 
 			// label20
 			// 
 			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(6, 68);
+			this.label20.Location = new System.Drawing.Point(6, 91);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(63, 13);
 			this.label20.TabIndex = 14;
@@ -710,6 +738,29 @@
 			this.check_Close.TabIndex = 23;
 			this.check_Close.Text = "Close after confirmation";
 			this.check_Close.UseVisualStyleBackColor = true;
+			// 
+			// check_Insoluble
+			// 
+			this.check_Insoluble.AutoSize = true;
+			this.check_Insoluble.Location = new System.Drawing.Point(78, 171);
+			this.check_Insoluble.Name = "check_Insoluble";
+			this.check_Insoluble.Size = new System.Drawing.Size(68, 17);
+			this.check_Insoluble.TabIndex = 20;
+			this.check_Insoluble.Text = "Insoluble";
+			this.check_Insoluble.UseVisualStyleBackColor = true;
+			// 
+			// btn_AdvancedSolubility
+			// 
+			this.btn_AdvancedSolubility.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btn_AdvancedSolubility.BackColor = System.Drawing.Color.White;
+			this.btn_AdvancedSolubility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_AdvancedSolubility.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+			this.btn_AdvancedSolubility.Location = new System.Drawing.Point(152, 169);
+			this.btn_AdvancedSolubility.Name = "btn_AdvancedSolubility";
+			this.btn_AdvancedSolubility.Size = new System.Drawing.Size(69, 19);
+			this.btn_AdvancedSolubility.TabIndex = 24;
+			this.btn_AdvancedSolubility.Text = "Advanced";
+			this.btn_AdvancedSolubility.UseVisualStyleBackColor = false;
 			// 
 			// AddNewCompound
 			// 
@@ -804,5 +855,9 @@
 		private System.Windows.Forms.CheckBox check_Appearance;
 		private System.Windows.Forms.CheckBox check_OtherNames;
 		private System.Windows.Forms.CheckBox check_Close;
+		private System.Windows.Forms.CheckBox check_Available;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button btn_AdvancedSolubility;
+		private System.Windows.Forms.CheckBox check_Insoluble;
 	}
 }

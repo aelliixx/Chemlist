@@ -8,6 +8,8 @@ namespace Chemlist
 {
 	public class ChemicalObject
 	{
+		public bool inStorage = false;
+
 		public String name { get; set; }
 		public String allNames { get; set; }
 		public String chemFormula { get; set; }
@@ -18,8 +20,8 @@ namespace Chemlist
 		public float mPoint { get; set; }
 		public float bPoint { get; set; }
 		public float density { get; set; }
-		public float solubilityInWater { get; set; }
-		public bool miscible { get; set; }
+		public float solubilityInWater { get; set; } // TODO: Complex solubility graphs and solubilities in other substances.
+		public bool miscible { get; set; } // TODO: Add insoluble
 		public float vapourPressure { get; set; }
 		public float lethalDose50 { get; set; }
 		public float lethalConcentration50 { get; set; }
@@ -43,12 +45,16 @@ namespace Chemlist
 		public bool bPurchaseLink = false;
 		public bool bMSDS = false;
 
+
 		// Links
+		public String wikiName { get; set; }
+		public String purchaseName { get; set; }
+		public String msdsName { get; set; }
 		public String wikiLink { get; set; }
 		public String purchaseLink { get; set; }
 		public String msds { get; set; }
 
-		public Guid chemID { get; set; }
+		public Guid chemID { get; set; } // FIXME: Const readonly?
 
 		public ChemicalObject()
 		{
@@ -62,7 +68,16 @@ namespace Chemlist
 			List<int> digits = new List<int>();
 			for (int i = 0; i < chemFormula.Length; i++)
 			{
-				if (Char.IsDigit(chemFormula[i]))
+				if (chemFormula[i] == '*')
+				{
+					for (int o = i + 2 ; o < chemFormula.Length; o++)
+					{
+						i++;
+						if (!Char.IsDigit(chemFormula[o]))
+							break;
+					}
+				}
+				else if (Char.IsDigit(chemFormula[i]))
 				{
 					digits.Add(i);
 				}

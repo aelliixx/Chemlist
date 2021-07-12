@@ -30,6 +30,8 @@ namespace Chemlist
 			tbox_LD50.Enabled = check_LD50.Checked;
 			tbox_LC50.Enabled = check_LC50.Checked;
 			check_Miscible.Enabled = check_SInWater.Checked;
+			check_Insoluble.Enabled = check_SInWater.Checked;
+			btn_AdvancedSolubility.Enabled = check_SInWater.Checked;
 			tbox_Solubility.Enabled = check_Solubility.Checked;
 			tbox_Wiki.Enabled = check_Wiki.Checked;
 			tbox_WikiName.Enabled = check_Wiki.Checked;
@@ -55,7 +57,7 @@ namespace Chemlist
 				ChemicalObject newChemical = new ChemicalObject
 				{
 					name = tbox_ChemName.Text,
-					chemFormula = tbox_ChemFormula.Text.ToUpper(),
+					chemFormula = tbox_ChemFormula.Text,
 					allNames = tbox_OtherNames.Text,
 					descripion = tbox_Description.Text,
 					appearance = tbox_Appearance.Text,
@@ -74,6 +76,11 @@ namespace Chemlist
 					wikiLink = tbox_Wiki.Text,
 					purchaseLink = tbox_Purchase.Text,
 					msds = tbox_MSDS.Text,
+					wikiName = tbox_WikiName.Text,
+					purchaseName = tbox_PurchaseName.Text,
+					msdsName = tbox_MSDSName.Text,
+
+					inStorage = check_Available.Checked,
 
 					bAllNames = check_OtherNames.Checked,
 					bAppearance = check_Appearance.Checked,
@@ -185,7 +192,13 @@ namespace Chemlist
 		{
 			tbox_SInWater.Enabled = check_SInWater.Checked;
 			check_Miscible.Enabled = check_SInWater.Checked;
-			if (!check_SInWater.Checked) { tbox_SInWater.Text = "0"; }
+			check_Insoluble.Enabled = check_SInWater.Checked;
+			btn_AdvancedSolubility.Enabled = check_SInWater.Checked;
+			if (!check_SInWater.Checked)
+			{
+				tbox_SInWater.Text = "0";
+				check_Insoluble.Enabled = false;
+			}
 		}
 
 		private void check_VapourPoint_CheckedChanged(object sender, EventArgs e)

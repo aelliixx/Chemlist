@@ -13,24 +13,24 @@ namespace Chemlist
 	public partial class AddNewProject : Form
 	{
 		public Form1 parentForm { get; set; }
+		public List<Guid> compoundID = new List<Guid>();
 		bool allowAdding = true;
 
 
-		public List<ChemicalObject> compounds = new List<ChemicalObject>();
 
 		public AddNewProject()
 		{
 			InitializeComponent();
 
-
+			cbox_CompoundList.DisplayMember = "name";
 		}
 
-		private void cbox_CompundList_DropDown(object sender, EventArgs e)
+		private void cbox_CompoundList_DropDown(object sender, EventArgs e)
 		{
-			cbox_CompundList.Items.Clear();
+			cbox_CompoundList.Items.Clear();
 			foreach (ChemicalObject chemicalObject in parentForm.chemicalList)
 			{
-				cbox_CompundList.Items.Add(chemicalObject.name);
+				cbox_CompoundList.Items.Add(chemicalObject);
 			}
 
 		}
@@ -42,34 +42,38 @@ namespace Chemlist
 
 		private void btn_AddRequirement_Click(object sender, EventArgs e)
 		{
-			if (cbox_CompundList.SelectedItem != null)
+			if (cbox_CompoundList.SelectedItem != null)
 			{
-				errorProvider1.SetError(cbox_CompundList, "");
+				errorProvider1.SetError(cbox_CompoundList, "");
 				String unit;
 				if (check_MiliPrefix.Checked) unit = " m"; else unit = " ";
 				if (rb_Grams.Checked) unit += "g"; else if (rb_Litres.Checked) unit += "L";
-				dg_CompoundList.Rows.Add(cbox_CompundList.SelectedItem.ToString(), (float)num_Quantity.Value + unit);
 
+				ChemicalObject selectedChemical = (ChemicalObject)cbox_CompoundList.SelectedItem;
+				dg_CompoundList.Rows.Add(selectedChemical.name, (float)num_Quantity.Value + unit);
 				foreach (ChemicalObject chemical in parentForm.chemicalList)
 				{
-					if (chemical.name == cbox_CompundList.SelectedItem.ToString())
+					if (chemical.chemID == selectedChemical.chemID)
 					{
-						compounds.Add(chemical);
+						compoundID.Add(chemical.chemID);
 					}
 				}
 			}
 			else
-				errorProvider1.SetError(cbox_CompundList, "Please add a valid compound.");
+				errorProvider1.SetError(cbox_CompoundList, "Please add a valid compound.");
 		}
 
 		private void btn_RemoveRequirement_Click(object sender, EventArgs e)
 		{
-			foreach (DataGridViewRow row in dg_CompoundList.Rows)
+			if (dg_CompoundList.SelectedRows.Count > 0)
 			{
-				if (row.Selected)
+				//foreach (ChemicalObject chemical in )
 				{
-					dg_CompoundList.Rows.Remove(row);
+					// FIXME: Removing doesn't work anymore.
 				}
+
+				dg_CompoundList.Rows.Remove(dg_CompoundList.SelectedRows[0]);
+
 			}
 		}
 
@@ -80,7 +84,7 @@ namespace Chemlist
 				name = tbox_ChemName.Text,
 				chemFormula = tbox_ProjectFormula.Text,
 				description = rtbox_Methods.Text,
-				requiredCompounds = compounds
+				requiredCompounds = compoundID
 			};
 			parentForm.addNewProject(newProject);
 		}

@@ -28,6 +28,9 @@ namespace Chemlist
 			tbox_Wiki.Text = current.wikiLink;
 			tbox_Purchase.Text = current.purchaseLink;
 			tbox_MSDS.Text = current.msds;
+			tbox_WikiName.Text = current.wikiName;
+			tbox_PurchaseName.Text = current.purchaseName;
+			tbox_MSDSName.Text = current.msdsName;
 			tbox_Appearance.Text = current.appearance;
 			tbox_MolarMass.Text = current.molarMass.ToString();
 			tbox_Density.Text = current.density.ToString();
@@ -40,6 +43,7 @@ namespace Chemlist
 			tbox_LD50.Text = current.lethalDose50.ToString();
 			tbox_LC50.Text = current.lethalConcentration50.ToString();
 
+			check_Available.Checked = current.inStorage;
 			check_OtherNames.Checked = current.bAllNames;
 			check_Solubility.Checked = current.bSolubility;
 			check_Wiki.Checked = current.bWikiLink;
@@ -98,25 +102,30 @@ namespace Chemlist
 				{
 					name = tbox_ChemName.Text,
 					chemFormula = tbox_ChemFormula.Text,
-					descripion = tbox_Description.Text,
 					allNames = tbox_OtherNames.Text,
+					descripion = tbox_Description.Text,
+					appearance = tbox_Appearance.Text,
+					molarMass = float.Parse(tbox_MolarMass.Text),
+					pKa = float.Parse(tbox_Acidity.Text),
+					mPoint = float.Parse(tbox_MeltingPoint.Text),
+					bPoint = float.Parse(tbox_BoilingPoint.Text),
+					density = float.Parse(tbox_Density.Text),
+					solubilityInWater = float.Parse(tbox_SInWater.Text),
+					miscible = check_Miscible.Checked,
+					vapourPressure = float.Parse(tbox_VapourPressure.Text),
+					lethalDose50 = float.Parse(tbox_LD50.Text),
+					lethalConcentration50 = float.Parse(tbox_LC50.Text),
+					flashPoint = float.Parse(tbox_FlashPoint.Text),
 					solubility = tbox_Solubility.Text,
 					wikiLink = tbox_Wiki.Text,
 					purchaseLink = tbox_Purchase.Text,
 					msds = tbox_MSDS.Text,
-					appearance = tbox_Appearance.Text,
-					molarMass = float.Parse(tbox_MolarMass.Text),
-					density = float.Parse(tbox_Density.Text),
-					mPoint = float.Parse(tbox_MeltingPoint.Text),
-					bPoint = float.Parse(tbox_BoilingPoint.Text),
-					solubilityInWater = float.Parse(tbox_SInWater.Text),
-					miscible = check_Miscible.Checked,
-					vapourPressure = float.Parse(tbox_VapourPressure.Text),
-					pKa = float.Parse(tbox_Acidity.Text),
-					flashPoint = float.Parse(tbox_FlashPoint.Text),
-					lethalDose50 = float.Parse(tbox_LD50.Text),
-					lethalConcentration50 = float.Parse(tbox_LC50.Text),
+					wikiName = tbox_WikiName.Text,
+					purchaseName = tbox_PurchaseName.Text,
+					msdsName = tbox_MSDSName.Text,
+
 					chemID = currentID,
+					inStorage = check_Available.Checked,
 
 					bAllNames = check_OtherNames.Checked,
 					bAppearance = check_Appearance.Checked,
