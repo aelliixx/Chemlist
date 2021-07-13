@@ -119,20 +119,44 @@ namespace Chemlist
 
 		private void btn_Confirm_Click(object sender, EventArgs e)
 		{
-			ProjectObject newProject = new ProjectObject
+			validateConfirmation();
+			if (allowAdding)
 			{
-				name = tbox_ProjectName.Text,
-				chemFormula = rtb_ProjectFormula.Text,
-				description = tbox_Description.Text,
-				methods = rtb_Methods.Text,
-				requiredChemicals = requiredChemicals
-			};
-			parentForm.addNewProject(newProject);
+				ProjectObject newProject = new ProjectObject
+				{
+					name = tbox_ProjectName.Text,
+					chemFormula = rtb_ProjectFormula.Text,
+					description = tbox_Description.Text,
+					methods = rtb_Methods.Text,
+					requiredChemicals = requiredChemicals
+				};
+				parentForm.addNewProject(newProject);
+				this.Close();
+			}
 		}
 
 		public void validateConfirmation()
 		{
-			// todo
+			if (
+			validateTextbox(tbox_ProjectName) &&
+			validateTextbox(tbox_Description))
+			{
+				allowAdding = true;
+				return;
+			}
+			allowAdding = false;
+			return;
+		}
+
+		public bool validateTextbox(TextBox textBox)
+		{
+			errorProvider1.SetError(textBox, "");
+			if (textBox.Text == "")
+			{
+				errorProvider1.SetError(textBox, "Please enter a value");
+				return false;
+			}
+			return true;
 		}
 
 		private void lbox_MakesChemicalList_SelectedIndexChanged(object sender, EventArgs e)

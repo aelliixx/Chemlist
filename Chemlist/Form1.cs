@@ -50,13 +50,6 @@ namespace Chemlist
 			cbox_CompoundSort.SelectedIndex = 0;
 			lbox_RequiredChem.DisplayMember = "name";
 			lbox_UsedIn.DisplayMember = "name";
-
-			List<ChemicalObject.Molecule> test = new List<ChemicalObject.Molecule>();
-			test = ChemicalObject.parseMolecule("KAl(SO4)212H2O");
-			foreach (ChemicalObject.Molecule molecule in test)
-			{
-				groupBox1.Text += molecule.element + " " + molecule.count + " ";
-			}
 		}
 
 		private void lbox_ChemicalList_SelectedIndexChanged(object sender, EventArgs e)

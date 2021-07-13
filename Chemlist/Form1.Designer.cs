@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 0);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
@@ -104,7 +104,14 @@
 			this.btn_AddNewProject = new System.Windows.Forms.Button();
 			this.btn_EditProject = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.tab_ProjectInfo = new System.Windows.Forms.TabControl();
+			this.tab_Description = new System.Windows.Forms.TabPage();
+			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+			this.label9 = new System.Windows.Forms.Label();
 			this.rtb_ProjectDescription = new System.Windows.Forms.RichTextBox();
+			this.tab_Methods = new System.Windows.Forms.TabPage();
+			this.rtb_Methods = new System.Windows.Forms.RichTextBox();
+			this.tab_Yields = new System.Windows.Forms.TabPage();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.lbox_RequiredChem = new System.Windows.Forms.ListBox();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -113,20 +120,12 @@
 			this.txt_ProjectDoable = new System.Windows.Forms.Label();
 			this.txt_Project = new System.Windows.Forms.Label();
 			this.rtb_ProjectChemFormula = new System.Windows.Forms.RichTextBox();
-			this.tab_Equipment = new System.Windows.Forms.TabPage();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.tab_ProjectInfo = new System.Windows.Forms.TabControl();
-			this.tab_Description = new System.Windows.Forms.TabPage();
-			this.tab_Methods = new System.Windows.Forms.TabPage();
-			this.tab_Yields = new System.Windows.Forms.TabPage();
-			this.rtb_Methods = new System.Windows.Forms.RichTextBox();
-			this.label9 = new System.Windows.Forms.Label();
-			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
 			this.tab_Switcher.SuspendLayout();
 			this.tab_Chemicals.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -153,19 +152,18 @@
 			this.splitContainer4.Panel2.SuspendLayout();
 			this.splitContainer4.SuspendLayout();
 			this.panel1.SuspendLayout();
-			this.groupBox5.SuspendLayout();
-			this.groupBox6.SuspendLayout();
-			this.menuStrip1.SuspendLayout();
 			this.tab_ProjectInfo.SuspendLayout();
 			this.tab_Description.SuspendLayout();
 			this.tab_Methods.SuspendLayout();
+			this.groupBox5.SuspendLayout();
+			this.groupBox6.SuspendLayout();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tab_Switcher
 			// 
 			this.tab_Switcher.Controls.Add(this.tab_Chemicals);
 			this.tab_Switcher.Controls.Add(this.tab_Projects);
-			this.tab_Switcher.Controls.Add(this.tab_Equipment);
 			this.tab_Switcher.Cursor = System.Windows.Forms.Cursors.Arrow;
 			this.tab_Switcher.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tab_Switcher.Location = new System.Drawing.Point(0, 24);
@@ -376,14 +374,14 @@
 			this.lview_Warnings.BackColor = System.Drawing.SystemColors.Control;
 			this.lview_Warnings.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.lview_Warnings.HideSelection = false;
-			listViewItem1.UseItemStyleForSubItems = false;
+			listViewItem7.UseItemStyleForSubItems = false;
 			this.lview_Warnings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
 			this.lview_Warnings.LargeImageList = this.imageList1;
 			this.lview_Warnings.Location = new System.Drawing.Point(377, 144);
 			this.lview_Warnings.Margin = new System.Windows.Forms.Padding(0);
@@ -1007,6 +1005,51 @@
 			this.panel1.Size = new System.Drawing.Size(656, 505);
 			this.panel1.TabIndex = 6;
 			// 
+			// tab_ProjectInfo
+			// 
+			this.tab_ProjectInfo.Controls.Add(this.tab_Description);
+			this.tab_ProjectInfo.Controls.Add(this.tab_Methods);
+			this.tab_ProjectInfo.Controls.Add(this.tab_Yields);
+			this.tab_ProjectInfo.Location = new System.Drawing.Point(6, 135);
+			this.tab_ProjectInfo.Name = "tab_ProjectInfo";
+			this.tab_ProjectInfo.SelectedIndex = 0;
+			this.tab_ProjectInfo.Size = new System.Drawing.Size(435, 362);
+			this.tab_ProjectInfo.TabIndex = 9;
+			// 
+			// tab_Description
+			// 
+			this.tab_Description.BackColor = System.Drawing.SystemColors.Control;
+			this.tab_Description.Controls.Add(this.linkLabel1);
+			this.tab_Description.Controls.Add(this.label9);
+			this.tab_Description.Controls.Add(this.rtb_ProjectDescription);
+			this.tab_Description.Location = new System.Drawing.Point(4, 22);
+			this.tab_Description.Name = "tab_Description";
+			this.tab_Description.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_Description.Size = new System.Drawing.Size(427, 336);
+			this.tab_Description.TabIndex = 0;
+			this.tab_Description.Text = "Description";
+			// 
+			// linkLabel1
+			// 
+			this.linkLabel1.AutoSize = true;
+			this.linkLabel1.LinkColor = System.Drawing.SystemColors.WindowText;
+			this.linkLabel1.Location = new System.Drawing.Point(72, 7);
+			this.linkLabel1.Name = "linkLabel1";
+			this.linkLabel1.Size = new System.Drawing.Size(63, 13);
+			this.linkLabel1.TabIndex = 5;
+			this.linkLabel1.TabStop = true;
+			this.linkLabel1.Text = "Unavailable";
+			this.linkLabel1.VisitedLinkColor = System.Drawing.SystemColors.WindowText;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(6, 7);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(60, 13);
+			this.label9.TabIndex = 4;
+			this.label9.Text = "Video Link:";
+			// 
 			// rtb_ProjectDescription
 			// 
 			this.rtb_ProjectDescription.BackColor = System.Drawing.SystemColors.Control;
@@ -1023,6 +1066,39 @@
 			this.rtb_ProjectDescription.Text = "Acetic acid (or ethanoic acid) is an organic compound with the chemical formula C" +
     "H3COOH. It is a colorless liquid that when undiluted is called glacial acetic ac" +
     "id.";
+			// 
+			// tab_Methods
+			// 
+			this.tab_Methods.BackColor = System.Drawing.SystemColors.Control;
+			this.tab_Methods.Controls.Add(this.rtb_Methods);
+			this.tab_Methods.Location = new System.Drawing.Point(4, 22);
+			this.tab_Methods.Name = "tab_Methods";
+			this.tab_Methods.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_Methods.Size = new System.Drawing.Size(427, 336);
+			this.tab_Methods.TabIndex = 1;
+			this.tab_Methods.Text = "Methods";
+			// 
+			// rtb_Methods
+			// 
+			this.rtb_Methods.BackColor = System.Drawing.SystemColors.Control;
+			this.rtb_Methods.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.rtb_Methods.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.rtb_Methods.Location = new System.Drawing.Point(3, 3);
+			this.rtb_Methods.Name = "rtb_Methods";
+			this.rtb_Methods.ReadOnly = true;
+			this.rtb_Methods.Size = new System.Drawing.Size(421, 330);
+			this.rtb_Methods.TabIndex = 0;
+			this.rtb_Methods.Text = "";
+			// 
+			// tab_Yields
+			// 
+			this.tab_Yields.BackColor = System.Drawing.SystemColors.Control;
+			this.tab_Yields.Location = new System.Drawing.Point(4, 22);
+			this.tab_Yields.Name = "tab_Yields";
+			this.tab_Yields.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_Yields.Size = new System.Drawing.Size(427, 336);
+			this.tab_Yields.TabIndex = 2;
+			this.tab_Yields.Text = "Yields";
 			// 
 			// groupBox5
 			// 
@@ -1081,6 +1157,7 @@
 			this.richTextBox1.Size = new System.Drawing.Size(610, 21);
 			this.richTextBox1.TabIndex = 8;
 			this.richTextBox1.Text = "Reaction";
+			this.richTextBox1.Visible = false;
 			// 
 			// pguid
 			// 
@@ -1094,6 +1171,7 @@
 			this.pguid.TabIndex = 5;
 			this.pguid.Text = "GUID";
 			this.pguid.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.pguid.Visible = false;
 			// 
 			// txt_ProjectDoable
 			// 
@@ -1130,15 +1208,6 @@
 			this.rtb_ProjectChemFormula.Size = new System.Drawing.Size(610, 21);
 			this.rtb_ProjectChemFormula.TabIndex = 2;
 			this.rtb_ProjectChemFormula.Text = "Formula";
-			// 
-			// tab_Equipment
-			// 
-			this.tab_Equipment.BackColor = System.Drawing.SystemColors.Control;
-			this.tab_Equipment.Location = new System.Drawing.Point(4, 22);
-			this.tab_Equipment.Name = "tab_Equipment";
-			this.tab_Equipment.Size = new System.Drawing.Size(990, 505);
-			this.tab_Equipment.TabIndex = 3;
-			this.tab_Equipment.Text = "Equipment";
 			// 
 			// menuStrip1
 			// 
@@ -1186,84 +1255,6 @@
 			// 
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-			// 
-			// tab_ProjectInfo
-			// 
-			this.tab_ProjectInfo.Controls.Add(this.tab_Description);
-			this.tab_ProjectInfo.Controls.Add(this.tab_Methods);
-			this.tab_ProjectInfo.Controls.Add(this.tab_Yields);
-			this.tab_ProjectInfo.Location = new System.Drawing.Point(6, 135);
-			this.tab_ProjectInfo.Name = "tab_ProjectInfo";
-			this.tab_ProjectInfo.SelectedIndex = 0;
-			this.tab_ProjectInfo.Size = new System.Drawing.Size(435, 362);
-			this.tab_ProjectInfo.TabIndex = 9;
-			// 
-			// tab_Description
-			// 
-			this.tab_Description.BackColor = System.Drawing.SystemColors.Control;
-			this.tab_Description.Controls.Add(this.linkLabel1);
-			this.tab_Description.Controls.Add(this.label9);
-			this.tab_Description.Controls.Add(this.rtb_ProjectDescription);
-			this.tab_Description.Location = new System.Drawing.Point(4, 22);
-			this.tab_Description.Name = "tab_Description";
-			this.tab_Description.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_Description.Size = new System.Drawing.Size(427, 336);
-			this.tab_Description.TabIndex = 0;
-			this.tab_Description.Text = "Description";
-			// 
-			// tab_Methods
-			// 
-			this.tab_Methods.BackColor = System.Drawing.SystemColors.Control;
-			this.tab_Methods.Controls.Add(this.rtb_Methods);
-			this.tab_Methods.Location = new System.Drawing.Point(4, 22);
-			this.tab_Methods.Name = "tab_Methods";
-			this.tab_Methods.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_Methods.Size = new System.Drawing.Size(427, 336);
-			this.tab_Methods.TabIndex = 1;
-			this.tab_Methods.Text = "Methods";
-			// 
-			// tab_Yields
-			// 
-			this.tab_Yields.BackColor = System.Drawing.SystemColors.Control;
-			this.tab_Yields.Location = new System.Drawing.Point(4, 22);
-			this.tab_Yields.Name = "tab_Yields";
-			this.tab_Yields.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_Yields.Size = new System.Drawing.Size(427, 336);
-			this.tab_Yields.TabIndex = 2;
-			this.tab_Yields.Text = "Yields";
-			// 
-			// rtb_Methods
-			// 
-			this.rtb_Methods.BackColor = System.Drawing.SystemColors.Control;
-			this.rtb_Methods.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.rtb_Methods.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rtb_Methods.Location = new System.Drawing.Point(3, 3);
-			this.rtb_Methods.Name = "rtb_Methods";
-			this.rtb_Methods.ReadOnly = true;
-			this.rtb_Methods.Size = new System.Drawing.Size(421, 330);
-			this.rtb_Methods.TabIndex = 0;
-			this.rtb_Methods.Text = "";
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(6, 7);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(60, 13);
-			this.label9.TabIndex = 4;
-			this.label9.Text = "Video Link:";
-			// 
-			// linkLabel1
-			// 
-			this.linkLabel1.AutoSize = true;
-			this.linkLabel1.LinkColor = System.Drawing.SystemColors.WindowText;
-			this.linkLabel1.Location = new System.Drawing.Point(72, 7);
-			this.linkLabel1.Name = "linkLabel1";
-			this.linkLabel1.Size = new System.Drawing.Size(63, 13);
-			this.linkLabel1.TabIndex = 5;
-			this.linkLabel1.TabStop = true;
-			this.linkLabel1.Text = "Unavailable";
-			this.linkLabel1.VisitedLinkColor = System.Drawing.SystemColors.WindowText;
 			// 
 			// Form1
 			// 
@@ -1313,15 +1304,15 @@
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
 			this.splitContainer4.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
+			this.tab_ProjectInfo.ResumeLayout(false);
+			this.tab_Description.ResumeLayout(false);
+			this.tab_Description.PerformLayout();
+			this.tab_Methods.ResumeLayout(false);
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox6.ResumeLayout(false);
 			this.groupBox6.PerformLayout();
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
-			this.tab_ProjectInfo.ResumeLayout(false);
-			this.tab_Description.ResumeLayout(false);
-			this.tab_Description.PerformLayout();
-			this.tab_Methods.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1331,7 +1322,6 @@
 
 		private System.Windows.Forms.TabControl tab_Switcher;
 		private System.Windows.Forms.TabPage tab_Chemicals;
-		private System.Windows.Forms.TabPage tab_Equipment;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.ListBox lbox_ChemicalList;
 		private System.Windows.Forms.Button btn_RemoveChemicalFromList;

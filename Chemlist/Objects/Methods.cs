@@ -65,6 +65,11 @@ namespace Chemlist
 			if (File.Exists(fileName))
 			{
 				json = File.ReadAllLines(fileName).ToList();
+				if (json.Count == 0)
+				{
+					File.WriteAllText(fileName, "[]");
+					validateFile(fileName, ref json);
+				}
 				return;
 			}
 			else
@@ -250,6 +255,8 @@ namespace Chemlist
 
 				txt_Project.Text = current.name;
 				rtb_Methods.Text = current.methods;
+				rtb_ProjectDescription.Text = current.description;
+
 
 
 
@@ -262,7 +269,6 @@ namespace Chemlist
 					rtb_ProjectChemFormula.Select(0, 0);
 				}
 
-				rtb_ProjectDescription.Text = current.description;
 
 				pguid.Text = current.projectID.ToString();
 
