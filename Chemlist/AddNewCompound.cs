@@ -220,7 +220,10 @@ namespace Chemlist
 			if (!check_SInWater.Checked)
 			{
 				tbox_SInWater.Text = "0";
-				check_Insoluble.Enabled = false;
+				check_Miscible.Checked = false;
+				check_Insoluble.Checked = false;
+				tbox_SInWater.Enabled = false;
+				btn_AdvancedSolubility.Enabled = false;
 			}
 		}
 
@@ -391,6 +394,7 @@ namespace Chemlist
 			{
 				check_Insoluble.Checked = false;
 				tbox_SInWater.Enabled = false;
+				tbox_SInWater.Text = "0";
 				btn_AdvancedSolubility.Enabled = false;
 			}
 			else
@@ -406,6 +410,7 @@ namespace Chemlist
 			{
 				check_Miscible.Checked = false;
 				tbox_SInWater.Enabled = false;
+				tbox_SInWater.Text = "0";
 				btn_AdvancedSolubility.Enabled = false;
 			}
 			else

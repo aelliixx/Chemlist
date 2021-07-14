@@ -479,7 +479,7 @@
 			// check_Insoluble
 			// 
 			this.check_Insoluble.AutoSize = true;
-			this.check_Insoluble.Location = new System.Drawing.Point(78, 171);
+			this.check_Insoluble.Location = new System.Drawing.Point(76, 171);
 			this.check_Insoluble.Name = "check_Insoluble";
 			this.check_Insoluble.Size = new System.Drawing.Size(68, 17);
 			this.check_Insoluble.TabIndex = 20;

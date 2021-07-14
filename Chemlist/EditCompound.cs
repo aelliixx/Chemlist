@@ -295,7 +295,14 @@ namespace Chemlist
 			check_Miscible.Enabled = check_SInWater.Checked;
 			check_Insoluble.Enabled = check_SInWater.Checked;
 			btn_AdvancedSolubility.Enabled = check_SInWater.Checked;
-			if (!check_SInWater.Checked) { tbox_SInWater.Text = "0"; }
+			if (!check_SInWater.Checked)
+			{
+				tbox_SInWater.Text = "0";
+				check_Miscible.Checked = false;
+				check_Insoluble.Checked = false;
+				tbox_SInWater.Enabled = false;
+				btn_AdvancedSolubility.Enabled = false;
+			}
 		}
 
 		private void check_VapourPoint_CheckedChanged(object sender, EventArgs e)
@@ -374,6 +381,7 @@ namespace Chemlist
 				check_Insoluble.Checked = false;
 				tbox_SInWater.Enabled = false;
 				btn_AdvancedSolubility.Enabled = false;
+				tbox_SInWater.Text = "0";
 			}
 			else
 			{
@@ -389,6 +397,7 @@ namespace Chemlist
 				check_Miscible.Checked = false;
 				tbox_SInWater.Enabled = false;
 				btn_AdvancedSolubility.Enabled = false;
+				tbox_SInWater.Text = "0";
 			}
 			else
 			{
