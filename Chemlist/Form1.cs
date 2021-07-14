@@ -17,12 +17,6 @@ namespace Chemlist
 {
 	public partial class Form1 : Form
 	{
-		public List<ChemicalObject> chemicalList = new List<ChemicalObject>();
-		public List<ProjectObject> projectList = new List<ProjectObject>();
-
-		public Settings settings = new Settings();
-		BindingSource compoundSource = new BindingSource();
-		BindingSource projectSource = new BindingSource();
 		public Form1()
 		{
 			InitializeComponent();
@@ -50,6 +44,8 @@ namespace Chemlist
 			cbox_CompoundSort.SelectedIndex = 0;
 			lbox_RequiredChem.DisplayMember = "name";
 			lbox_UsedIn.DisplayMember = "name";
+
+
 		}
 
 		private void lbox_ChemicalList_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,30 +58,6 @@ namespace Chemlist
 			removeChemical(lbox_ChemicalList.SelectedIndex);
 		}
 
-		private void btn_EditCurrentChemical_Click(object sender, EventArgs e)
-		{
-			ChemicalObject temp = (ChemicalObject)lbox_ChemicalList.SelectedItem;
-			EditCompound compoundEditor = new EditCompound(temp) { parentForm = this };
-			compoundEditor.Show();
-		}
-
-		private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			Options optionsWindow = new Options { parentForm = this };
-			optionsWindow.Show();
-		}
-
-		private void btn_AddNew_Click(object sender, EventArgs e)
-		{
-			AddNewCompound addNewCompound = new AddNewCompound { parentForm = this };
-			addNewCompound.Show();
-		}
-
-		private void btn_AddNewProject_Click(object sender, EventArgs e)
-		{
-			AddNewProject addNewProject = new AddNewProject(chemicalList) { parentForm = this };
-			addNewProject.Show();
-		}
 
 		/// FIXME: Fix opening links
 
@@ -135,20 +107,6 @@ namespace Chemlist
 			invalidateCompoundNamesList();
 		}
 
-		private void lbox_ChemicalList_DrawItem(object sender, DrawItemEventArgs e)
-		{
-			//if (e.Index >= 0 && lbox_ChemicalList.Items[e.Index] is ChemicalObject item)
-			//{
-			//	e.Graphics.DrawString(
-			//		item.name,
-			//		lbox_ChemicalList.Font,
-			//		new SolidBrush(Color.Red),
-			//		0,
-			//		e.Index * lbox_ChemicalList.ItemHeight
-			//		);
-			//}
-		}
-
 		private void tbox_CompoundSearch_Enter(object sender, EventArgs e)
 		{
 			if (tbox_CompoundSearch.Text == "Search")
@@ -170,6 +128,36 @@ namespace Chemlist
 				// todo
 			}
 		}
-		
+
+		private void btn_EditCurrentChemical_Click(object sender, EventArgs e)
+		{
+			ChemicalObject temp = (ChemicalObject)lbox_ChemicalList.SelectedItem;
+			EditCompound compoundEditor = new EditCompound(temp) { parentForm = this };
+			compoundEditor.Show();
+		}
+
+		private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Options optionsWindow = new Options { parentForm = this };
+			optionsWindow.Show();
+		}
+
+		private void btn_AddNew_Click(object sender, EventArgs e)
+		{
+			AddNewCompound addNewCompound = new AddNewCompound { parentForm = this };
+			addNewCompound.Show();
+		}
+
+		private void btn_AddNewProject_Click(object sender, EventArgs e)
+		{
+			AddNewProject addNewProject = new AddNewProject(chemicalList) { parentForm = this };
+			addNewProject.Show();
+		}
+
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			About aboutPage = new About();
+			aboutPage.Show();
+		}
 	}
 }

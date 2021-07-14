@@ -56,11 +56,49 @@ namespace Chemlist
 			check_bPoint.Checked = current.bBoilingPoint;
 			check_SInWater.Checked = current.bSInWater;
 			check_Miscible.Checked = current.miscible;
+			check_Insoluble.Checked = current.insoluble;
 			check_VapourPoint.Checked = current.bVapourPressure;
 			check_Acidity.Checked = current.bAcidity;
 			check_FlashPoint.Checked = current.bFlashPoint;
 			check_LD50.Checked = current.bLD50;
 			check_LC50.Checked = current.bLC50;
+
+			foreach (Hazards hazards in current.hazards)
+			{
+				switch (hazards.symbols)
+				{
+					case "AcutelyToxic":
+						check_Toxic.Checked = true;
+						break;
+					case "Corrosive":
+						check_Corrosive.Checked = true;
+						break;
+					case "EnvironmentalHazard":
+						check_EnvironmentalHazard.Checked = true;
+						break;
+					case "MildIrritant":
+						check_Irritant.Checked = true;
+						break;
+					case "Explosive":
+						check_Explosive.Checked = true;
+						break;
+					case "Flamable":
+						check_Flamable.Checked = true;
+						break;
+					case "Pressurised":
+						check_Pressurised.Checked = true;
+						break;
+					case "HealthHazard":
+						check_HealthHazard.Checked = true;
+						break;
+					case "Oxidiser":
+						check_Oxidising.Checked = true;
+						break;
+					default:
+						break;
+				}
+
+			}
 
 			tbox_OtherNames.Enabled = check_OtherNames.Checked;
 			tbox_Solubility.Enabled = check_Solubility.Checked;
@@ -76,6 +114,9 @@ namespace Chemlist
 			tbox_MeltingPoint.Enabled = check_mPoint.Checked;
 			tbox_BoilingPoint.Enabled = check_bPoint.Checked;
 			tbox_SInWater.Enabled = check_SInWater.Checked;
+			check_Miscible.Enabled = check_SInWater.Checked;
+			check_Insoluble.Enabled = check_SInWater.Checked;
+			btn_AdvancedSolubility.Enabled = check_SInWater.Checked;
 			tbox_VapourPressure.Enabled = check_VapourPoint.Checked;
 			tbox_Acidity.Enabled = check_Acidity.Checked;
 			tbox_FlashPoint.Enabled = check_FlashPoint.Checked;
@@ -144,6 +185,26 @@ namespace Chemlist
 					bPurchaseLink = check_Purchase.Checked,
 					bMSDS = check_MSDS.Checked,
 				};
+				currentEditable.hazards.Clear();
+				if (check_Toxic.Checked)
+					currentEditable.hazards.Add(parentForm.hazardSymbols[0]);
+				if (check_Corrosive.Checked)
+					currentEditable.hazards.Add(parentForm.hazardSymbols[1]);
+				if (check_EnvironmentalHazard.Checked)
+					currentEditable.hazards.Add(parentForm.hazardSymbols[2]);
+				if (check_Irritant.Checked)
+					currentEditable.hazards.Add(parentForm.hazardSymbols[3]);
+				if (check_Explosive.Checked)
+					currentEditable.hazards.Add(parentForm.hazardSymbols[4]);
+				if (check_Flamable.Checked)
+					currentEditable.hazards.Add(parentForm.hazardSymbols[5]);
+				if (check_Pressurised.Checked)
+					currentEditable.hazards.Add(parentForm.hazardSymbols[6]);
+				if (check_HealthHazard.Checked)
+					currentEditable.hazards.Add(parentForm.hazardSymbols[7]);
+				if (check_Oxidising.Checked)
+					currentEditable.hazards.Add(parentForm.hazardSymbols[8]);
+
 				parentForm.editCompound(currentEditable);
 
 				Close();
@@ -171,7 +232,8 @@ namespace Chemlist
 			validateCompoundValues(typeof(float), tbox_LD50) &&
 			validateCompoundValues(typeof(float), tbox_LC50) &&
 			validateCompoundValues(typeof(String), tbox_OtherNames) &&
-			validateCompoundValues(typeof(String), tbox_Appearance))
+			validateCompoundValues(typeof(String), tbox_Appearance) &&
+			ChemicalObject.parseMolecule(tbox_ChemFormula.Text) != null)
 			{
 				allowAdding = true;
 				return;
@@ -231,6 +293,8 @@ namespace Chemlist
 		{
 			tbox_SInWater.Enabled = check_SInWater.Checked;
 			check_Miscible.Enabled = check_SInWater.Checked;
+			check_Insoluble.Enabled = check_SInWater.Checked;
+			btn_AdvancedSolubility.Enabled = check_SInWater.Checked;
 			if (!check_SInWater.Checked) { tbox_SInWater.Text = "0"; }
 		}
 
@@ -301,6 +365,45 @@ namespace Chemlist
 		{
 			tbox_OtherNames.Enabled = check_OtherNames.Checked;
 			if (!check_OtherNames.Checked) { tbox_OtherNames.Text = "N/A"; }
+		}
+
+		private void check_Miscible_CheckedChanged(object sender, EventArgs e)
+		{
+			if (check_Miscible.Checked)
+			{ 
+				check_Insoluble.Checked = false;
+				tbox_SInWater.Enabled = false;
+				btn_AdvancedSolubility.Enabled = false;
+			}
+			else
+			{
+				tbox_SInWater.Enabled = true;
+				btn_AdvancedSolubility.Enabled = true;
+			}
+		}
+
+		private void check_Insoluble_CheckedChanged(object sender, EventArgs e)
+		{
+			if (check_Insoluble.Checked)
+			{
+				check_Miscible.Checked = false;
+				tbox_SInWater.Enabled = false;
+				btn_AdvancedSolubility.Enabled = false;
+			}
+			else
+			{
+				tbox_SInWater.Enabled = true;
+				btn_AdvancedSolubility.Enabled = true;
+			}
+		}
+
+		private void tbox_ChemFormula_TextChanged(object sender, EventArgs e)
+		{
+			if (ChemicalObject.parseMolecule(tbox_ChemFormula.Text) == null)
+				errorProvider1.SetError(tbox_ChemFormula, "Please enter a valid formula.");
+			else
+				errorProvider1.SetError(tbox_ChemFormula, "");
+
 		}
 	}
 }

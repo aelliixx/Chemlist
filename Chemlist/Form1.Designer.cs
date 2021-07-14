@@ -29,12 +29,15 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 0);
 			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 1);
+			System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 2);
+			System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("", 3);
+			System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("", 4);
+			System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("", 5);
+			System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("", 6);
+			System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("", 7);
+			System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("", 8);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
@@ -51,7 +54,7 @@
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
 			this.lbox_ChemMadeIn = new System.Windows.Forms.ListBox();
 			this.lview_Warnings = new System.Windows.Forms.ListView();
-			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+			this.hazardImages = new System.Windows.Forms.ImageList(this.components);
 			this.label5 = new System.Windows.Forms.Label();
 			this.rtb_Solubility = new System.Windows.Forms.RichTextBox();
 			this.rtb_Description = new System.Windows.Forms.RichTextBox();
@@ -245,7 +248,6 @@
 			this.lbox_ChemicalList.Size = new System.Drawing.Size(330, 438);
 			this.lbox_ChemicalList.Sorted = true;
 			this.lbox_ChemicalList.TabIndex = 0;
-			this.lbox_ChemicalList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbox_ChemicalList_DrawItem);
 			this.lbox_ChemicalList.SelectedIndexChanged += new System.EventHandler(this.lbox_ChemicalList_SelectedIndexChanged);
 			// 
 			// tbox_CompoundSearch
@@ -374,15 +376,17 @@
 			this.lview_Warnings.BackColor = System.Drawing.SystemColors.Control;
 			this.lview_Warnings.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.lview_Warnings.HideSelection = false;
-			listViewItem7.UseItemStyleForSubItems = false;
 			this.lview_Warnings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8,
-            listViewItem9,
             listViewItem10,
             listViewItem11,
-            listViewItem12});
-			this.lview_Warnings.LargeImageList = this.imageList1;
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18});
+			this.lview_Warnings.LargeImageList = this.hazardImages;
 			this.lview_Warnings.Location = new System.Drawing.Point(377, 144);
 			this.lview_Warnings.Margin = new System.Windows.Forms.Padding(0);
 			this.lview_Warnings.MultiSelect = false;
@@ -393,11 +397,19 @@
 			this.lview_Warnings.UseCompatibleStateImageBehavior = false;
 			this.lview_Warnings.View = System.Windows.Forms.View.Tile;
 			// 
-			// imageList1
+			// hazardImages
 			// 
-			this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-			this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-			this.imageList1.Images.SetKeyName(0, "800px-GHS-pictogram-skull.svg.png");
+			this.hazardImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("hazardImages.ImageStream")));
+			this.hazardImages.TransparentColor = System.Drawing.Color.Transparent;
+			this.hazardImages.Images.SetKeyName(0, "AcutelyToxic");
+			this.hazardImages.Images.SetKeyName(1, "Corrosive");
+			this.hazardImages.Images.SetKeyName(2, "EnvironmentalHazard");
+			this.hazardImages.Images.SetKeyName(3, "MildIrritant");
+			this.hazardImages.Images.SetKeyName(4, "Explosive");
+			this.hazardImages.Images.SetKeyName(5, "Flamable");
+			this.hazardImages.Images.SetKeyName(6, "Pressurised");
+			this.hazardImages.Images.SetKeyName(7, "HealthHazard");
+			this.hazardImages.Images.SetKeyName(8, "Oxidiser");
 			// 
 			// label5
 			// 
@@ -432,9 +444,7 @@
 			this.rtb_Description.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
 			this.rtb_Description.Size = new System.Drawing.Size(265, 122);
 			this.rtb_Description.TabIndex = 3;
-			this.rtb_Description.Text = "Acetic acid (or ethanoic acid) is an organic compound with the chemical formula C" +
-    "H3COOH. It is a colorless liquid that when undiluted is called glacial acetic ac" +
-    "id.";
+			this.rtb_Description.Text = "";
 			// 
 			// label1
 			// 
@@ -1063,9 +1073,7 @@
 			this.rtb_ProjectDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
 			this.rtb_ProjectDescription.Size = new System.Drawing.Size(421, 310);
 			this.rtb_ProjectDescription.TabIndex = 3;
-			this.rtb_ProjectDescription.Text = "Acetic acid (or ethanoic acid) is an organic compound with the chemical formula C" +
-    "H3COOH. It is a colorless liquid that when undiluted is called glacial acetic ac" +
-    "id.";
+			this.rtb_ProjectDescription.Text = "";
 			// 
 			// tab_Methods
 			// 
@@ -1237,6 +1245,7 @@
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.aboutToolStripMenuItem.Text = "About";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
 			// optionsToolStripMenuItem
 			// 
@@ -1398,7 +1407,7 @@
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.RichTextBox rtb_Solubility;
 		private System.Windows.Forms.ListView lview_Warnings;
-		private System.Windows.Forms.ImageList imageList1;
+		private System.Windows.Forms.ImageList hazardImages;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.GroupBox groupBox4;
 		private System.Windows.Forms.ListBox lbox_ChemMadeIn;

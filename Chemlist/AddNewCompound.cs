@@ -13,6 +13,8 @@ namespace Chemlist
 	public partial class AddNewCompound : Form
 	{
 		public Form1 parentForm { get; set; }
+		int fire = 2, health, reactivity;
+		String special;
 		bool allowAdding = true;
 
 		public AddNewCompound()
@@ -68,6 +70,7 @@ namespace Chemlist
 					density = float.Parse(tbox_Density.Text),
 					solubilityInWater = float.Parse(tbox_SInWater.Text),
 					miscible = check_Miscible.Checked,
+					insoluble = check_Insoluble.Checked,
 					vapourPressure = float.Parse(tbox_VapourPressure.Text),
 					lethalDose50 = float.Parse(tbox_LD50.Text),
 					lethalConcentration50 = float.Parse(tbox_LC50.Text),
@@ -97,8 +100,27 @@ namespace Chemlist
 					bSolubility = check_Solubility.Checked,
 					bWikiLink = check_Wiki.Checked,
 					bPurchaseLink = check_Purchase.Checked,
-					bMSDS = check_MSDS.Checked,
+					bMSDS = check_MSDS.Checked
 				};
+
+				if (check_Toxic.Checked)
+					newChemical.hazards.Add(parentForm.hazardSymbols[0]);
+				if (check_Corrosive.Checked)
+					newChemical.hazards.Add(parentForm.hazardSymbols[1]);
+				if (check_EnvironmentalHazard.Checked)
+					newChemical.hazards.Add(parentForm.hazardSymbols[2]);
+				if (check_Irritant.Checked)
+					newChemical.hazards.Add(parentForm.hazardSymbols[3]);
+				if (check_Explosive.Checked)
+					newChemical.hazards.Add(parentForm.hazardSymbols[4]);
+				if (check_Flamable.Checked)
+					newChemical.hazards.Add(parentForm.hazardSymbols[5]);
+				if (check_Pressurised.Checked)
+					newChemical.hazards.Add(parentForm.hazardSymbols[6]);
+				if (check_HealthHazard.Checked)
+					newChemical.hazards.Add(parentForm.hazardSymbols[7]);
+				if (check_Oxidising.Checked)
+					newChemical.hazards.Add(parentForm.hazardSymbols[8]);
 
 				parentForm.addNewChemical(newChemical);
 
@@ -130,7 +152,8 @@ namespace Chemlist
 			validateCompoundValues(typeof(float), tbox_LD50) &&
 			validateCompoundValues(typeof(float), tbox_LC50) &&
 			validateCompoundValues(typeof(String), tbox_OtherNames) &&
-			validateCompoundValues(typeof(String), tbox_Appearance))
+			validateCompoundValues(typeof(String), tbox_Appearance) &&
+			ChemicalObject.parseMolecule(tbox_ChemFormula.Text) != null)
 			{
 				allowAdding = true;
 				return;
@@ -362,9 +385,53 @@ namespace Chemlist
 			validateCompoundValues(typeof(String), tbox_OtherNames);
 		}
 
+		private void check_Miscible_CheckedChanged(object sender, EventArgs e)
+		{
+			if (check_Miscible.Checked)
+			{
+				check_Insoluble.Checked = false;
+				tbox_SInWater.Enabled = false;
+				btn_AdvancedSolubility.Enabled = false;
+			}
+			else
+			{
+				tbox_SInWater.Enabled = true;
+				btn_AdvancedSolubility.Enabled = true;
+			}
+		}
+
+		private void check_Insoluble_CheckedChanged(object sender, EventArgs e)
+		{
+			if (check_Insoluble.Checked)
+			{
+				check_Miscible.Checked = false;
+				tbox_SInWater.Enabled = false;
+				btn_AdvancedSolubility.Enabled = false;
+			}
+			else
+			{
+				tbox_SInWater.Enabled = true;
+				btn_AdvancedSolubility.Enabled = true;
+			}
+		}
+
+		private void tbox_ChemFormula_TextChanged(object sender, EventArgs e)
+		{
+			if (ChemicalObject.parseMolecule(tbox_ChemFormula.Text) == null)
+				errorProvider1.SetError(tbox_ChemFormula, "Please enter a valid formula");
+			else
+				errorProvider1.SetError(tbox_ChemFormula, "");
+		}
+
 		private void tbox_Appearance_TextChanged(object sender, EventArgs e)
 		{
 			validateCompoundValues(typeof(String), tbox_Appearance);
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			Firediamond fireDiamond = new Firediamond(ref fire, ref health, ref reactivity, ref special);
+			fireDiamond.Show();
 		}
 	}
 }

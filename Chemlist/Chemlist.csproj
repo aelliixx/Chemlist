@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddNewCompound.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,20 +70,29 @@
     <Compile Include="AddNewProject.Designer.cs">
       <DependentUpon>AddNewProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="ObjectsAndMethods\Definitions.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EditCompound.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditCompound.Designer.cs">
       <DependentUpon>EditCompound.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objects\ChemicalObject.cs" />
+    <Compile Include="Firediamond.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Firediamond.Designer.cs">
+      <DependentUpon>Firediamond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectsAndMethods\ChemicalObject.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objects\Methods.cs">
+    <Compile Include="ObjectsAndMethods\Methods.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Options.cs">
@@ -87,8 +102,11 @@
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Objects\ProjectObject.cs" />
+    <Compile Include="ObjectsAndMethods\ProjectObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNewCompound.resx">
       <DependentUpon>AddNewCompound.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditCompound.resx">
       <DependentUpon>EditCompound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Firediamond.resx">
+      <DependentUpon>Firediamond.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

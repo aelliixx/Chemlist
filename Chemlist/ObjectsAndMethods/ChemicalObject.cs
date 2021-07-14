@@ -4,11 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Chemlist
 {
+	public class Hazards
+	{
+		public String symbols { get; set; }
+		public String description { get; set; }
+
+		public Hazards(String imageName, String symbolDescription)
+		{
+			symbols = imageName;
+			description = symbolDescription;
+		}
+	}
+
 	public class ChemicalObject
 	{
+		// Constructor
+		public ChemicalObject()
+		{
+			chemID = Guid.NewGuid();
+
+			//molecules = parseMolecule(chemFormula);
+		}
+
+
 		public List<Molecule> molecules = new List<Molecule>();
 		public class Molecule // TODO: struct?
 		{
@@ -21,6 +43,7 @@ namespace Chemlist
 				count = _count;
 			}
 		}
+
 
 		public bool inStorage = false;
 
@@ -35,7 +58,8 @@ namespace Chemlist
 		public float bPoint { get; set; }
 		public float density { get; set; }
 		public float solubilityInWater { get; set; } // TODO: Complex solubility graphs and solubilities in other substances.
-		public bool miscible { get; set; } // TODO: Add insoluble
+		public bool miscible { get; set; }
+		public bool insoluble { get; set; }
 		public float vapourPressure { get; set; }
 		public float lethalDose50 { get; set; }
 		public float lethalConcentration50 { get; set; }
@@ -68,17 +92,11 @@ namespace Chemlist
 		public String purchaseLink { get; set; }
 		public String msds { get; set; }
 
+		public List<Hazards> hazards = new List<Hazards>();
 
 
 		public Guid chemID { get; set; } // FIXME: Const readonly?
 
-		public ChemicalObject()
-		{
-			chemID = Guid.NewGuid();
-
-
-			// CuSO4 = Cu1 S1 O4
-		}
 
 		public static List<Molecule> parseMolecule(String formula)
 		{
@@ -87,7 +105,8 @@ namespace Chemlist
 			String validateRegex = "^(" + elementRegex + ")+$";
 
 			if (!Regex.IsMatch(formula, validateRegex))
-				throw new FormatException("Invalid input");
+				return null;
+				//throw new FormatException("Invalid input");
 
 			foreach (Match match in Regex.Matches(formula, elementRegex))
 			{

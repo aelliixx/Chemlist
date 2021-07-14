@@ -90,6 +90,19 @@
 			this.tbox_Description = new System.Windows.Forms.TextBox();
 			this.label20 = new System.Windows.Forms.Label();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+			this.button1 = new System.Windows.Forms.Button();
+			this.check_Flamable = new System.Windows.Forms.CheckBox();
+			this.check_Explosive = new System.Windows.Forms.CheckBox();
+			this.check_HealthHazard = new System.Windows.Forms.CheckBox();
+			this.check_Corrosive = new System.Windows.Forms.CheckBox();
+			this.check_Pressurised = new System.Windows.Forms.CheckBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.check_Oxidising = new System.Windows.Forms.CheckBox();
+			this.check_Irritant = new System.Windows.Forms.CheckBox();
+			this.check_Toxic = new System.Windows.Forms.CheckBox();
+			this.check_EnvironmentalHazard = new System.Windows.Forms.CheckBox();
+			this.btn_AdvancedSolubility = new System.Windows.Forms.Button();
+			this.check_Insoluble = new System.Windows.Forms.CheckBox();
 			this.panel1.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -102,7 +115,7 @@
 			this.btn_CancelEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_CancelEdit.BackColor = System.Drawing.Color.White;
 			this.btn_CancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btn_CancelEdit.Location = new System.Drawing.Point(570, 345);
+			this.btn_CancelEdit.Location = new System.Drawing.Point(570, 457);
 			this.btn_CancelEdit.Name = "btn_CancelEdit";
 			this.btn_CancelEdit.Size = new System.Drawing.Size(93, 25);
 			this.btn_CancelEdit.TabIndex = 10;
@@ -115,7 +128,7 @@
 			this.btn_Confirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_Confirm.BackColor = System.Drawing.Color.White;
 			this.btn_Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btn_Confirm.Location = new System.Drawing.Point(471, 345);
+			this.btn_Confirm.Location = new System.Drawing.Point(471, 457);
 			this.btn_Confirm.Name = "btn_Confirm";
 			this.btn_Confirm.Size = new System.Drawing.Size(93, 25);
 			this.btn_Confirm.TabIndex = 11;
@@ -134,11 +147,22 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(675, 382);
+			this.panel1.Size = new System.Drawing.Size(675, 494);
 			this.panel1.TabIndex = 12;
 			// 
 			// groupBox3
 			// 
+			this.groupBox3.Controls.Add(this.button1);
+			this.groupBox3.Controls.Add(this.check_Flamable);
+			this.groupBox3.Controls.Add(this.check_Explosive);
+			this.groupBox3.Controls.Add(this.check_HealthHazard);
+			this.groupBox3.Controls.Add(this.check_Corrosive);
+			this.groupBox3.Controls.Add(this.check_Pressurised);
+			this.groupBox3.Controls.Add(this.label4);
+			this.groupBox3.Controls.Add(this.check_Oxidising);
+			this.groupBox3.Controls.Add(this.check_Irritant);
+			this.groupBox3.Controls.Add(this.check_Toxic);
+			this.groupBox3.Controls.Add(this.check_EnvironmentalHazard);
 			this.groupBox3.Controls.Add(this.check_MSDS);
 			this.groupBox3.Controls.Add(this.check_Purchase);
 			this.groupBox3.Controls.Add(this.check_Wiki);
@@ -152,7 +176,7 @@
 			this.groupBox3.Controls.Add(this.tbox_PurchaseName);
 			this.groupBox3.Location = new System.Drawing.Point(13, 217);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(377, 120);
+			this.groupBox3.Size = new System.Drawing.Size(377, 236);
 			this.groupBox3.TabIndex = 25;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Misc";
@@ -213,7 +237,7 @@
 			// 
 			this.tbox_MSDS.Location = new System.Drawing.Point(212, 95);
 			this.tbox_MSDS.Name = "tbox_MSDS";
-			this.tbox_MSDS.Size = new System.Drawing.Size(159, 20);
+			this.tbox_MSDS.Size = new System.Drawing.Size(146, 20);
 			this.tbox_MSDS.TabIndex = 18;
 			this.tbox_MSDS.Text = "N/A";
 			// 
@@ -229,7 +253,7 @@
 			// 
 			this.tbox_Wiki.Location = new System.Drawing.Point(212, 43);
 			this.tbox_Wiki.Name = "tbox_Wiki";
-			this.tbox_Wiki.Size = new System.Drawing.Size(159, 20);
+			this.tbox_Wiki.Size = new System.Drawing.Size(146, 20);
 			this.tbox_Wiki.TabIndex = 16;
 			this.tbox_Wiki.Text = "N/A";
 			// 
@@ -237,7 +261,7 @@
 			// 
 			this.tbox_Purchase.Location = new System.Drawing.Point(212, 69);
 			this.tbox_Purchase.Name = "tbox_Purchase";
-			this.tbox_Purchase.Size = new System.Drawing.Size(159, 20);
+			this.tbox_Purchase.Size = new System.Drawing.Size(146, 20);
 			this.tbox_Purchase.TabIndex = 17;
 			this.tbox_Purchase.Text = "N/A";
 			// 
@@ -259,6 +283,8 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.btn_AdvancedSolubility);
+			this.groupBox2.Controls.Add(this.check_Insoluble);
 			this.groupBox2.Controls.Add(this.check_LC50);
 			this.groupBox2.Controls.Add(this.check_LD50);
 			this.groupBox2.Controls.Add(this.check_FlashPoint);
@@ -424,7 +450,7 @@
 			// 
 			this.tbox_MolarMass.Location = new System.Drawing.Point(111, 39);
 			this.tbox_MolarMass.Name = "tbox_MolarMass";
-			this.tbox_MolarMass.Size = new System.Drawing.Size(110, 20);
+			this.tbox_MolarMass.Size = new System.Drawing.Size(102, 20);
 			this.tbox_MolarMass.TabIndex = 3;
 			this.tbox_MolarMass.Text = "0";
 			// 
@@ -432,25 +458,26 @@
 			// 
 			this.tbox_LC50.Location = new System.Drawing.Point(111, 296);
 			this.tbox_LC50.Name = "tbox_LC50";
-			this.tbox_LC50.Size = new System.Drawing.Size(110, 20);
+			this.tbox_LC50.Size = new System.Drawing.Size(102, 20);
 			this.tbox_LC50.TabIndex = 13;
 			this.tbox_LC50.Text = "0";
 			// 
 			// check_Miscible
 			// 
 			this.check_Miscible.AutoSize = true;
-			this.check_Miscible.Location = new System.Drawing.Point(111, 169);
+			this.check_Miscible.Location = new System.Drawing.Point(6, 171);
 			this.check_Miscible.Name = "check_Miscible";
-			this.check_Miscible.Size = new System.Drawing.Size(70, 17);
+			this.check_Miscible.Size = new System.Drawing.Size(64, 17);
 			this.check_Miscible.TabIndex = 19;
-			this.check_Miscible.Text = "Miscible?";
+			this.check_Miscible.Text = "Miscible";
 			this.check_Miscible.UseVisualStyleBackColor = true;
+			this.check_Miscible.CheckedChanged += new System.EventHandler(this.check_Miscible_CheckedChanged);
 			// 
 			// tbox_Appearance
 			// 
 			this.tbox_Appearance.Location = new System.Drawing.Point(111, 13);
 			this.tbox_Appearance.Name = "tbox_Appearance";
-			this.tbox_Appearance.Size = new System.Drawing.Size(110, 20);
+			this.tbox_Appearance.Size = new System.Drawing.Size(102, 20);
 			this.tbox_Appearance.TabIndex = 4;
 			this.tbox_Appearance.Text = "N/A";
 			// 
@@ -458,7 +485,7 @@
 			// 
 			this.tbox_Density.Location = new System.Drawing.Point(111, 65);
 			this.tbox_Density.Name = "tbox_Density";
-			this.tbox_Density.Size = new System.Drawing.Size(110, 20);
+			this.tbox_Density.Size = new System.Drawing.Size(102, 20);
 			this.tbox_Density.TabIndex = 5;
 			this.tbox_Density.Text = "0";
 			// 
@@ -466,7 +493,7 @@
 			// 
 			this.tbox_LD50.Location = new System.Drawing.Point(111, 270);
 			this.tbox_LD50.Name = "tbox_LD50";
-			this.tbox_LD50.Size = new System.Drawing.Size(110, 20);
+			this.tbox_LD50.Size = new System.Drawing.Size(102, 20);
 			this.tbox_LD50.TabIndex = 12;
 			this.tbox_LD50.Text = "0";
 			// 
@@ -492,7 +519,7 @@
 			// 
 			this.tbox_MeltingPoint.Location = new System.Drawing.Point(111, 91);
 			this.tbox_MeltingPoint.Name = "tbox_MeltingPoint";
-			this.tbox_MeltingPoint.Size = new System.Drawing.Size(110, 20);
+			this.tbox_MeltingPoint.Size = new System.Drawing.Size(102, 20);
 			this.tbox_MeltingPoint.TabIndex = 6;
 			this.tbox_MeltingPoint.Text = "0";
 			// 
@@ -527,7 +554,7 @@
 			// 
 			this.tbox_FlashPoint.Location = new System.Drawing.Point(111, 244);
 			this.tbox_FlashPoint.Name = "tbox_FlashPoint";
-			this.tbox_FlashPoint.Size = new System.Drawing.Size(110, 20);
+			this.tbox_FlashPoint.Size = new System.Drawing.Size(102, 20);
 			this.tbox_FlashPoint.TabIndex = 11;
 			this.tbox_FlashPoint.Text = "0";
 			// 
@@ -544,7 +571,7 @@
 			// 
 			this.tbox_BoilingPoint.Location = new System.Drawing.Point(111, 117);
 			this.tbox_BoilingPoint.Name = "tbox_BoilingPoint";
-			this.tbox_BoilingPoint.Size = new System.Drawing.Size(110, 20);
+			this.tbox_BoilingPoint.Size = new System.Drawing.Size(102, 20);
 			this.tbox_BoilingPoint.TabIndex = 7;
 			this.tbox_BoilingPoint.Text = "0";
 			// 
@@ -561,7 +588,7 @@
 			// 
 			this.tbox_SInWater.Location = new System.Drawing.Point(111, 143);
 			this.tbox_SInWater.Name = "tbox_SInWater";
-			this.tbox_SInWater.Size = new System.Drawing.Size(110, 20);
+			this.tbox_SInWater.Size = new System.Drawing.Size(102, 20);
 			this.tbox_SInWater.TabIndex = 8;
 			this.tbox_SInWater.Text = "0";
 			// 
@@ -578,7 +605,7 @@
 			// 
 			this.tbox_Acidity.Location = new System.Drawing.Point(111, 218);
 			this.tbox_Acidity.Name = "tbox_Acidity";
-			this.tbox_Acidity.Size = new System.Drawing.Size(110, 20);
+			this.tbox_Acidity.Size = new System.Drawing.Size(102, 20);
 			this.tbox_Acidity.TabIndex = 10;
 			this.tbox_Acidity.Text = "0";
 			// 
@@ -595,7 +622,7 @@
 			// 
 			this.tbox_VapourPressure.Location = new System.Drawing.Point(111, 192);
 			this.tbox_VapourPressure.Name = "tbox_VapourPressure";
-			this.tbox_VapourPressure.Size = new System.Drawing.Size(110, 20);
+			this.tbox_VapourPressure.Size = new System.Drawing.Size(102, 20);
 			this.tbox_VapourPressure.TabIndex = 9;
 			this.tbox_VapourPressure.Text = "0";
 			// 
@@ -661,7 +688,7 @@
 			// 
 			this.tbox_ChemName.Location = new System.Drawing.Point(83, 13);
 			this.tbox_ChemName.Name = "tbox_ChemName";
-			this.tbox_ChemName.Size = new System.Drawing.Size(289, 20);
+			this.tbox_ChemName.Size = new System.Drawing.Size(276, 20);
 			this.tbox_ChemName.TabIndex = 1;
 			// 
 			// label2
@@ -677,7 +704,7 @@
 			// 
 			this.tbox_OtherNames.Location = new System.Drawing.Point(83, 169);
 			this.tbox_OtherNames.Name = "tbox_OtherNames";
-			this.tbox_OtherNames.Size = new System.Drawing.Size(289, 20);
+			this.tbox_OtherNames.Size = new System.Drawing.Size(276, 20);
 			this.tbox_OtherNames.TabIndex = 14;
 			this.tbox_OtherNames.Text = "N/A";
 			// 
@@ -694,8 +721,9 @@
 			// 
 			this.tbox_ChemFormula.Location = new System.Drawing.Point(83, 39);
 			this.tbox_ChemFormula.Name = "tbox_ChemFormula";
-			this.tbox_ChemFormula.Size = new System.Drawing.Size(289, 20);
+			this.tbox_ChemFormula.Size = new System.Drawing.Size(276, 20);
 			this.tbox_ChemFormula.TabIndex = 2;
+			this.tbox_ChemFormula.TextChanged += new System.EventHandler(this.tbox_ChemFormula_TextChanged);
 			// 
 			// tbox_Description
 			// 
@@ -703,7 +731,7 @@
 			this.tbox_Description.Multiline = true;
 			this.tbox_Description.Name = "tbox_Description";
 			this.tbox_Description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.tbox_Description.Size = new System.Drawing.Size(289, 78);
+			this.tbox_Description.Size = new System.Drawing.Size(276, 78);
 			this.tbox_Description.TabIndex = 15;
 			// 
 			// label20
@@ -720,15 +748,150 @@
 			this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 			this.errorProvider1.ContainerControl = this;
 			// 
+			// button1
+			// 
+			this.button1.BackColor = System.Drawing.Color.White;
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.Location = new System.Drawing.Point(82, 209);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(94, 20);
+			this.button1.TabIndex = 42;
+			this.button1.Text = "Fire Diamond";
+			this.button1.UseVisualStyleBackColor = false;
+			// 
+			// check_Flamable
+			// 
+			this.check_Flamable.AutoSize = true;
+			this.check_Flamable.Location = new System.Drawing.Point(82, 121);
+			this.check_Flamable.Name = "check_Flamable";
+			this.check_Flamable.Size = new System.Drawing.Size(68, 17);
+			this.check_Flamable.TabIndex = 33;
+			this.check_Flamable.Text = "Flamable";
+			this.check_Flamable.UseVisualStyleBackColor = true;
+			// 
+			// check_Explosive
+			// 
+			this.check_Explosive.AutoSize = true;
+			this.check_Explosive.Location = new System.Drawing.Point(82, 144);
+			this.check_Explosive.Name = "check_Explosive";
+			this.check_Explosive.Size = new System.Drawing.Size(71, 17);
+			this.check_Explosive.TabIndex = 34;
+			this.check_Explosive.Text = "Explosive";
+			this.check_Explosive.UseVisualStyleBackColor = true;
+			// 
+			// check_HealthHazard
+			// 
+			this.check_HealthHazard.AutoSize = true;
+			this.check_HealthHazard.Location = new System.Drawing.Point(82, 167);
+			this.check_HealthHazard.Name = "check_HealthHazard";
+			this.check_HealthHazard.Size = new System.Drawing.Size(94, 17);
+			this.check_HealthHazard.TabIndex = 35;
+			this.check_HealthHazard.Text = "Health Hazard";
+			this.check_HealthHazard.UseVisualStyleBackColor = true;
+			// 
+			// check_Corrosive
+			// 
+			this.check_Corrosive.AutoSize = true;
+			this.check_Corrosive.Location = new System.Drawing.Point(82, 190);
+			this.check_Corrosive.Name = "check_Corrosive";
+			this.check_Corrosive.Size = new System.Drawing.Size(70, 17);
+			this.check_Corrosive.TabIndex = 36;
+			this.check_Corrosive.Text = "Corrosive";
+			this.check_Corrosive.UseVisualStyleBackColor = true;
+			// 
+			// check_Pressurised
+			// 
+			this.check_Pressurised.AutoSize = true;
+			this.check_Pressurised.Location = new System.Drawing.Point(194, 190);
+			this.check_Pressurised.Name = "check_Pressurised";
+			this.check_Pressurised.Size = new System.Drawing.Size(106, 17);
+			this.check_Pressurised.TabIndex = 37;
+			this.check_Pressurised.Text = "Compressed Gas";
+			this.check_Pressurised.UseVisualStyleBackColor = true;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(5, 121);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(49, 13);
+			this.label4.TabIndex = 32;
+			this.label4.Text = "Hazards:";
+			// 
+			// check_Oxidising
+			// 
+			this.check_Oxidising.AutoSize = true;
+			this.check_Oxidising.Location = new System.Drawing.Point(194, 121);
+			this.check_Oxidising.Name = "check_Oxidising";
+			this.check_Oxidising.Size = new System.Drawing.Size(68, 17);
+			this.check_Oxidising.TabIndex = 38;
+			this.check_Oxidising.Text = "Oxidising";
+			this.check_Oxidising.UseVisualStyleBackColor = true;
+			// 
+			// check_Irritant
+			// 
+			this.check_Irritant.AutoSize = true;
+			this.check_Irritant.Location = new System.Drawing.Point(194, 144);
+			this.check_Irritant.Name = "check_Irritant";
+			this.check_Irritant.Size = new System.Drawing.Size(94, 17);
+			this.check_Irritant.TabIndex = 39;
+			this.check_Irritant.Text = "Harmful Irritant";
+			this.check_Irritant.UseVisualStyleBackColor = true;
+			// 
+			// check_Toxic
+			// 
+			this.check_Toxic.AutoSize = true;
+			this.check_Toxic.Location = new System.Drawing.Point(194, 167);
+			this.check_Toxic.Name = "check_Toxic";
+			this.check_Toxic.Size = new System.Drawing.Size(90, 17);
+			this.check_Toxic.TabIndex = 40;
+			this.check_Toxic.Text = "Acutely Toxic";
+			this.check_Toxic.UseVisualStyleBackColor = true;
+			// 
+			// check_EnvironmentalHazard
+			// 
+			this.check_EnvironmentalHazard.AutoSize = true;
+			this.check_EnvironmentalHazard.Location = new System.Drawing.Point(194, 213);
+			this.check_EnvironmentalHazard.Name = "check_EnvironmentalHazard";
+			this.check_EnvironmentalHazard.Size = new System.Drawing.Size(130, 17);
+			this.check_EnvironmentalHazard.TabIndex = 41;
+			this.check_EnvironmentalHazard.Text = "Environmental Hazard";
+			this.check_EnvironmentalHazard.UseVisualStyleBackColor = true;
+			// 
+			// btn_AdvancedSolubility
+			// 
+			this.btn_AdvancedSolubility.BackColor = System.Drawing.Color.White;
+			this.btn_AdvancedSolubility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_AdvancedSolubility.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+			this.btn_AdvancedSolubility.Location = new System.Drawing.Point(152, 169);
+			this.btn_AdvancedSolubility.Name = "btn_AdvancedSolubility";
+			this.btn_AdvancedSolubility.Size = new System.Drawing.Size(61, 19);
+			this.btn_AdvancedSolubility.TabIndex = 26;
+			this.btn_AdvancedSolubility.Text = "Advanced";
+			this.btn_AdvancedSolubility.UseVisualStyleBackColor = false;
+			// 
+			// check_Insoluble
+			// 
+			this.check_Insoluble.AutoSize = true;
+			this.check_Insoluble.Location = new System.Drawing.Point(82, 171);
+			this.check_Insoluble.Name = "check_Insoluble";
+			this.check_Insoluble.Size = new System.Drawing.Size(68, 17);
+			this.check_Insoluble.TabIndex = 25;
+			this.check_Insoluble.Text = "Insoluble";
+			this.check_Insoluble.UseVisualStyleBackColor = true;
+			this.check_Insoluble.CheckedChanged += new System.EventHandler(this.check_Insoluble_CheckedChanged);
+			// 
 			// EditCompound
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(675, 382);
+			this.ClientSize = new System.Drawing.Size(675, 494);
 			this.Controls.Add(this.panel1);
 			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(691, 533);
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(618, 321);
+			this.MinimumSize = new System.Drawing.Size(691, 533);
 			this.Name = "EditCompound";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -807,5 +970,18 @@
 		private System.Windows.Forms.Label label20;
 		private System.Windows.Forms.CheckBox check_Available;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.CheckBox check_Flamable;
+		private System.Windows.Forms.CheckBox check_Explosive;
+		private System.Windows.Forms.CheckBox check_HealthHazard;
+		private System.Windows.Forms.CheckBox check_Corrosive;
+		private System.Windows.Forms.CheckBox check_Pressurised;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.CheckBox check_Oxidising;
+		private System.Windows.Forms.CheckBox check_Irritant;
+		private System.Windows.Forms.CheckBox check_Toxic;
+		private System.Windows.Forms.CheckBox check_EnvironmentalHazard;
+		private System.Windows.Forms.Button btn_AdvancedSolubility;
+		private System.Windows.Forms.CheckBox check_Insoluble;
 	}
 }

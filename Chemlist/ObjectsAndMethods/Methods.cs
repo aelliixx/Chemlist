@@ -12,8 +12,6 @@ namespace Chemlist
 	public partial class Form1
 	{
 		// Populate chemicals
-
-
 		void invalidateCompoundNamesList()
 		{
 			List<ChemicalObject> chemicalNames = new List<ChemicalObject>();
@@ -41,6 +39,7 @@ namespace Chemlist
 			compoundSource.ResetBindings(false);
 		}
 
+		// Populae projects
 		void invalidateProjectList()
 		{
 			List<ProjectObject> projectNames = new List<ProjectObject>();
@@ -52,8 +51,6 @@ namespace Chemlist
 			projectSource.DataSource = projectNames;
 			projectSource.ResetBindings(false);
 		}
-
-
 
 		// Read and populate from json
 		String compoundJSON = @".\chemicals.json";
@@ -181,6 +178,12 @@ namespace Chemlist
 						if (chemical.compound.chemID == current.chemID)
 							lbox_UsedIn.Items.Add(project);
 					}
+				}
+
+				lview_Warnings.Clear();
+				foreach (Hazards hazards in current.hazards)
+				{
+					lview_Warnings.Items.Add(hazards.symbols, hazards.symbols);
 				}
 
 				// Made in
