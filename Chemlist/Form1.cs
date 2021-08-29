@@ -182,5 +182,10 @@ namespace Chemlist
             tab_Switcher.SelectTab(0);
 
         }
-    }
+
+		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+	}
 }
