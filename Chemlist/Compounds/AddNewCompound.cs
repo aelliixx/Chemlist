@@ -456,7 +456,7 @@ namespace Chemlist
 		private void button1_Click(object sender, EventArgs e)
 		{
 			Firediamond fireDiamond = new Firediamond(ref fire, ref health, ref reactivity, ref special);
-			fireDiamond.Show();
+			fireDiamond.ShowDialog();
 		}
 	}
 }

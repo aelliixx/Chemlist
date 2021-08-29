@@ -107,6 +107,7 @@
 			this.tab_Projects = new System.Windows.Forms.TabPage();
 			this.splitContainer3 = new System.Windows.Forms.SplitContainer();
 			this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+			this.tree_Projects = new System.Windows.Forms.TreeView();
 			this.tbox_ProjectSearch = new System.Windows.Forms.TextBox();
 			this.cbox_ProjectSort = new System.Windows.Forms.ComboBox();
 			this.btn_DeleteProject = new System.Windows.Forms.Button();
@@ -121,6 +122,8 @@
 			this.tab_Methods = new System.Windows.Forms.TabPage();
 			this.rtb_Methods = new System.Windows.Forms.RichTextBox();
 			this.tab_Yields = new System.Windows.Forms.TabPage();
+			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.lbox_ProjectMakes = new System.Windows.Forms.ListBox();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.lbox_RequiredChem = new System.Windows.Forms.ListBox();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -134,10 +137,9 @@
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.projectTreeViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.tree_Projects = new System.Windows.Forms.TreeView();
-			this.groupBox7 = new System.Windows.Forms.GroupBox();
-			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.tab_Switcher.SuspendLayout();
 			this.tab_Chemicals.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -167,10 +169,10 @@
 			this.tab_ProjectInfo.SuspendLayout();
 			this.tab_Description.SuspendLayout();
 			this.tab_Methods.SuspendLayout();
+			this.groupBox7.SuspendLayout();
 			this.groupBox5.SuspendLayout();
 			this.groupBox6.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
-			this.groupBox7.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tab_Switcher
@@ -938,6 +940,30 @@
 			this.splitContainer4.SplitterDistance = 438;
 			this.splitContainer4.TabIndex = 0;
 			// 
+			// tree_Projects
+			// 
+			this.tree_Projects.BackColor = System.Drawing.SystemColors.Control;
+			this.tree_Projects.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.tree_Projects.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tree_Projects.FullRowSelect = true;
+			this.tree_Projects.HideSelection = false;
+			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
+			this.tree_Projects.Name = "tree_Projects";
+			treeNode1.Name = "Node1";
+			treeNode1.Text = "Phenol";
+			treeNode2.Name = "Node3";
+			treeNode2.Text = "Phtalic acid";
+			treeNode3.Name = "Node2";
+			treeNode3.Text = "Phtalic anhydride";
+			treeNode4.Name = "Node0";
+			treeNode4.Text = "Phenolphtalein";
+			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode4});
+			this.tree_Projects.ShowLines = false;
+			this.tree_Projects.Size = new System.Drawing.Size(330, 438);
+			this.tree_Projects.TabIndex = 1;
+			this.tree_Projects.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tree_Projects_AfterSelect);
+			// 
 			// tbox_ProjectSearch
 			// 
 			this.tbox_ProjectSearch.Location = new System.Drawing.Point(8, 4);
@@ -994,6 +1020,7 @@
 			this.btn_EditProject.TabIndex = 4;
 			this.btn_EditProject.Text = "Edit";
 			this.btn_EditProject.UseVisualStyleBackColor = false;
+			this.btn_EditProject.Click += new System.EventHandler(this.btn_EditProject_Click);
 			// 
 			// panel1
 			// 
@@ -1104,6 +1131,32 @@
 			this.tab_Yields.TabIndex = 2;
 			this.tab_Yields.Text = "Yields";
 			// 
+			// groupBox7
+			// 
+			this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.groupBox7.BackColor = System.Drawing.SystemColors.Control;
+			this.groupBox7.Controls.Add(this.lbox_ProjectMakes);
+			this.groupBox7.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.groupBox7.Location = new System.Drawing.Point(447, 6);
+			this.groupBox7.Name = "groupBox7";
+			this.groupBox7.Size = new System.Drawing.Size(201, 123);
+			this.groupBox7.TabIndex = 7;
+			this.groupBox7.TabStop = false;
+			this.groupBox7.Text = "Makes";
+			// 
+			// lbox_ProjectMakes
+			// 
+			this.lbox_ProjectMakes.BackColor = System.Drawing.SystemColors.Control;
+			this.lbox_ProjectMakes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.lbox_ProjectMakes.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbox_ProjectMakes.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.lbox_ProjectMakes.Location = new System.Drawing.Point(3, 16);
+			this.lbox_ProjectMakes.Name = "lbox_ProjectMakes";
+			this.lbox_ProjectMakes.Size = new System.Drawing.Size(195, 104);
+			this.lbox_ProjectMakes.TabIndex = 0;
+			this.lbox_ProjectMakes.DoubleClick += new System.EventHandler(this.lbox_RequiredChem_DoubleClick);
+			// 
 			// groupBox5
 			// 
 			this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -1183,9 +1236,8 @@
 			this.txt_ProjectDoable.AutoSize = true;
 			this.txt_ProjectDoable.Location = new System.Drawing.Point(8, 96);
 			this.txt_ProjectDoable.Name = "txt_ProjectDoable";
-			this.txt_ProjectDoable.Size = new System.Drawing.Size(56, 13);
+			this.txt_ProjectDoable.Size = new System.Drawing.Size(0, 13);
 			this.txt_ProjectDoable.TabIndex = 7;
-			this.txt_ProjectDoable.Text = "Availability";
 			// 
 			// txt_Project
 			// 
@@ -1196,9 +1248,9 @@
 			this.txt_Project.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.txt_Project.Location = new System.Drawing.Point(6, 16);
 			this.txt_Project.Name = "txt_Project";
-			this.txt_Project.Size = new System.Drawing.Size(104, 26);
+			this.txt_Project.Size = new System.Drawing.Size(350, 26);
 			this.txt_Project.TabIndex = 0;
-			this.txt_Project.Text = "Chemical";
+			this.txt_Project.Text = "Please select or add a new project.";
 			// 
 			// rtb_ProjectChemFormula
 			// 
@@ -1212,13 +1264,14 @@
 			this.rtb_ProjectChemFormula.ReadOnly = true;
 			this.rtb_ProjectChemFormula.Size = new System.Drawing.Size(417, 21);
 			this.rtb_ProjectChemFormula.TabIndex = 2;
-			this.rtb_ProjectChemFormula.Text = "Formula";
+			this.rtb_ProjectChemFormula.Text = "";
 			// 
 			// menuStrip1
 			// 
 			this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.viewToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(998, 24);
@@ -1258,58 +1311,27 @@
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
+			// viewToolStripMenuItem
+			// 
+			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.projectTreeViewToolStripMenuItem});
+			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+			this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+			this.viewToolStripMenuItem.Text = "View";
+			// 
+			// projectTreeViewToolStripMenuItem
+			// 
+			this.projectTreeViewToolStripMenuItem.Checked = true;
+			this.projectTreeViewToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.projectTreeViewToolStripMenuItem.Name = "projectTreeViewToolStripMenuItem";
+			this.projectTreeViewToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+			this.projectTreeViewToolStripMenuItem.Text = "Project Tree View";
+			this.projectTreeViewToolStripMenuItem.Click += new System.EventHandler(this.projectTreeViewToolStripMenuItem_Click);
+			// 
 			// contextMenuStrip1
 			// 
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-			// 
-			// tree_Projects
-			// 
-			this.tree_Projects.BackColor = System.Drawing.SystemColors.Control;
-			this.tree_Projects.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.tree_Projects.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tree_Projects.FullRowSelect = true;
-			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
-			this.tree_Projects.Name = "tree_Projects";
-			treeNode1.Name = "Node1";
-			treeNode1.Text = "Phenol";
-			treeNode2.Name = "Node3";
-			treeNode2.Text = "Phtalic acid";
-			treeNode3.Name = "Node2";
-			treeNode3.Text = "Phtalic anhydride";
-			treeNode4.Name = "Node0";
-			treeNode4.Text = "Phenolphtalein";
-			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-			this.tree_Projects.Size = new System.Drawing.Size(330, 438);
-			this.tree_Projects.TabIndex = 1;
-			this.tree_Projects.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tree_Projects_AfterSelect);
-			// 
-			// groupBox7
-			// 
-			this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.groupBox7.BackColor = System.Drawing.SystemColors.Control;
-			this.groupBox7.Controls.Add(this.listBox1);
-			this.groupBox7.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.groupBox7.Location = new System.Drawing.Point(447, 6);
-			this.groupBox7.Name = "groupBox7";
-			this.groupBox7.Size = new System.Drawing.Size(201, 123);
-			this.groupBox7.TabIndex = 7;
-			this.groupBox7.TabStop = false;
-			this.groupBox7.Text = "Makes";
-			// 
-			// listBox1
-			// 
-			this.listBox1.BackColor = System.Drawing.SystemColors.Control;
-			this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.listBox1.Location = new System.Drawing.Point(3, 16);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(195, 104);
-			this.listBox1.TabIndex = 0;
-			this.listBox1.DoubleClick += new System.EventHandler(this.lbox_RequiredChem_DoubleClick);
 			// 
 			// Form1
 			// 
@@ -1363,12 +1385,12 @@
 			this.tab_Description.ResumeLayout(false);
 			this.tab_Description.PerformLayout();
 			this.tab_Methods.ResumeLayout(false);
+			this.groupBox7.ResumeLayout(false);
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox6.ResumeLayout(false);
 			this.groupBox6.PerformLayout();
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
-			this.groupBox7.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1467,7 +1489,9 @@
 		private System.Windows.Forms.TreeView tree_Projects;
 		private System.Windows.Forms.TabControl tab_ProjectInfo;
 		private System.Windows.Forms.GroupBox groupBox7;
-		private System.Windows.Forms.ListBox listBox1;
+		private System.Windows.Forms.ListBox lbox_ProjectMakes;
+		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem projectTreeViewToolStripMenuItem;
 	}
 }
 

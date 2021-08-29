@@ -44,6 +44,7 @@ namespace Chemlist
 			lbox_RequiredChem.DisplayMember = "name";
 			lbox_UsedIn.DisplayMember = "name";
             lbox_ChemMadeIn.DisplayMember = "name";
+			lbox_ProjectMakes.DisplayMember = "name";
 
 
 		}
@@ -86,6 +87,8 @@ namespace Chemlist
 		private void btn_DeleteProject_Click(object sender, EventArgs e)
 		{
 			//removeSelectedProject(lbox_ProjectList.SelectedIndex);
+			if (tree_Projects.SelectedNode == null)
+				return;
 			ProjectObject selected = (ProjectObject)tree_Projects.SelectedNode.Tag;
 			var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
 				(x.Tag as ProjectObject).projectID == selected.projectID).FirstOrDefault();
@@ -207,5 +210,17 @@ namespace Chemlist
 			this.Close();
 		}
 
+		private void btn_EditProject_Click(object sender, EventArgs e)
+		{
+			EditProject editProject = new EditProject();
+			editProject.Show();
+		}
+
+		private void projectTreeViewToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			projectTreeViewToolStripMenuItem.Checked = !projectTreeViewToolStripMenuItem.Checked;
+			invalidateProjectList();
+			redrawProjectInfoPanel();
+		}
 	}
 }
