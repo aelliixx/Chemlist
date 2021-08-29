@@ -186,8 +186,14 @@ namespace Chemlist
 					lview_Warnings.Items.Add(hazards.symbols, hazards.symbols);
 				}
 
-				// Made in
-				/// TODO: Made in
+                // Made in
+                lbox_ChemMadeIn.Items.Clear();
+				foreach (ProjectObject project in projectList)
+                    foreach (ChemicalObject chemical in project.makesChemicals)
+                    {
+                        if (chemical.chemID == current.chemID)
+                            lbox_ChemMadeIn.Items.Add(project);
+                    }
 
 
 				rtb_Description.Text = current.descripion;
@@ -211,7 +217,7 @@ namespace Chemlist
 				if (current.bMSDS) { tlink_MSDS.Enabled = true; tlink_MSDS.Text = current.msdsName; } else { tlink_MSDS.Enabled = false; tlink_MSDS.Text = "-"; }
 
 
-				if (current.bSInWater && !current.miscible) { txt_SInWater.Text = current.solubilityInWater.ToString() + " g/100 ml"; }
+				if (current.bSInWater && !current.miscible) { txt_SInWater.Text = current.solubilityInWater.ToString() + " g/l"; }
 				else { txt_SInWater.Text = "-"; }
 				if (current.miscible) { txt_SInWater.Text = "Miscible"; }
 

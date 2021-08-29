@@ -35,6 +35,7 @@ namespace Chemlist
 		public String description { get; set; }
 		public String methods { get; set; }
 
+        public List<ChemicalObject> makesChemicals { get; set; } 
 		public List<RequiredChemicals> requiredChemicals { get; set; }
 
 		public Guid projectID { get; set; }

@@ -428,7 +428,12 @@ namespace Chemlist
 				errorProvider1.SetError(tbox_ChemFormula, "");
 		}
 
-		private void tbox_Appearance_TextChanged(object sender, EventArgs e)
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbox_Appearance_TextChanged(object sender, EventArgs e)
 		{
 			validateCompoundValues(typeof(String), tbox_Appearance);
 		}

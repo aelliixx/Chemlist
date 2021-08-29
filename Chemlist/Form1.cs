@@ -44,6 +44,7 @@ namespace Chemlist
 			cbox_CompoundSort.SelectedIndex = 0;
 			lbox_RequiredChem.DisplayMember = "name";
 			lbox_UsedIn.DisplayMember = "name";
+            lbox_ChemMadeIn.DisplayMember = "name";
 
 
 		}

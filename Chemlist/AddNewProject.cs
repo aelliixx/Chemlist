@@ -17,7 +17,27 @@ namespace Chemlist
 		public List<ChemicalObject> chemicalList = new List<ChemicalObject>();
 		bool allowAdding = true;
 		public List<ProjectObject.RequiredChemicals> requiredChemicals = new List<ProjectObject.RequiredChemicals>();
+        public List<ChemicalObject> makesChemicals = new List<ChemicalObject>();
 
+
+		private void btn_Confirm_Click(object sender, EventArgs e)
+		{
+			validateConfirmation();
+			if (allowAdding)
+			{
+				ProjectObject newProject = new ProjectObject
+				{
+					name = tbox_ProjectName.Text,
+					chemFormula = rtb_ProjectFormula.Text,
+					description = tbox_Description.Text,
+					methods = rtb_Methods.Text,
+					requiredChemicals = requiredChemicals,
+                    makesChemicals = makesChemicals
+				};
+				parentForm.addNewProject(newProject);
+				this.Close();
+			}
+		}
 
 		public AddNewProject(List<ChemicalObject> chemicals)
 		{
@@ -117,24 +137,6 @@ namespace Chemlist
 			}
 		}
 
-		private void btn_Confirm_Click(object sender, EventArgs e)
-		{
-			validateConfirmation();
-			if (allowAdding)
-			{
-				ProjectObject newProject = new ProjectObject
-				{
-					name = tbox_ProjectName.Text,
-					chemFormula = rtb_ProjectFormula.Text,
-					description = tbox_Description.Text,
-					methods = rtb_Methods.Text,
-					requiredChemicals = requiredChemicals
-				};
-				parentForm.addNewProject(newProject);
-				this.Close();
-			}
-		}
-
 		public void validateConfirmation()
 		{
 			if (
@@ -162,9 +164,11 @@ namespace Chemlist
 		private void lbox_MakesChemicalList_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			rtb_ProjectFormula.Clear();
+            makesChemicals.Clear();
 			foreach(ChemicalObject chemical in lbox_MakesChemicalList.SelectedItems)
 			{
 				rtb_ProjectFormula.Text += chemical.chemFormula + (lbox_MakesChemicalList.SelectedItems.Count > 1 ? "; " : "");
+                makesChemicals.Add(chemical);
 			}
 
 			float FontSize = rtb_ProjectFormula.Font.Size;
