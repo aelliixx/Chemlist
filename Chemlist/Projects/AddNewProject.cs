@@ -18,7 +18,8 @@ namespace Chemlist
 		bool allowAdding = true;
 		public List<ProjectObject.RequiredChemicals> requiredChemicals = new List<ProjectObject.RequiredChemicals>();
         public List<ChemicalObject> makesChemicals = new List<ChemicalObject>();
-
+		public ProjectObject parentProject = new ProjectObject();
+		
 
 		private void btn_Confirm_Click(object sender, EventArgs e)
 		{
@@ -32,7 +33,8 @@ namespace Chemlist
 					description = tbox_Description.Text,
 					methods = rtb_Methods.Text,
 					requiredChemicals = requiredChemicals,
-                    makesChemicals = makesChemicals
+                    makesChemicals = makesChemicals,
+					parentProject = parentProject
 				};
 				parentForm.addNewProject(newProject);
 				this.Close();
@@ -49,6 +51,7 @@ namespace Chemlist
 			
 			lbox_MakesChemicalList.DisplayMember = "name";
 			cbox_CompoundList.DisplayMember = "name";
+			cbox_ParentProject.DisplayMember = "name";
 		}
 
 		void populateMakesList()
@@ -199,6 +202,23 @@ namespace Chemlist
 		private void tbox_CompoundSearch_TextChanged(object sender, EventArgs e)
 		{
 			populateMakesList();
+		}
+
+		private void cbox_ParentProject_DropDown(object sender, EventArgs e)
+		{
+			cbox_ParentProject.Items.Clear();
+			cbox_ParentProject.Items.Add(new ProjectObject());
+			foreach (ProjectObject project in parentForm.projectList)
+				cbox_ParentProject.Items.Add(project);
+		}
+
+		private void cbox_ParentProject_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			ProjectObject selected = (ProjectObject)cbox_ParentProject.SelectedItem;
+			if (selected.name == string.Empty || selected.name == null)
+				parentProject = null;
+			else
+				parentProject = (ProjectObject)cbox_ParentProject.SelectedItem;
 		}
 	}
 }

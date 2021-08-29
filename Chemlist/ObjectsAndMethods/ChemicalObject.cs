@@ -31,8 +31,7 @@ namespace Chemlist
 		}
 
 
-		public List<Molecule> molecules = new List<Molecule>();
-		public class Molecule // TODO: struct?
+		public class Molecule
 		{
 			public String element { get; set; }
 			public int count { get; set; }
@@ -45,13 +44,13 @@ namespace Chemlist
 		}
 
 
-		public bool inStorage = false;
 
 		public String name { get; set; }
 		public String allNames { get; set; }
 		public String chemFormula { get; set; }
 		public String descripion { get; set; }
 		public String appearance { get; set; }
+		public bool inStorage = false;
 		public float molarMass { get; set; }
 		public float pKa { get; set; }
 		public float mPoint { get; set; }
@@ -93,6 +92,7 @@ namespace Chemlist
 		public String msds { get; set; }
 
 		public List<Hazards> hazards = new List<Hazards>();
+		public List<Molecule> molecules = new List<Molecule>();
 
 
 		public Guid chemID { get; set; } // FIXME: Const readonly?

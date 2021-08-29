@@ -44,12 +44,46 @@ namespace Chemlist
 		{
 			List<ProjectObject> projectNames = new List<ProjectObject>();
 			projectNames.Clear();
+			tree_Projects.Nodes.Clear();
 			projectList.Sort(delegate (ProjectObject name1, ProjectObject name2) { return name1.name.CompareTo(name2.name); });
-			foreach (ProjectObject project in projectList)
-				projectNames.Add(project);
+			List<ProjectObject> projectsToAdd = projectList;
+			addProjectToTree(projectsToAdd);
 
 			projectSource.DataSource = projectNames;
 			projectSource.ResetBindings(false);
+		}
+
+		void addProjectToTree(List<ProjectObject> toAdd)
+		{
+			List<ProjectObject> leftOver = new List<ProjectObject>();
+			foreach (ProjectObject project in toAdd)
+			{
+				//projectNames.Add(project);
+
+
+				if (project.parentProject.name == null)
+					tree_Projects.Nodes.Add(project.name).Tag = project;
+				else
+				{
+					var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+					(x.Tag as ProjectObject).projectID == project.parentProject.projectID).FirstOrDefault();
+					//groupBox6.Text = project.parentProject.name;
+					if (selectedNode != null)
+					{
+						tree_Projects.SelectedNode = selectedNode;
+						tree_Projects.SelectedNode.Nodes.Add(project.name).Tag = project;
+					}
+					else
+					{
+						leftOver.Add(project);
+					}
+				}
+
+
+			}
+
+			if (leftOver.Count > 0)
+				addProjectToTree(leftOver);
 		}
 
 		// Read and populate from json
@@ -257,9 +291,11 @@ namespace Chemlist
 
 		public void redrawProjectInfoPanel()
 		{
-			if (lbox_ProjectList.Items.Count > 0 && lbox_ProjectList.SelectedItem != null)
+			if (/*lbox_ProjectList.Items.Count > 0 && lbox_ProjectList.SelectedItem != null*/
+				tree_Projects.Nodes.Count > 0 && tree_Projects.SelectedNode != null)
 			{
-				ProjectObject current = (ProjectObject)lbox_ProjectList.SelectedItem;
+				//ProjectObject current = (ProjectObject)lbox_ProjectList.SelectedItem;
+				ProjectObject current = (ProjectObject)tree_Projects.SelectedNode.Tag;
 				float FontSize = rtb_ProjectChemFormula.Font.Size;
 				Font Small_font = new Font(rtb_ProjectChemFormula.Font.FontFamily, FontSize * .8f);
 
@@ -267,7 +303,7 @@ namespace Chemlist
 				rtb_Methods.Text = current.methods;
 				rtb_ProjectDescription.Text = current.description;
 
-
+				groupBox6.Text = current.parentProject != null ? current.parentProject.name : "none";
 
 
 				rtb_ProjectChemFormula.Text = current.chemFormula;
@@ -337,6 +373,14 @@ namespace Chemlist
 		void removeSelectedProject(int index)
 		{
 			projectList.RemoveAt(index);
+			serialiseJsonProjects();
+			invalidateProjectList();
+			redrawProjectInfoPanel();
+		}
+
+		void removeSelectedProject(ProjectObject project)
+		{
+			projectList.Remove(project);
 			serialiseJsonProjects();
 			invalidateProjectList();
 			redrawProjectInfoPanel();

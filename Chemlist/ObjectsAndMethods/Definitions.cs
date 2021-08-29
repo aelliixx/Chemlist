@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -25,5 +26,7 @@ namespace Chemlist
 		public Settings settings = new Settings();
 		BindingSource compoundSource = new BindingSource();
 		BindingSource projectSource = new BindingSource();
+
+
 	}
 }

@@ -35,10 +35,9 @@ namespace Chemlist
 			lbox_ChemicalList.DisplayMember = "name";
 			lbox_ChemicalList.DataSource = compoundSource;
 			compoundSource.ResetBindings(false);
-
-			lbox_ProjectList.DisplayMember = "name";
-			lbox_ProjectList.DataSource = projectSource;
+			
 			projectSource.ResetBindings(false);
+			
 
 			tbox_CompoundSearch.Text = "Search";
 			cbox_CompoundSort.SelectedIndex = 0;
@@ -79,9 +78,31 @@ namespace Chemlist
 			redrawProjectInfoPanel();
 		}
 
+		private void tree_Projects_AfterSelect(object sender, TreeViewEventArgs e)
+		{
+			redrawProjectInfoPanel();
+		}
+
 		private void btn_DeleteProject_Click(object sender, EventArgs e)
 		{
-			removeSelectedProject(lbox_ProjectList.SelectedIndex);
+			//removeSelectedProject(lbox_ProjectList.SelectedIndex);
+			ProjectObject selected = (ProjectObject)tree_Projects.SelectedNode.Tag;
+			var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+				(x.Tag as ProjectObject).projectID == selected.projectID).FirstOrDefault();
+			if (selectedNode.Descendants().Count == 0)
+				removeSelectedProject(selected);
+			else
+			{
+				var confirmDeletion = MessageBox.Show("This project has child projects. Are you sure you wish to delete it? Any child projects" +
+					" will become root projects.", "Confirm Project Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+				if (confirmDeletion == DialogResult.Yes)
+				{
+					ProjectObject childProject = (ProjectObject)selectedNode.Nodes[0].Tag;
+					childProject.parentProject.name = null;
+					removeSelectedProject(selected);
+				}
+			}
+
 		}
 
 		// Searching and sorting.
@@ -154,8 +175,7 @@ namespace Chemlist
 			if (lbox_UsedIn.SelectedItem != null)
 			{
 				tab_Switcher.SelectTab(1);
-
-                lbox_ProjectList.SelectedItem = lbox_UsedIn.SelectedItem;
+				
 			}
 		}
 
@@ -164,7 +184,6 @@ namespace Chemlist
             if (lbox_ChemMadeIn.SelectedItem != null)
             {
                 tab_Switcher.SelectTab(1);
-                lbox_ProjectList.SelectedItem = lbox_ChemMadeIn.SelectedItem;
             }
         }
 
@@ -187,5 +206,6 @@ namespace Chemlist
 		{
 			this.Close();
 		}
+
 	}
 }

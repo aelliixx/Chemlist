@@ -38,6 +38,8 @@ namespace Chemlist
         public List<ChemicalObject> makesChemicals { get; set; } 
 		public List<RequiredChemicals> requiredChemicals { get; set; }
 
+		public ProjectObject parentProject { get; set; }
+
 		public Guid projectID { get; set; }
 
 		public ProjectObject()

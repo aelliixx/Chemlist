@@ -59,25 +59,25 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewCompound.cs">
+    <Compile Include="Compounds\AddNewCompound.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewCompound.Designer.cs">
+    <Compile Include="Compounds\AddNewCompound.Designer.cs">
       <DependentUpon>AddNewCompound.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewProject.cs">
+    <Compile Include="Projects\AddNewProject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewProject.Designer.cs">
+    <Compile Include="Projects\AddNewProject.Designer.cs">
       <DependentUpon>AddNewProject.cs</DependentUpon>
     </Compile>
     <Compile Include="ObjectsAndMethods\Definitions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditCompound.cs">
+    <Compile Include="Compounds\EditCompound.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditCompound.Designer.cs">
+    <Compile Include="Compounds\EditCompound.Designer.cs">
       <DependentUpon>EditCompound.cs</DependentUpon>
     </Compile>
     <Compile Include="Firediamond.cs">
@@ -93,6 +93,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ObjectsAndMethods\Extensions.cs" />
     <Compile Include="ObjectsAndMethods\Methods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,13 +109,13 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewCompound.resx">
+    <EmbeddedResource Include="Compounds\AddNewCompound.resx">
       <DependentUpon>AddNewCompound.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewProject.resx">
+    <EmbeddedResource Include="Projects\AddNewProject.resx">
       <DependentUpon>AddNewProject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditCompound.resx">
+    <EmbeddedResource Include="Compounds\EditCompound.resx">
       <DependentUpon>EditCompound.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Firediamond.resx">
@@ -148,6 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\chemlist.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
