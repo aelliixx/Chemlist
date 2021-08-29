@@ -59,22 +59,19 @@ namespace Chemlist
 			removeChemical(lbox_ChemicalList.SelectedIndex);
 		}
 
-
-		/// FIXME: Fix opening links
-
 		private void tlink_Wiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			//System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].wikiLink);
+			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].wikiLink);
 		}
 
 		private void tlink_Purchase_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			//System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].purchaseLink);
+			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].purchaseLink);
 		}
 
 		private void tlink_MSDS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			//System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].msds);
+			System.Diagnostics.Process.Start(chemicalList[lbox_ChemicalList.SelectedIndex].msds);
 		}
 
 		private void lbox_ProjectList_SelectedIndexChanged(object sender, EventArgs e)

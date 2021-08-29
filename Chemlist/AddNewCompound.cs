@@ -137,11 +137,11 @@ namespace Chemlist
 			validateCompoundValues(typeof(float), tbox_MolarMass) &&
 			validateCompoundValues(typeof(String), tbox_Solubility) &&
 			validateCompoundValues(typeof(String), tbox_WikiName) &&
-			validateCompoundValues(typeof(String), tbox_Wiki) &&
+			validateCompoundValues(typeof(Uri), tbox_Wiki) &&
 			validateCompoundValues(typeof(String), tbox_PurchaseName) &&
-			validateCompoundValues(typeof(String), tbox_Purchase) &&
+			validateCompoundValues(typeof(Uri), tbox_Purchase) &&
 			validateCompoundValues(typeof(String), tbox_MSDSName) &&
-			validateCompoundValues(typeof(String), tbox_MSDS) &&
+			validateCompoundValues(typeof(Uri), tbox_MSDS) &&
 			validateCompoundValues(typeof(float), tbox_Density) &&
 			validateCompoundValues(typeof(float), tbox_MeltingPoint) &&
 			validateCompoundValues(typeof(float), tbox_BoilingPoint) &&
@@ -180,6 +180,17 @@ namespace Chemlist
 				catch
 				{
 					errorProvider1.SetError(textBox, "Please enter a float.");
+					return false;
+				}
+			}
+			else if (type == typeof(Uri))
+			{
+				Uri uriResult;
+				bool result = Uri.TryCreate(textBox.Text, UriKind.Absolute, out uriResult)
+				&& (uriResult.Scheme == Uri.UriSchemeHttps || uriResult.Scheme == Uri.UriSchemeHttp);
+				if (!result && textBox.Text != "N/A")
+				{
+					errorProvider1.SetError(textBox, "Invalid link provided");
 					return false;
 				}
 			}
@@ -315,7 +326,7 @@ namespace Chemlist
 
 		private void tbox_Wiki_TextChanged(object sender, EventArgs e)
 		{
-			validateCompoundValues(typeof(String), tbox_Wiki);
+			validateCompoundValues(typeof(Uri), tbox_Wiki);
 		}
 
 		private void tbox_PurchaseName_TextChanged(object sender, EventArgs e)
@@ -325,7 +336,7 @@ namespace Chemlist
 
 		private void tbox_Purchase_TextChanged(object sender, EventArgs e)
 		{
-			validateCompoundValues(typeof(String), tbox_Purchase);
+			validateCompoundValues(typeof(Uri), tbox_Purchase);
 		}
 
 		private void tbox_MSDSName_TextChanged(object sender, EventArgs e)
@@ -335,7 +346,7 @@ namespace Chemlist
 
 		private void tbox_MSDS_TextChanged(object sender, EventArgs e)
 		{
-			validateCompoundValues(typeof(String), tbox_MSDS);
+			validateCompoundValues(typeof(Uri), tbox_MSDS);
 		}
 
 		private void tbox_Density_TextChanged(object sender, EventArgs e)
@@ -387,6 +398,8 @@ namespace Chemlist
 		{
 			validateCompoundValues(typeof(String), tbox_OtherNames);
 		}
+
+		/// ----------------------------VALIDATION END------------------------------
 
 		private void check_Miscible_CheckedChanged(object sender, EventArgs e)
 		{
