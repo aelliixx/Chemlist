@@ -430,7 +430,9 @@ namespace Chemlist
 
         private void btn_Clear_Click(object sender, EventArgs e)
         {
-
+			AddNewCompound addNewCompound = new AddNewCompound();
+			addNewCompound.Show();
+			this.Dispose();
         }
 
         private void tbox_Appearance_TextChanged(object sender, EventArgs e)
