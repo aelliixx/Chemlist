@@ -120,15 +120,6 @@ namespace Chemlist
 				tbox_CompoundSearch.Text = "Search";
 		}
 
-		private void lbox_UsedIn_DoubleClick(object sender, EventArgs e)
-		{
-			if (lbox_UsedIn.SelectedItem != null)
-			{
-				tab_Switcher.SelectTab(0);
-
-				// todo
-			}
-		}
 
 		private void btn_EditCurrentChemical_Click(object sender, EventArgs e)
 		{
@@ -160,5 +151,24 @@ namespace Chemlist
 			About aboutPage = new About();
 			aboutPage.Show();
 		}
-	}
+
+		private void lbox_UsedIn_DoubleClick(object sender, EventArgs e)
+		{
+			if (lbox_UsedIn.SelectedItem != null)
+			{
+				tab_Switcher.SelectTab(1);
+
+                lbox_ProjectList.SelectedItem = lbox_UsedIn.SelectedItem;
+			}
+		}
+
+        private void lbox_ChemMadeIn_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbox_ChemMadeIn.SelectedItem != null)
+            {
+                tab_Switcher.SelectTab(1);
+                lbox_ProjectList.SelectedItem = lbox_ChemMadeIn.SelectedItem;
+            }
+        }
+    }
 }

@@ -369,6 +369,7 @@
             this.lbox_ChemMadeIn.Name = "lbox_ChemMadeIn";
             this.lbox_ChemMadeIn.Size = new System.Drawing.Size(259, 43);
             this.lbox_ChemMadeIn.TabIndex = 0;
+            this.lbox_ChemMadeIn.DoubleClick += new System.EventHandler(this.lbox_ChemMadeIn_DoubleClick);
             // 
             // lview_Warnings
             // 
