@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
 			this.check_GUID = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
@@ -48,6 +49,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(307, 247);
 			this.Controls.Add(this.check_GUID);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MaximumSize = new System.Drawing.Size(323, 286);
 			this.MinimumSize = new System.Drawing.Size(323, 286);

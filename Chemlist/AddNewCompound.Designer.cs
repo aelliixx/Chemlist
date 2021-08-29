@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewCompound));
 			this.btn_Confirm = new System.Windows.Forms.Button();
 			this.tbox_ChemName = new System.Windows.Forms.TextBox();
 			this.btn_CancelEdit = new System.Windows.Forms.Button();
@@ -930,6 +931,7 @@
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MaximumSize = new System.Drawing.Size(691, 533);
 			this.MinimizeBox = false;
