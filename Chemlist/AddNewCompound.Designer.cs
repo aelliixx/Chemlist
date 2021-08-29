@@ -477,7 +477,6 @@
 			this.btn_AdvancedSolubility.TabIndex = 24;
 			this.btn_AdvancedSolubility.Text = "Advanced";
 			this.btn_AdvancedSolubility.UseVisualStyleBackColor = false;
-			this.btn_AdvancedSolubility.Visible = false;
 			// 
 			// check_Insoluble
 			// 
