@@ -187,7 +187,6 @@ namespace Chemlist
 		{
 			this.Close();
 		}
-
-
+		
 	}
 }

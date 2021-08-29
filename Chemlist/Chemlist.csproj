@@ -71,6 +71,24 @@
     <Compile Include="AddNewProject.Designer.cs">
       <DependentUpon>AddNewProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Exports\ExportAllCompounds.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exports\ExportAllCompounds.Designer.cs">
+      <DependentUpon>ExportAllCompounds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exports\ExportThisCompound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exports\ExportThisCompound.Designer.cs">
+      <DependentUpon>ExportThisCompound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exports\ExportThisProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exports\ExportThisProject.Designer.cs">
+      <DependentUpon>ExportThisProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="ObjectsAndMethods\Definitions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +134,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditCompound.resx">
       <DependentUpon>EditCompound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exports\ExportAllCompounds.resx">
+      <DependentUpon>ExportAllCompounds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exports\ExportThisCompound.resx">
+      <DependentUpon>ExportThisCompound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exports\ExportThisProject.resx">
+      <DependentUpon>ExportThisProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Firediamond.resx">
       <DependentUpon>Firediamond.cs</DependentUpon>

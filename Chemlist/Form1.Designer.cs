@@ -127,9 +127,12 @@
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportToTeXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportAllCompoundsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportCurrentCompoundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportAllProjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.exportToTeXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tab_Switcher.SuspendLayout();
 			this.tab_Chemicals.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -1259,6 +1262,35 @@
 			this.optionsToolStripMenuItem.Text = "Options";
 			this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
 			// 
+			// exportToTeXToolStripMenuItem
+			// 
+			this.exportToTeXToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportAllCompoundsToolStripMenuItem,
+            this.exportCurrentCompoundToolStripMenuItem,
+            this.exportAllProjectsToolStripMenuItem});
+			this.exportToTeXToolStripMenuItem.Name = "exportToTeXToolStripMenuItem";
+			this.exportToTeXToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exportToTeXToolStripMenuItem.Text = "Export to TeX";
+			this.exportToTeXToolStripMenuItem.Click += new System.EventHandler(this.exportToTeXToolStripMenuItem_Click);
+			// 
+			// exportAllCompoundsToolStripMenuItem
+			// 
+			this.exportAllCompoundsToolStripMenuItem.Name = "exportAllCompoundsToolStripMenuItem";
+			this.exportAllCompoundsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+			this.exportAllCompoundsToolStripMenuItem.Text = "Export All Compounds";
+			// 
+			// exportCurrentCompoundToolStripMenuItem
+			// 
+			this.exportCurrentCompoundToolStripMenuItem.Name = "exportCurrentCompoundToolStripMenuItem";
+			this.exportCurrentCompoundToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+			this.exportCurrentCompoundToolStripMenuItem.Text = "Export Current Compound";
+			// 
+			// exportAllProjectsToolStripMenuItem
+			// 
+			this.exportAllProjectsToolStripMenuItem.Name = "exportAllProjectsToolStripMenuItem";
+			this.exportAllProjectsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+			this.exportAllProjectsToolStripMenuItem.Text = "Export Current Project";
+			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -1270,13 +1302,6 @@
 			// 
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-			// 
-			// exportToTeXToolStripMenuItem
-			// 
-			this.exportToTeXToolStripMenuItem.Name = "exportToTeXToolStripMenuItem";
-			this.exportToTeXToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.exportToTeXToolStripMenuItem.Text = "Export to TeX";
-			this.exportToTeXToolStripMenuItem.Click += new System.EventHandler(this.exportToTeXToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -1433,6 +1458,9 @@
 		private System.Windows.Forms.LinkLabel linkLabel1;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.ToolStripMenuItem exportToTeXToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exportAllCompoundsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exportCurrentCompoundToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exportAllProjectsToolStripMenuItem;
 	}
 }
 
