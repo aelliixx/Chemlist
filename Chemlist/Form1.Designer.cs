@@ -129,6 +129,7 @@
 			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.exportToTeXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tab_Switcher.SuspendLayout();
 			this.tab_Chemicals.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -376,6 +377,7 @@
 			this.lview_Warnings.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
 			this.lview_Warnings.BackColor = System.Drawing.SystemColors.Control;
 			this.lview_Warnings.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.lview_Warnings.HideSelection = false;
 			this.lview_Warnings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -1236,6 +1238,7 @@
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
             this.optionsToolStripMenuItem,
+            this.exportToTeXToolStripMenuItem,
             this.exitToolStripMenuItem});
 			this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -1267,6 +1270,13 @@
 			// 
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+			// 
+			// exportToTeXToolStripMenuItem
+			// 
+			this.exportToTeXToolStripMenuItem.Name = "exportToTeXToolStripMenuItem";
+			this.exportToTeXToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exportToTeXToolStripMenuItem.Text = "Export to TeX";
+			this.exportToTeXToolStripMenuItem.Click += new System.EventHandler(this.exportToTeXToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -1422,6 +1432,7 @@
 		private System.Windows.Forms.TabPage tab_Yields;
 		private System.Windows.Forms.LinkLabel linkLabel1;
 		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.ToolStripMenuItem exportToTeXToolStripMenuItem;
 	}
 }
 

@@ -363,6 +363,11 @@ namespace Chemlist
 			}
 			return digits;
 		}
+
+		private void exportToTeXToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			// TODO
+		}
 	}
 
 
