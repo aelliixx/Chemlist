@@ -170,5 +170,20 @@ namespace Chemlist
                 lbox_ProjectList.SelectedItem = lbox_ChemMadeIn.SelectedItem;
             }
         }
+
+        private void lbox_RequiredChem_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbox_RequiredChem.SelectedItem != null)
+            {
+                tab_Switcher.SelectTab(0);
+                lbox_ChemicalList.SelectedItem = lbox_RequiredChem.SelectedItem;
+            }
+        }
+
+        private void btn_HighlightRequiredChemicals_Click(object sender, EventArgs e)
+        {
+            tab_Switcher.SelectTab(0);
+
+        }
     }
 }
