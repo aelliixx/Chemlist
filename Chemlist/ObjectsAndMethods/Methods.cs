@@ -183,7 +183,8 @@ namespace Chemlist
 				lview_Warnings.Clear();
 				foreach (Hazards hazards in current.hazards)
 				{
-					lview_Warnings.Items.Add(hazards.symbols, hazards.symbols);
+					lview_Warnings.Items.Add(hazards.symbols, hazards.symbols).ToolTipText = hazards.description;
+					//lview_Warnings.Items[0].ToolTipText = hazards.description;
 				}
 
                 // Made in

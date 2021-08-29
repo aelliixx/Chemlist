@@ -376,7 +376,6 @@
 			this.lview_Warnings.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
 			this.lview_Warnings.BackColor = System.Drawing.SystemColors.Control;
 			this.lview_Warnings.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.lview_Warnings.HideSelection = false;
 			this.lview_Warnings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -392,6 +391,7 @@
 			this.lview_Warnings.Margin = new System.Windows.Forms.Padding(0);
 			this.lview_Warnings.MultiSelect = false;
 			this.lview_Warnings.Name = "lview_Warnings";
+			this.lview_Warnings.ShowItemToolTips = true;
 			this.lview_Warnings.Size = new System.Drawing.Size(243, 59);
 			this.lview_Warnings.TabIndex = 6;
 			this.lview_Warnings.TileSize = new System.Drawing.Size(55, 55);
