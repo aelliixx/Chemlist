@@ -57,17 +57,10 @@ namespace Chemlist
 					tree_Projects.Nodes.Add(project.name).Tag = project;
 				else
 				{
-					var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
-					(x.Tag as ProjectObject).projectID == project.parentProject.projectID).FirstOrDefault();
-					if (selectedNode != null)
-					{
-						tree_Projects.SelectedNode = selectedNode;
+					if (findAndSelectProjectByTag(project))
 						tree_Projects.SelectedNode.Nodes.Add(project.name).Tag = project;
-					}
 					else
-					{
 						leftOver.Add(project);
-					}
 				}
 
 
@@ -75,6 +68,18 @@ namespace Chemlist
 
 			if (leftOver.Count > 0)
 				addProjectToTree(leftOver);
+		}
+
+		bool findAndSelectProjectByTag(ProjectObject tag)
+		{
+			var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+					(x.Tag as ProjectObject).projectID == tag.parentProject.projectID).FirstOrDefault();
+			if (selectedNode != null)
+			{
+				tree_Projects.SelectedNode = selectedNode;
+				return true;
+			}
+			return false;
 		}
 
 		// Read and populate from json

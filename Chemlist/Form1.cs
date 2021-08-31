@@ -20,6 +20,7 @@ namespace Chemlist
 		public Form1()
 		{
 			InitializeComponent();
+			projectTreeViewToolStripMenuItem.Checked = Properties.Settings.Default.showTree;
 
 			invalidateCompoundNamesList();
 			invalidateProjectList();
@@ -45,7 +46,6 @@ namespace Chemlist
 			lbox_UsedIn.DisplayMember = "name";
             lbox_ChemMadeIn.DisplayMember = "name";
 			lbox_ProjectMakes.DisplayMember = "name";
-
 
 		}
 
@@ -178,32 +178,26 @@ namespace Chemlist
 			if (lbox_UsedIn.SelectedItem != null)
 			{
 				tab_Switcher.SelectTab(1);
-				
+				ProjectObject selected = (ProjectObject)lbox_UsedIn.SelectedItem;
+				var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+					(x.Tag as ProjectObject).projectID == selected.projectID).FirstOrDefault();
+				if (selectedNode != null)
+					tree_Projects.SelectedNode = selectedNode;
 			}
 		}
 
-        private void lbox_ChemMadeIn_DoubleClick(object sender, EventArgs e)
-        {
-            if (lbox_ChemMadeIn.SelectedItem != null)
-            {
-                tab_Switcher.SelectTab(1);
-            }
-        }
-
-        private void lbox_RequiredChem_DoubleClick(object sender, EventArgs e)
-        {
-            if (lbox_RequiredChem.SelectedItem != null)
-            {
-                tab_Switcher.SelectTab(0);
-                lbox_ChemicalList.SelectedItem = lbox_RequiredChem.SelectedItem;
-            }
-        }
-
-        private void btn_HighlightRequiredChemicals_Click(object sender, EventArgs e)
-        {
-            tab_Switcher.SelectTab(0);
-
-        }
+		private void lbox_ChemMadeIn_DoubleClick(object sender, EventArgs e)
+		{
+			if (lbox_ChemMadeIn.SelectedItem != null)
+			{
+				tab_Switcher.SelectTab(1);
+				ProjectObject selected = (ProjectObject)lbox_ChemMadeIn.SelectedItem;
+				var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+					(x.Tag as ProjectObject).projectID == selected.projectID).FirstOrDefault();
+				if (selectedNode != null)
+					tree_Projects.SelectedNode = selectedNode;
+			}
+		}
 
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -219,8 +213,28 @@ namespace Chemlist
 		private void projectTreeViewToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			projectTreeViewToolStripMenuItem.Checked = !projectTreeViewToolStripMenuItem.Checked;
+			Properties.Settings.Default.showTree = projectTreeViewToolStripMenuItem.Checked;
+			Properties.Settings.Default.Save();
 			invalidateProjectList();
 			redrawProjectInfoPanel();
 		}
+		private void lbox_ProjectMakes_DoubleClick(object sender, EventArgs e)
+		{
+			if (lbox_ProjectMakes.SelectedItem != null)
+			{
+				tab_Switcher.SelectTab(0);
+				lbox_ChemicalList.SelectedItem = lbox_ProjectMakes.SelectedItem;
+			}
+		}
+
+        private void lbox_RequiredChem_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbox_RequiredChem.SelectedItem != null)
+            {
+				tab_Switcher.SelectTab(0);
+				lbox_ChemicalList.SelectedItem = lbox_RequiredChem.SelectedItem;
+            }
+        }
+
 	}
 }
