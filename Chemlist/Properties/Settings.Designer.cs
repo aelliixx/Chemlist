@@ -34,5 +34,17 @@ namespace Chemlist.Properties {
                 this["showTree"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool showGuid {
+            get {
+                return ((bool)(this["showGuid"]));
+            }
+            set {
+                this["showGuid"] = value;
+            }
+        }
     }
 }

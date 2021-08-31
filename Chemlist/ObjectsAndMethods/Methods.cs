@@ -252,7 +252,7 @@ namespace Chemlist
 				else { txt_SInWater.Text = "-"; }
 				if (current.miscible) { txt_SInWater.Text = "Miscible"; }
 
-				if (settings.showGUID)
+				if (Properties.Settings.Default.showGuid)
 				{
 					cguid.Text = current.chemID.ToString();
 					cguid.Visible = true;
@@ -330,6 +330,13 @@ namespace Chemlist
 				{
 					lbox_ProjectMakes.Items.Add(chemical);
 				}
+				if (Properties.Settings.Default.showGuid)
+				{
+					pguid.Text = current.projectID.ToString();
+					pguid.Visible = true;
+				}
+				else
+					pguid.Visible = false;
 			}
 			else
 			{
@@ -339,6 +346,8 @@ namespace Chemlist
 				pguid.Text = "";
 				lbox_RequiredChem.Items.Clear();
 			}
+
+
 		}
 
 		bool checkProjectAvailability(ProjectObject project)

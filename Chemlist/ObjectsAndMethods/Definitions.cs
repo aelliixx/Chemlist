@@ -22,8 +22,6 @@ namespace Chemlist
 			new Hazards("HealthHazard", "May cause serious and prolonged health effects on short or long term exposure."),
 			new Hazards("Oxidiser", "Can burn even without air or can intensify fire in combustible materials.")
 		};
-
-		public Settings settings = new Settings();
 		BindingSource compoundSource = new BindingSource();
 		BindingSource projectSource = new BindingSource();
 

@@ -21,6 +21,7 @@ namespace Chemlist
 		{
 			InitializeComponent();
 			projectTreeViewToolStripMenuItem.Checked = Properties.Settings.Default.showTree;
+			showGUIDToolStripMenuItem.Checked = Properties.Settings.Default.showGuid;
 
 			invalidateCompoundNamesList();
 			invalidateProjectList();
@@ -149,12 +150,6 @@ namespace Chemlist
 			compoundEditor.Show();
 		}
 
-		private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			Options optionsWindow = new Options { parentForm = this };
-			optionsWindow.Show();
-		}
-
 		private void btn_AddNew_Click(object sender, EventArgs e)
 		{
 			AddNewCompound addNewCompound = new AddNewCompound { parentForm = this };
@@ -216,6 +211,15 @@ namespace Chemlist
 			Properties.Settings.Default.showTree = projectTreeViewToolStripMenuItem.Checked;
 			Properties.Settings.Default.Save();
 			invalidateProjectList();
+			redrawProjectInfoPanel();
+		}
+
+		private void showGUIDToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			showGUIDToolStripMenuItem.Checked = !showGUIDToolStripMenuItem.Checked;
+			Properties.Settings.Default.showGuid = showGUIDToolStripMenuItem.Checked;
+			Properties.Settings.Default.Save();
+			redrawCompoundInfoPanel();
 			redrawProjectInfoPanel();
 		}
 		private void lbox_ProjectMakes_DoubleClick(object sender, EventArgs e)
