@@ -27,11 +27,10 @@ namespace Chemlist
 					projectsToAdd.Add(project);
 				}
 			}
-			addProjectToTree(projectsToAdd,
-				(tbox_ProjectSearch.Text != "Search" && tbox_ProjectSearch.Text != "") || cbox_ProjectSort.SelectedIndex != 0);
+			addProjectToTree(projectsToAdd);
 		}
 
-		void addProjectToTree(List<ProjectObject> toAdd, bool searching = false)
+		void addProjectToTree(List<ProjectObject> toAdd)
 		{
 			List<ProjectObject> leftOver = new List<ProjectObject>();
 			foreach (ProjectObject project in toAdd)
@@ -43,9 +42,9 @@ namespace Chemlist
 				{
 					if (findAndSelectProjectByTag(project))
 						tree_Projects.SelectedNode.Nodes.Add(project.name).Tag = project;
-					else if (!findAndSelectProjectByTag(project) && !searching)
+					else if (!findAndSelectProjectByTag(project) && findParentInList(toAdd, project) != null)
 						leftOver.Add(project);
-					else if (!findAndSelectProjectByTag(project) && searching)
+					else if (!findAndSelectProjectByTag(project) && findParentInList(toAdd, project) == null)
 						tree_Projects.Nodes.Add(project.name).Tag = project;
 				}
 
@@ -54,6 +53,16 @@ namespace Chemlist
 
 			if (leftOver.Count > 0)
 				addProjectToTree(leftOver);
+		}
+
+		ProjectObject findParentInList(List<ProjectObject> list, ProjectObject project)
+		{
+			foreach (ProjectObject projectObject in list)
+			{
+				if (projectObject.projectID == project.parentProject.projectID)
+					return projectObject;
+			}
+			return null;
 		}
 
 		bool findAndSelectProjectByTag(ProjectObject tag)
