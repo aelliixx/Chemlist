@@ -116,42 +116,46 @@ namespace Chemlist
 
 				rtb_Description.Text = current.descripion;
 
-				if (current.inStorage) { txt_Availability.Text = "Available in Storage"; } else { txt_Availability.Text = "Unavailable"; }
+				if (current.inStorage) { txt_Availability.Text = "Available in Storage"; }
+					else { txt_Availability.Text = "Unavailable in Storage"; }
+				if (current.availableThroughProject) { txt_Availability.Text += "\nAvailable Through Projects"; }
+					else { txt_Availability.Text += "\nUnavailable Through Projects"; }
+
 
 				if (current.bAllNames) { txt_Names.Text = current.allNames; }
-					else { txt_Names.Text = "None"; }
+				else { txt_Names.Text = "None"; }
 				if (current.bMolarMass) { txt_MolarMass.Text = current.molarMass.ToString() + " g/mol"; }
-					else { txt_MolarMass.Text = "-"; }
+				else { txt_MolarMass.Text = "-"; }
 				if (current.bAppearance) { txt_Appearance.Text = current.appearance; }
-					else { txt_Appearance.Text = "-"; }
+				else { txt_Appearance.Text = "-"; }
 				if (current.bDensity) { txt_Density.Text = current.density.ToString() + " g/ccm"; }
-					else { txt_Density.Text = "-"; }
+				else { txt_Density.Text = "-"; }
 				if (current.bMeltingPoint) { txt_MeltingPoint.Text = current.mPoint.ToString() + " °C"; }
-					else { txt_MeltingPoint.Text = "-"; }
+				else { txt_MeltingPoint.Text = "-"; }
 				if (current.bBoilingPoint) { txt_BoilingPoint.Text = current.bPoint.ToString() + " °C"; }
-					else { txt_BoilingPoint.Text = "-"; }
+				else { txt_BoilingPoint.Text = "-"; }
 				if (current.bSolubility) { rtb_Solubility.Text = current.solubility; }
-					else { rtb_Solubility.Text = "-"; }
+				else { rtb_Solubility.Text = "-"; }
 				if (current.bVapourPressure) { txt_VapourPressure.Text = current.vapourPressure.ToString() + " mmHg"; }
-					else { txt_VapourPressure.Text = "-"; }
+				else { txt_VapourPressure.Text = "-"; }
 				if (current.bAcidity) { txt_Acidity.Text = current.pKa.ToString(); }
-					else { txt_Acidity.Text = "-"; }
+				else { txt_Acidity.Text = "-"; }
 				if (current.bFlashPoint) { txt_FlashPoint.Text = current.flashPoint.ToString() + " °C"; }
-					else { txt_FlashPoint.Text = "-"; }
+				else { txt_FlashPoint.Text = "-"; }
 				if (current.bLD50) { txt_LD50.Text = current.lethalDose50.ToString() + " mg/kg"; }
-					else { txt_LD50.Text = "-"; }
+				else { txt_LD50.Text = "-"; }
 				if (current.bLC50) { txt_LC50.Text = current.lethalConcentration50.ToString() + " ppm"; }
-					else { txt_LC50.Text = "-"; }
+				else { txt_LC50.Text = "-"; }
 				if (current.bWikiLink) { tlink_Wiki.Enabled = true; tlink_Wiki.Text = current.wikiName; }
-					else { tlink_Wiki.Enabled = false; tlink_Wiki.Text = "-"; }
+				else { tlink_Wiki.Enabled = false; tlink_Wiki.Text = "-"; }
 				if (current.bPurchaseLink) { tlink_Purchase.Enabled = true; tlink_Purchase.Text = current.purchaseName; }
-					else { tlink_Purchase.Enabled = false; tlink_Purchase.Text = "-"; }
+				else { tlink_Purchase.Enabled = false; tlink_Purchase.Text = "-"; }
 				if (current.bMSDS) { tlink_MSDS.Enabled = true; tlink_MSDS.Text = current.msdsName; }
-					else { tlink_MSDS.Enabled = false; tlink_MSDS.Text = "-"; }
+				else { tlink_MSDS.Enabled = false; tlink_MSDS.Text = "-"; }
 
 
 				if (current.bSInWater && !current.miscible) { txt_SInWater.Text = current.solubilityInWater.ToString() + " g/l"; }
-					else { txt_SInWater.Text = "-"; }
+				else { txt_SInWater.Text = "-"; }
 				if (current.miscible) { txt_SInWater.Text = "Miscible"; }
 
 				if (Properties.Settings.Default.showGuid)
@@ -185,6 +189,23 @@ namespace Chemlist
 				txt_SInWater.Text = "-";
 
 			}
+		}
+
+		public bool checkCompoundAvailabilityThroughProjects(ChemicalObject chemicalObject)
+		{
+			List<ProjectObject> projects = new List<ProjectObject>();
+			foreach (ProjectObject project in projectList)
+				foreach (ChemicalObject chemical in project.makesChemicals)
+					if (chemical.chemID == chemicalObject.chemID)
+						projects.Add(project);
+			foreach (ProjectObject project in projects)
+				if (project.available || project.availableThroughProjects)
+				{
+					chemicalObject.availableThroughProject = true;
+					return true;
+				}
+			chemicalObject.availableThroughProject = false;
+			return false;
 		}
 	}
 }

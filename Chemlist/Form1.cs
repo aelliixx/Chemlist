@@ -26,11 +26,19 @@ namespace Chemlist
 			validateFile(projectJSON, ref jsonProjects);
 
 			deserialiseJsonChem();
-			serialiseJsonChem();
-
 			deserialiseJsonProjets();
+
+
 			foreach (ProjectObject project in projectList)
+			{
 				checkProjectAvailability(project);
+				checkProjectAvailabilityThroughOtherProjects(project);
+			}
+			foreach (ChemicalObject chemical in chemicalList)
+				checkCompoundAvailabilityThroughProjects(chemical);
+
+
+			serialiseJsonChem();
 			serialiseJsonProjects();
 
 			lbox_ChemicalList.DisplayMember = "name";

@@ -14,10 +14,11 @@ namespace Chemlist
 			List<ProjectObject> projectsToAdd = new List<ProjectObject>();
 			foreach (ProjectObject project in projectList)
 			{
-				if (cbox_ProjectSort.SelectedIndex == 1 && !project.available)
+				if (cbox_ProjectSort.SelectedIndex == 1 && (!project.available && !project.availableThroughProjects))
 					continue;
-				else if (cbox_ProjectSort.SelectedIndex == 2 && project.available)
+				else if (cbox_ProjectSort.SelectedIndex == 2 && (project.available || project.availableThroughProjects))
 					continue;
+
 
 				if (project.name.ToLower().Contains(tbox_ProjectSearch.Text.ToLower())
 					|| tbox_ProjectSearch.Text == ""
@@ -93,14 +94,10 @@ namespace Chemlist
 				pguid.Text = current.projectID.ToString();
 
 				// Availability
-				if (checkProjectAvailability(current))
-				{
-					txt_ProjectDoable.Text = "Available";
-				}
-				else
-				{
-					txt_ProjectDoable.Text = "Unavailable";
-				}
+				if (checkProjectAvailability(current)) { txt_ProjectDoable.Text = "Available";	}
+				else if (checkProjectAvailabilityThroughOtherProjects(current)) { txt_ProjectDoable.Text = "Available Through Projects"; }
+				else { txt_ProjectDoable.Text = "Unavailable"; }
+
 
 				// Makes and requires lists
 				lbox_RequiredChem.Items.Clear();
@@ -145,9 +142,23 @@ namespace Chemlist
 					project.available = false;
 					return false;
 				}
-
 			}
 			project.available = true;
+			return true;
+		}
+
+		bool checkProjectAvailabilityThroughOtherProjects(ProjectObject project)
+		{
+			foreach (ProjectObject.RequiredChemicals requiredChemical in project.requiredChemicals)
+			{
+				if (!matchChemicalObject(requiredChemical.compound).availableThroughProject
+					&& !matchChemicalObject(requiredChemical.compound).inStorage)
+				{
+					project.availableThroughProjects = false;
+					return false;
+				}
+			}
+			project.availableThroughProjects = true;
 			return true;
 		}
 

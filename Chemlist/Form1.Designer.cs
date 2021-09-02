@@ -39,13 +39,13 @@
 			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
 			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 8);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Phenol");
-			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Phtalic acid");
-			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
-            treeNode10});
-			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode11});
+			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Phenol");
+			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Phtalic acid");
+			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode3});
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -865,7 +865,7 @@
 			// 
 			this.cguid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.cguid.AutoSize = true;
-			this.cguid.Location = new System.Drawing.Point(11, 101);
+			this.cguid.Location = new System.Drawing.Point(11, 98);
 			this.cguid.Name = "cguid";
 			this.cguid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.cguid.Size = new System.Drawing.Size(34, 13);
@@ -951,16 +951,16 @@
 			this.tree_Projects.HideSelection = false;
 			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
 			this.tree_Projects.Name = "tree_Projects";
-			treeNode9.Name = "Node1";
-			treeNode9.Text = "Phenol";
-			treeNode10.Name = "Node3";
-			treeNode10.Text = "Phtalic acid";
-			treeNode11.Name = "Node2";
-			treeNode11.Text = "Phtalic anhydride";
-			treeNode12.Name = "Node0";
-			treeNode12.Text = "Phenolphtalein";
+			treeNode1.Name = "Node1";
+			treeNode1.Text = "Phenol";
+			treeNode2.Name = "Node3";
+			treeNode2.Text = "Phtalic acid";
+			treeNode3.Name = "Node2";
+			treeNode3.Text = "Phtalic anhydride";
+			treeNode4.Name = "Node0";
+			treeNode4.Text = "Phenolphtalein";
 			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode12});
+            treeNode4});
 			this.tree_Projects.ShowLines = false;
 			this.tree_Projects.Size = new System.Drawing.Size(330, 438);
 			this.tree_Projects.TabIndex = 1;

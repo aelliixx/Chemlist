@@ -36,7 +36,7 @@ namespace Chemlist
 			public String element { get; set; }
 			public int count { get; set; }
 
-			public Molecule (String _element, int _count)
+			public Molecule(String _element, int _count)
 			{
 				element = _element;
 				count = _count;
@@ -51,6 +51,7 @@ namespace Chemlist
 		public String descripion { get; set; }
 		public String appearance { get; set; }
 		public bool inStorage { get; set; }
+		public bool availableThroughProject { get; set; }
 		public float molarMass { get; set; }
 		public float pKa { get; set; }
 		public float mPoint { get; set; }
