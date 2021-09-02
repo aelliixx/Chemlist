@@ -26,7 +26,7 @@
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
-		private void InitializeComponent()
+		public void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 0);
@@ -1415,7 +1415,7 @@
 		private System.Windows.Forms.TabControl tab_Switcher;
 		private System.Windows.Forms.TabPage tab_Chemicals;
 		private System.Windows.Forms.SplitContainer splitContainer1;
-		private System.Windows.Forms.ListBox lbox_ChemicalList;
+		public System.Windows.Forms.ListBox lbox_ChemicalList;
 		private System.Windows.Forms.Button btn_RemoveChemicalFromList;
 		private System.Windows.Forms.Button btn_EditCurrentChemical;
 		private System.Windows.Forms.MenuStrip menuStrip1;
