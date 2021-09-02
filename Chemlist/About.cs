@@ -14,17 +14,17 @@ namespace Chemlist
 		public About()
 		{
 			InitializeComponent();
-			this.Text = String.Format("About {0}", AssemblyTitle);
-			this.labelProductName.Text = AssemblyProduct;
-			this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-			this.labelCopyright.Text = AssemblyCopyright;
-			this.labelCompanyName.Text = AssemblyCompany;
-			this.textBoxDescription.Text = AssemblyDescription;
+			this.Text = String.Format("About {0}", assemblyTitle);
+			this.labelProductName.Text = assemblyProduct;
+			this.labelVersion.Text = String.Format("Version {0}", assemblyVersion);
+			this.labelCopyright.Text = assemblyCopyright;
+			this.labelCompanyName.Text = assemblyCompany;
+			this.textBoxDescription.Text = assemblyDescription;
 		}
 
 		#region Assembly Attribute Accessors
 
-		public string AssemblyTitle
+		public string assemblyTitle
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace Chemlist
 			}
 		}
 
-		public string AssemblyVersion
+		public string assemblyVersion
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace Chemlist
 			}
 		}
 
-		public string AssemblyDescription
+		public string assemblyDescription
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace Chemlist
 			}
 		}
 
-		public string AssemblyProduct
+		public string assemblyProduct
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace Chemlist
 			}
 		}
 
-		public string AssemblyCopyright
+		public string assemblyCopyright
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace Chemlist
 			}
 		}
 
-		public string AssemblyCompany
+		public string assemblyCompany
 		{
 			get
 			{
