@@ -9,16 +9,16 @@ namespace Chemlist
 {
 	public static class Extensions
 	{
-		public static List<TreeNode> Descendants(this TreeView tree)
+		public static List<TreeNode> descendants(this TreeView tree)
 		{
 			var nodes = tree.Nodes.Cast<TreeNode>();
-			return nodes.SelectMany(x => x.Descendants()).Concat(nodes).ToList();
+			return nodes.SelectMany(x => x.descendants()).Concat(nodes).ToList();
 		}
 
-		public static List<TreeNode> Descendants(this TreeNode node)
+		public static List<TreeNode> descendants(this TreeNode node)
 		{
 			var nodes = node.Nodes.Cast<TreeNode>().ToList();
-			return nodes.SelectMany(x => Descendants(x)).Concat(nodes).ToList();
+			return nodes.SelectMany(x => descendants(x)).Concat(nodes).ToList();
 		}
 	}
 }

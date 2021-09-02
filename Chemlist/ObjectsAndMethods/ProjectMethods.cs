@@ -11,23 +11,41 @@ namespace Chemlist
 		{
 			tree_Projects.Nodes.Clear();
 			projectList.Sort(delegate (ProjectObject name1, ProjectObject name2) { return name1.name.CompareTo(name2.name); });
-			List<ProjectObject> projectsToAdd = projectList;
-			addProjectToTree(projectsToAdd);
+			List<ProjectObject> projectsToAdd = new List<ProjectObject>();
+			foreach (ProjectObject project in projectList)
+			{
+				if (cbox_ProjectSort.SelectedIndex == 1 && !project.available)
+					continue;
+				else if (cbox_ProjectSort.SelectedIndex == 2 && project.available)
+					continue;
+
+				if (project.name.ToLower().Contains(tbox_ProjectSearch.Text.ToLower())
+					|| tbox_ProjectSearch.Text == ""
+					|| tbox_ProjectSearch.Text == "Search")
+				{
+					projectsToAdd.Add(project);
+				}
+			}
+			addProjectToTree(projectsToAdd,
+				(tbox_ProjectSearch.Text != "Search" && tbox_ProjectSearch.Text != "") || cbox_ProjectSort.SelectedIndex != 0);
 		}
 
-		void addProjectToTree(List<ProjectObject> toAdd)
+		void addProjectToTree(List<ProjectObject> toAdd, bool searching = false)
 		{
 			List<ProjectObject> leftOver = new List<ProjectObject>();
 			foreach (ProjectObject project in toAdd)
 			{
+				
 				if (project.parentProject.name == null || !projectTreeViewToolStripMenuItem.Checked)
 					tree_Projects.Nodes.Add(project.name).Tag = project;
 				else
 				{
 					if (findAndSelectProjectByTag(project))
 						tree_Projects.SelectedNode.Nodes.Add(project.name).Tag = project;
-					else
+					else if (!findAndSelectProjectByTag(project) && !searching)
 						leftOver.Add(project);
+					else if (!findAndSelectProjectByTag(project) && searching)
+						tree_Projects.Nodes.Add(project.name).Tag = project;
 				}
 
 
@@ -39,7 +57,7 @@ namespace Chemlist
 
 		bool findAndSelectProjectByTag(ProjectObject tag)
 		{
-			var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+			var selectedNode = tree_Projects.descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
 					(x.Tag as ProjectObject).projectID == tag.parentProject.projectID).FirstOrDefault();
 			if (selectedNode != null)
 			{
@@ -123,9 +141,13 @@ namespace Chemlist
 			foreach (ProjectObject.RequiredChemicals requiredChemical in project.requiredChemicals)
 			{
 				if (!matchChemicalObject(requiredChemical.compound).inStorage)
+				{
+					project.available = false;
 					return false;
+				}
 
 			}
+			project.available = true;
 			return true;
 		}
 

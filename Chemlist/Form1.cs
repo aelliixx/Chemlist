@@ -27,7 +27,10 @@ namespace Chemlist
 
 			deserialiseJsonChem();
 			serialiseJsonChem();
+
 			deserialiseJsonProjets();
+			foreach (ProjectObject project in projectList)
+				checkProjectAvailability(project);
 			serialiseJsonProjects();
 
 			lbox_ChemicalList.DisplayMember = "name";
@@ -39,6 +42,8 @@ namespace Chemlist
 
 			tbox_CompoundSearch.Text = "Search";
 			cbox_CompoundSort.SelectedIndex = 0;
+			tbox_ProjectSearch.Text = "Search";
+			cbox_ProjectSort.SelectedIndex = 0;
 			lbox_RequiredChem.DisplayMember = "name";
 			lbox_UsedIn.DisplayMember = "name";
             lbox_ChemMadeIn.DisplayMember = "name";
@@ -86,9 +91,9 @@ namespace Chemlist
 			if (tree_Projects.SelectedNode == null)
 				return;
 			ProjectObject selected = (ProjectObject)tree_Projects.SelectedNode.Tag;
-			var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+			var selectedNode = tree_Projects.descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
 				(x.Tag as ProjectObject).projectID == selected.projectID).FirstOrDefault();
-			if (selectedNode.Descendants().Count == 0)
+			if (selectedNode.descendants().Count == 0)
 				removeSelectedProject(selected);
 			else
 			{
@@ -107,12 +112,25 @@ namespace Chemlist
 		// Searching and sorting.
 		private void tbox_ProjectSearch_TextChanged(object sender, EventArgs e)
 		{
-
+			if (tbox_ProjectSearch.Text != "Search")
+				invalidateProjectList();
 		}
 
 		private void cbox_ProjectSort_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			invalidateProjectList();
+		}
 
+		private void tbox_ProjectSearch_Enter(object sender, EventArgs e)
+		{
+			if (tbox_ProjectSearch.Text == "Search")
+				tbox_ProjectSearch.Text = "";
+		}
+
+		private void tbox_ProjectSearch_Leave(object sender, EventArgs e)
+		{
+			if (tbox_ProjectSearch.Text == "")
+				tbox_ProjectSearch.Text = "Search";
 		}
 
 		private void cbox_CompoundSort_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,7 +187,7 @@ namespace Chemlist
 			{
 				tab_Switcher.SelectTab(1);
 				ProjectObject selected = (ProjectObject)lbox_UsedIn.SelectedItem;
-				var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+				var selectedNode = tree_Projects.descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
 					(x.Tag as ProjectObject).projectID == selected.projectID).FirstOrDefault();
 				if (selectedNode != null)
 					tree_Projects.SelectedNode = selectedNode;
@@ -182,7 +200,7 @@ namespace Chemlist
 			{
 				tab_Switcher.SelectTab(1);
 				ProjectObject selected = (ProjectObject)lbox_ChemMadeIn.SelectedItem;
-				var selectedNode = tree_Projects.Descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+				var selectedNode = tree_Projects.descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
 					(x.Tag as ProjectObject).projectID == selected.projectID).FirstOrDefault();
 				if (selectedNode != null)
 					tree_Projects.SelectedNode = selectedNode;

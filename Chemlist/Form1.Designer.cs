@@ -29,23 +29,23 @@
 		public void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 1);
-			System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 2);
-			System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("", 3);
-			System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("", 4);
-			System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("", 5);
-			System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("", 6);
-			System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("", 7);
-			System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("", 8);
+			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
+			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
+			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
+			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 4);
+			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 5);
+			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 6);
+			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
+			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 8);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Phenol");
-			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Phtalic acid");
-			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode7});
+			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Phenol");
+			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Phtalic acid");
+			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
+            treeNode10});
+			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode11});
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -123,6 +123,7 @@
 			this.rtb_Methods = new System.Windows.Forms.RichTextBox();
 			this.tab_Yields = new System.Windows.Forms.TabPage();
 			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.lbox_ProjectMakes = new System.Windows.Forms.ListBox();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.lbox_RequiredChem = new System.Windows.Forms.ListBox();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -141,7 +142,6 @@
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.showGUIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.lbox_ProjectMakes = new System.Windows.Forms.ListBox();
 			this.tab_Switcher.SuspendLayout();
 			this.tab_Chemicals.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -392,15 +392,15 @@
 			this.lview_Warnings.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.lview_Warnings.HideSelection = false;
 			this.lview_Warnings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9});
 			this.lview_Warnings.LargeImageList = this.hazardImages;
 			this.lview_Warnings.Location = new System.Drawing.Point(377, 144);
 			this.lview_Warnings.Margin = new System.Windows.Forms.Padding(0);
@@ -951,16 +951,16 @@
 			this.tree_Projects.HideSelection = false;
 			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
 			this.tree_Projects.Name = "tree_Projects";
-			treeNode5.Name = "Node1";
-			treeNode5.Text = "Phenol";
-			treeNode6.Name = "Node3";
-			treeNode6.Text = "Phtalic acid";
-			treeNode7.Name = "Node2";
-			treeNode7.Text = "Phtalic anhydride";
-			treeNode8.Name = "Node0";
-			treeNode8.Text = "Phenolphtalein";
+			treeNode9.Name = "Node1";
+			treeNode9.Text = "Phenol";
+			treeNode10.Name = "Node3";
+			treeNode10.Text = "Phtalic acid";
+			treeNode11.Name = "Node2";
+			treeNode11.Text = "Phtalic anhydride";
+			treeNode12.Name = "Node0";
+			treeNode12.Text = "Phenolphtalein";
 			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
+            treeNode12});
 			this.tree_Projects.ShowLines = false;
 			this.tree_Projects.Size = new System.Drawing.Size(330, 438);
 			this.tree_Projects.TabIndex = 1;
@@ -973,11 +973,18 @@
 			this.tbox_ProjectSearch.Size = new System.Drawing.Size(155, 20);
 			this.tbox_ProjectSearch.TabIndex = 7;
 			this.tbox_ProjectSearch.TextChanged += new System.EventHandler(this.tbox_ProjectSearch_TextChanged);
+			this.tbox_ProjectSearch.Enter += new System.EventHandler(this.tbox_ProjectSearch_Enter);
+			this.tbox_ProjectSearch.Leave += new System.EventHandler(this.tbox_ProjectSearch_Leave);
 			// 
 			// cbox_ProjectSort
 			// 
+			this.cbox_ProjectSort.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.cbox_ProjectSort.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cbox_ProjectSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbox_ProjectSort.FormattingEnabled = true;
+			this.cbox_ProjectSort.Items.AddRange(new object[] {
+            "All",
+            "Only Available",
+            "Only Unavailable"});
 			this.cbox_ProjectSort.Location = new System.Drawing.Point(169, 4);
 			this.cbox_ProjectSort.Name = "cbox_ProjectSort";
 			this.cbox_ProjectSort.Size = new System.Drawing.Size(157, 21);
@@ -1146,6 +1153,18 @@
 			this.groupBox7.TabIndex = 7;
 			this.groupBox7.TabStop = false;
 			this.groupBox7.Text = "Makes";
+			// 
+			// lbox_ProjectMakes
+			// 
+			this.lbox_ProjectMakes.BackColor = System.Drawing.SystemColors.Control;
+			this.lbox_ProjectMakes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.lbox_ProjectMakes.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbox_ProjectMakes.FormattingEnabled = true;
+			this.lbox_ProjectMakes.Location = new System.Drawing.Point(3, 16);
+			this.lbox_ProjectMakes.Name = "lbox_ProjectMakes";
+			this.lbox_ProjectMakes.Size = new System.Drawing.Size(195, 104);
+			this.lbox_ProjectMakes.TabIndex = 0;
+			this.lbox_ProjectMakes.DoubleClick += new System.EventHandler(this.lbox_ProjectMakes_DoubleClick);
 			// 
 			// groupBox5
 			// 
@@ -1334,18 +1353,6 @@
 			// 
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-			// 
-			// lbox_ProjectMakes
-			// 
-			this.lbox_ProjectMakes.BackColor = System.Drawing.SystemColors.Control;
-			this.lbox_ProjectMakes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.lbox_ProjectMakes.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lbox_ProjectMakes.FormattingEnabled = true;
-			this.lbox_ProjectMakes.Location = new System.Drawing.Point(3, 16);
-			this.lbox_ProjectMakes.Name = "lbox_ProjectMakes";
-			this.lbox_ProjectMakes.Size = new System.Drawing.Size(195, 104);
-			this.lbox_ProjectMakes.TabIndex = 0;
-			this.lbox_ProjectMakes.DoubleClick += new System.EventHandler(this.lbox_ProjectMakes_DoubleClick);
 			// 
 			// Form1
 			// 

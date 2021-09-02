@@ -14,9 +14,7 @@ namespace Chemlist
 			foreach (ChemicalObject chemical in chemicalList)
 			{
 				if (cbox_CompoundSort.SelectedIndex == 1 && !chemical.inStorage)
-				{
 					continue;
-				}
 				else if (cbox_CompoundSort.SelectedIndex == 2 && chemical.inStorage)
 					continue;
 

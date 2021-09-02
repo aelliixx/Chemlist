@@ -28,7 +28,7 @@ namespace Chemlist
 			
 		}
 
-		public bool available;
+		public bool available { get; set; }
 
 		public String name { get; set; }
 		public String chemFormula { get; set; }

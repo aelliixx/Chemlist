@@ -50,7 +50,7 @@ namespace Chemlist
 		public String chemFormula { get; set; }
 		public String descripion { get; set; }
 		public String appearance { get; set; }
-		public bool inStorage = false;
+		public bool inStorage { get; set; }
 		public float molarMass { get; set; }
 		public float pKa { get; set; }
 		public float mPoint { get; set; }
