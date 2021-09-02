@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 /// <summary>
@@ -20,6 +15,7 @@ namespace Chemlist
 		public Form1()
 		{
 			InitializeComponent();
+
 			projectTreeViewToolStripMenuItem.Checked = Properties.Settings.Default.showTree;
 			showGUIDToolStripMenuItem.Checked = Properties.Settings.Default.showGuid;
 
@@ -87,7 +83,6 @@ namespace Chemlist
 
 		private void btn_DeleteProject_Click(object sender, EventArgs e)
 		{
-			//removeSelectedProject(lbox_ProjectList.SelectedIndex);
 			if (tree_Projects.SelectedNode == null)
 				return;
 			ProjectObject selected = (ProjectObject)tree_Projects.SelectedNode.Tag;
