@@ -34,6 +34,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewProject));
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.cbox_ParentProject = new System.Windows.Forms.ComboBox();
 			this.tbox_Description = new System.Windows.Forms.TextBox();
 			this.tbox_ProjectName = new System.Windows.Forms.TextBox();
 			this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -42,6 +43,7 @@
 			this.checkBox6 = new System.Windows.Forms.CheckBox();
 			this.rtb_ProjectFormula = new System.Windows.Forms.RichTextBox();
 			this.checkBox5 = new System.Windows.Forms.CheckBox();
+			this.label8 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
 			this.label3 = new System.Windows.Forms.Label();
@@ -77,8 +79,6 @@
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.rtb_Methods = new System.Windows.Forms.RichTextBox();
-			this.cbox_ParentProject = new System.Windows.Forms.ComboBox();
-			this.label8 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -122,6 +122,16 @@
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Acute Toxic";
+			// 
+			// cbox_ParentProject
+			// 
+			this.cbox_ParentProject.FormattingEnabled = true;
+			this.cbox_ParentProject.Location = new System.Drawing.Point(433, 134);
+			this.cbox_ParentProject.Name = "cbox_ParentProject";
+			this.cbox_ParentProject.Size = new System.Drawing.Size(225, 21);
+			this.cbox_ParentProject.TabIndex = 23;
+			this.cbox_ParentProject.DropDown += new System.EventHandler(this.cbox_ParentProject_DropDown);
+			this.cbox_ParentProject.SelectedIndexChanged += new System.EventHandler(this.cbox_ParentProject_SelectedIndexChanged);
 			// 
 			// tbox_Description
 			// 
@@ -200,6 +210,15 @@
 			this.checkBox5.TabIndex = 20;
 			this.checkBox5.Text = "Compressed Gas";
 			this.checkBox5.UseVisualStyleBackColor = true;
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(378, 137);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(41, 13);
+			this.label8.TabIndex = 16;
+			this.label8.Text = "Parent:";
 			// 
 			// label5
 			// 
@@ -623,37 +642,22 @@
 			this.rtb_Methods.TabIndex = 0;
 			this.rtb_Methods.Text = "";
 			// 
-			// cbox_ParentProject
-			// 
-			this.cbox_ParentProject.FormattingEnabled = true;
-			this.cbox_ParentProject.Location = new System.Drawing.Point(433, 134);
-			this.cbox_ParentProject.Name = "cbox_ParentProject";
-			this.cbox_ParentProject.Size = new System.Drawing.Size(225, 21);
-			this.cbox_ParentProject.TabIndex = 23;
-			this.cbox_ParentProject.DropDown += new System.EventHandler(this.cbox_ParentProject_DropDown);
-			this.cbox_ParentProject.SelectedIndexChanged += new System.EventHandler(this.cbox_ParentProject_SelectedIndexChanged);
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(378, 137);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(41, 13);
-			this.label8.TabIndex = 16;
-			this.label8.Text = "Parent:";
-			// 
 			// AddNewProject
 			// 
+			this.AcceptButton = this.btn_Confirm;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.CancelButton = this.btn_Cancel;
 			this.ClientSize = new System.Drawing.Size(885, 438);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.btn_Cancel);
 			this.Controls.Add(this.btn_Confirm);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(901, 477);
 			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(901, 477);
 			this.Name = "AddNewProject";
 			this.Text = "Add New Project";
 			this.groupBox1.ResumeLayout(false);

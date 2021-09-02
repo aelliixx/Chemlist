@@ -650,7 +650,6 @@
 			this.txt_Availability.Size = new System.Drawing.Size(56, 13);
 			this.txt_Availability.TabIndex = 6;
 			this.txt_Availability.Text = "Availability";
-			this.txt_Availability.Click += new System.EventHandler(this.txt_Availability_Click);
 			// 
 			// txt_chemName
 			// 
