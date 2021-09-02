@@ -222,14 +222,6 @@ namespace Chemlist
 			redrawCompoundInfoPanel();
 			redrawProjectInfoPanel();
 		}
-		private void lbox_ProjectMakes_DoubleClick(object sender, EventArgs e)
-		{
-			if (lbox_ProjectMakes.SelectedItem != null)
-			{
-				tab_Switcher.SelectTab(0);
-				lbox_ChemicalList.SelectedItem = lbox_ProjectMakes.SelectedItem;
-			}
-		}
 
         private void lbox_RequiredChem_DoubleClick(object sender, EventArgs e)
         {
@@ -240,5 +232,14 @@ namespace Chemlist
             }
         }
 
+		private void lbox_ProjectMakes_DoubleClick(object sender, EventArgs e)
+		{
+			if (lbox_ProjectMakes.SelectedItem != null)
+			{
+				tab_Switcher.SelectTab(0);
+				lbox_ChemicalList.SelectedItem = lbox_ProjectMakes.SelectedItem;
+			}
+
+		}
 	}
 }

@@ -287,10 +287,8 @@ namespace Chemlist
 
 		public void redrawProjectInfoPanel()
 		{
-			if (/*lbox_ProjectList.Items.Count > 0 && lbox_ProjectList.SelectedItem != null*/
-				tree_Projects.Nodes.Count > 0 && tree_Projects.SelectedNode != null)
+			if (tree_Projects.Nodes.Count > 0 && tree_Projects.SelectedNode != null)
 			{
-				//ProjectObject current = (ProjectObject)lbox_ProjectList.SelectedItem;
 				ProjectObject current = (ProjectObject)tree_Projects.SelectedNode.Tag;
 				float FontSize = rtb_ProjectChemFormula.Font.Size;
 				Font Small_font = new Font(rtb_ProjectChemFormula.Font.FontFamily, FontSize * .8f);
@@ -312,11 +310,7 @@ namespace Chemlist
 
 				pguid.Text = current.projectID.ToString();
 
-				lbox_RequiredChem.Items.Clear();
-				foreach (ProjectObject.RequiredChemicals chemical in current.requiredChemicals)
-				{
-					lbox_RequiredChem.Items.Add(matchChemicalObject(chemical.compound));
-				}
+				// Availability
 				if (checkProjectAvailability(current))
 				{
 					txt_ProjectDoable.Text = "Available";
@@ -325,11 +319,20 @@ namespace Chemlist
 				{
 					txt_ProjectDoable.Text = "Unavailable";
 				}
+
+				// Makes and requires lists
+				lbox_RequiredChem.Items.Clear();
+				foreach (ProjectObject.RequiredChemicals chemical in current.requiredChemicals)
+				{
+					lbox_RequiredChem.Items.Add(matchChemicalObject(chemical.compound));
+				}
 				lbox_ProjectMakes.Items.Clear();
 				foreach (ChemicalObject chemical in current.makesChemicals)
 				{
-					lbox_ProjectMakes.Items.Add(chemical);
+					lbox_ProjectMakes.Items.Add(matchChemicalObject(chemical));
 				}
+
+				// GUID
 				if (Properties.Settings.Default.showGuid)
 				{
 					pguid.Text = current.projectID.ToString();
@@ -345,6 +348,7 @@ namespace Chemlist
 				rtb_ProjectDescription.Text = "";
 				pguid.Text = "";
 				lbox_RequiredChem.Items.Clear();
+				lbox_ProjectMakes.Items.Clear();
 			}
 
 
