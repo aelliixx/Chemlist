@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Chemlist
 {
@@ -40,41 +41,51 @@ namespace Chemlist
 					tree_Projects.Nodes.Add(project.name).Tag = project;
 				else
 				{
-					if (findAndSelectProjectByTag(project))
+					if (selectProjectByTag(project.parentProject))
 						tree_Projects.SelectedNode.Nodes.Add(project.name).Tag = project;
-					else if (!findAndSelectProjectByTag(project) && findParentInList(toAdd, project) != null)
+					else if (!selectProjectByTag(project.parentProject) && findProjectInList(toAdd, project.parentProject) != null)
 						leftOver.Add(project);
-					else if (!findAndSelectProjectByTag(project) && findParentInList(toAdd, project) == null)
+					else if (!selectProjectByTag(project.parentProject) && findProjectInList(toAdd, project.parentProject) == null)
 						tree_Projects.Nodes.Add(project.name).Tag = project;
 				}
 
-
+				if (checkProjectAvailability(project)) { }
+				else if (checkProjectAvailabilityThroughOtherProjects(project)) { }
 			}
 
 			if (leftOver.Count > 0)
 				addProjectToTree(leftOver);
+			else
+			{
+				tree_Projects.ExpandAll();
+				tree_Projects.Update();
+			}
 		}
 
-		ProjectObject findParentInList(List<ProjectObject> list, ProjectObject project)
+		ProjectObject findProjectInList(List<ProjectObject> list, ProjectObject project)
 		{
 			foreach (ProjectObject projectObject in list)
 			{
-				if (projectObject.projectID == project.parentProject.projectID)
+				if (projectObject.projectID == project.projectID)
 					return projectObject;
 			}
 			return null;
 		}
 
-		bool findAndSelectProjectByTag(ProjectObject tag)
+		bool selectProjectByTag(ProjectObject tag)
 		{
-			var selectedNode = tree_Projects.descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
-					(x.Tag as ProjectObject).projectID == tag.parentProject.projectID).FirstOrDefault();
+			var selectedNode = findProjectByTag(tag);
 			if (selectedNode != null)
 			{
 				tree_Projects.SelectedNode = selectedNode;
 				return true;
 			}
 			return false;
+		}
+		TreeNode findProjectByTag(ProjectObject tag)
+		{
+			return tree_Projects.descendants().Where(x => ((x.Tag as ProjectObject) != null) &&
+					(x.Tag as ProjectObject).projectID == tag.projectID).FirstOrDefault();
 		}
 
 		public void redrawProjectInfoPanel()
@@ -144,30 +155,37 @@ namespace Chemlist
 
 		bool checkProjectAvailability(ProjectObject project)
 		{
+			var node = findProjectByTag(project);
 			foreach (ProjectObject.RequiredChemicals requiredChemical in project.requiredChemicals)
 			{
 				if (!matchChemicalObject(requiredChemical.compound).inStorage)
 				{
+					if (node != null) { node.ForeColor = Color.Red; }
 					project.available = false;
 					return false;
 				}
 			}
+			if (node != null) { node.ForeColor = Color.Green; }
 			project.available = true;
 			return true;
 		}
 
 		bool checkProjectAvailabilityThroughOtherProjects(ProjectObject project)
 		{
+			var node = findProjectByTag(project);
 			foreach (ProjectObject.RequiredChemicals requiredChemical in project.requiredChemicals)
 			{
 				if (!matchChemicalObject(requiredChemical.compound).availableThroughProject
 					&& !matchChemicalObject(requiredChemical.compound).inStorage)
 				{
+					if (node != null) { node.ForeColor = Color.Red; }
 					project.availableThroughProjects = false;
 					return false;
 				}
 			}
+			if (node != null) { node.ForeColor = Color.Orange; }
 			project.availableThroughProjects = true;
+
 			return true;
 		}
 
