@@ -262,5 +262,10 @@ namespace Chemlist
 			}
 
 		}
+
+		private void txt_Availability_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

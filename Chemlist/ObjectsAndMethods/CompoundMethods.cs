@@ -116,36 +116,43 @@ namespace Chemlist
 
 				rtb_Description.Text = current.descripion;
 
-				if (current.inStorage) { txt_Availability.Text = "Available in Storage"; }
-					else { txt_Availability.Text = "Unavailable in Storage"; }
-				if (current.availableThroughProject) { txt_Availability.Text += "\nAvailable Through Projects"; }
-					else { txt_Availability.Text += "\nUnavailable Through Projects"; }
+				if (current.inStorage) { txt_Availability.Text = "Available in Storage;    "; }
+					else { txt_Availability.Text = "Unavailable in Storage;   "; }
+				if (current.availableThroughProject) { txt_Availability.Text += "Available Through Projects"; }
+					else { txt_Availability.Text += "Unavailable Through Projects"; }
 
+				rtb_Properties.Text = "";
+				if (current.bMolarMass) { rtb_Properties.Text += "Molar mass:\t\t" + current.molarMass.ToString() + "g/mol\n"; }
+				else { rtb_Properties.Text += "Molar mass:\t\t-\n"; }
+				if (current.bDensity) { rtb_Properties.Text += "Density:\t\t\t" + current.density.ToString() + " g/ccm\n"; }
+				else { rtb_Properties.Text += "Density:\t\t\t-\n"; }
+				if (current.bMeltingPoint) { rtb_Properties.Text += "Melting point:\t\t" + current.mPoint.ToString() + " °C\n"; }
+				else { rtb_Properties.Text += "Melting point:\t\t-\n"; }
+				if (current.bBoilingPoint) { rtb_Properties.Text += "Boiling point:\t\t" + current.bPoint.ToString() + " °C\n"; }
+				else { rtb_Properties.Text += "Boiling point:\t\t-\n"; }
+				if (current.bSInWater && !current.miscible) { rtb_Properties.Text += "Solubility in water:\t\t" +
+						current.solubilityInWater.ToString() + " g/l\n"; }
+				else { rtb_Properties.Text += "Solubility in water:\t\t-\n"; }
+				if (current.miscible) { rtb_Properties.Text += "Solubility in water:\t\tMiscible\n"; }
+				if (current.insoluble) { rtb_Properties.Text += "Solubility in water:\t\tInsoluble\n"; }
+				if (current.bVapourPressure) { rtb_Properties.Text += "Vapour pressure:\t\t" + current.vapourPressure.ToString() + "mmHg\n";}
+				else { rtb_Properties.Text += "Vapour pressure:\t\t-\n"; }
+				if (current.bAcidity) { rtb_Properties.Text += "Acidity (pKa):\t\t" + current.pKa.ToString() + "\n"; }
+				else { rtb_Properties.Text += "Acidity: (pKa):\t\t-\n"; }
+				if (current.bFlashPoint) { rtb_Properties.Text += "Flash point:\t\t" + current.flashPoint.ToString() + " °C\n"; }
+				else { rtb_Properties.Text += "Flash point:\t\t-\n"; }
+				if (current.bLD50) { rtb_Properties.Text += "LD50:\t\t\t" + current.lethalDose50.ToString() + " mg/kg\n"; }
+				else { rtb_Properties.Text += "LD50:\t\t\t-\n"; }
+				if (current.bLC50) { rtb_Properties.Text += "LC50:\t\t\t" +  current.lethalConcentration50.ToString() + " ppm\n"; }
+				else { rtb_Properties.Text += "LC50:\t\t\t-\n"; }
 
-				if (current.bAllNames) { txt_Names.Text = current.allNames; }
-				else { txt_Names.Text = "None"; }
-				if (current.bMolarMass) { txt_MolarMass.Text = current.molarMass.ToString() + " g/mol"; }
-				else { txt_MolarMass.Text = "-"; }
-				if (current.bAppearance) { txt_Appearance.Text = current.appearance; }
-				else { txt_Appearance.Text = "-"; }
-				if (current.bDensity) { txt_Density.Text = current.density.ToString() + " g/ccm"; }
-				else { txt_Density.Text = "-"; }
-				if (current.bMeltingPoint) { txt_MeltingPoint.Text = current.mPoint.ToString() + " °C"; }
-				else { txt_MeltingPoint.Text = "-"; }
-				if (current.bBoilingPoint) { txt_BoilingPoint.Text = current.bPoint.ToString() + " °C"; }
-				else { txt_BoilingPoint.Text = "-"; }
-				if (current.bSolubility) { rtb_Solubility.Text = current.solubility; }
-				else { rtb_Solubility.Text = "-"; }
-				if (current.bVapourPressure) { txt_VapourPressure.Text = current.vapourPressure.ToString() + " mmHg"; }
-				else { txt_VapourPressure.Text = "-"; }
-				if (current.bAcidity) { txt_Acidity.Text = current.pKa.ToString(); }
-				else { txt_Acidity.Text = "-"; }
-				if (current.bFlashPoint) { txt_FlashPoint.Text = current.flashPoint.ToString() + " °C"; }
-				else { txt_FlashPoint.Text = "-"; }
-				if (current.bLD50) { txt_LD50.Text = current.lethalDose50.ToString() + " mg/kg"; }
-				else { txt_LD50.Text = "-"; }
-				if (current.bLC50) { txt_LC50.Text = current.lethalConcentration50.ToString() + " ppm"; }
-				else { txt_LC50.Text = "-"; }
+				if (current.bAllNames) { rtb_Properties.Text += "Other names:\t\t" + current.allNames + "\n"; }
+				else { rtb_Properties.Text += "Other names:\t\tNone\n"; }
+				if (current.bAppearance) { rtb_Properties.Text += "Appearance:\t\t" + current.appearance + "\n"; }
+				else { rtb_Properties.Text += "Appearance:\t\t-\n"; }
+				if (current.bSolubility) { rtb_Properties.Text += "Solubility:\t\t\t" +  current.solubility; }
+				else { rtb_Properties.Text += "Solubility:\t\t\t-\n"; }
+
 				if (current.bWikiLink) { tlink_Wiki.Enabled = true; tlink_Wiki.Text = current.wikiName; }
 				else { tlink_Wiki.Enabled = false; tlink_Wiki.Text = "-"; }
 				if (current.bPurchaseLink) { tlink_Purchase.Enabled = true; tlink_Purchase.Text = current.purchaseName; }
@@ -154,9 +161,8 @@ namespace Chemlist
 				else { tlink_MSDS.Enabled = false; tlink_MSDS.Text = "-"; }
 
 
-				if (current.bSInWater && !current.miscible) { txt_SInWater.Text = current.solubilityInWater.ToString() + " g/l"; }
-				else { txt_SInWater.Text = "-"; }
-				if (current.miscible) { txt_SInWater.Text = "Miscible"; }
+
+
 
 				if (Properties.Settings.Default.showGuid)
 				{
@@ -174,19 +180,7 @@ namespace Chemlist
 				cguid.Text = "";
 				lbox_UsedIn.Items.Clear();
 
-				txt_Names.Text = "None";
-				txt_MolarMass.Text = "-";
-				txt_Appearance.Text = "-";
-				txt_Density.Text = "-";
-				txt_MeltingPoint.Text = "-";
-				txt_BoilingPoint.Text = "-";
-				rtb_Solubility.Text = "-";
-				txt_VapourPressure.Text = "-";
-				txt_Acidity.Text = "-";
-				txt_FlashPoint.Text = "-";
-				txt_LD50.Text = "-";
-				txt_LC50.Text = "-";
-				txt_SInWater.Text = "-";
+				rtb_Properties.Text = "";
 
 			}
 		}
