@@ -18,12 +18,48 @@ namespace Chemlist
 
 			projectTreeViewToolStripMenuItem.Checked = Properties.Settings.Default.showTree;
 			showGUIDToolStripMenuItem.Checked = Properties.Settings.Default.showGuid;
+			compoundJSON = Properties.Settings.Default.compoundJsonPath;
+			projectJSON = Properties.Settings.Default.projectJsonPath;
 
-			invalidateCompoundNamesList();
-			invalidateProjectList();
+			initJson(compoundJSON, projectJSON);
 
-			validateFile(compoundJSON, ref jsonChemicals);
-			validateFile(projectJSON, ref jsonProjects);
+			lbox_ChemicalList.DisplayMember = "name";
+			lbox_ChemicalList.DataSource = compoundSource;
+			compoundSource.ResetBindings(false);
+
+			projectSource.ResetBindings(false);
+
+
+			tbox_CompoundSearch.Text = "Search";
+			cbox_CompoundSort.SelectedIndex = 0;
+			tbox_ProjectSearch.Text = "Search";
+			cbox_ProjectSort.SelectedIndex = 0;
+			lbox_RequiredChem.DisplayMember = "name";
+			lbox_UsedIn.DisplayMember = "name";
+			lbox_ChemMadeIn.DisplayMember = "name";
+			lbox_ProjectMakes.DisplayMember = "name";
+
+#if DEBUG
+			debugToolStripMenuItem.Visible = true;
+#else
+			debugToolStripMenuItem.Visible = false;
+#endif
+		}
+
+		private void initJson(String compoundFile, String projectFile)
+		{
+			chemicalList.Clear();
+			projectList.Clear();
+
+			compoundJSON = compoundFile;
+			projectJSON = projectFile;
+			Properties.Settings.Default.compoundJsonPath = compoundJSON;
+			Properties.Settings.Default.projectJsonPath = projectJSON;
+			Properties.Settings.Default.Save();
+
+
+			validateFile(compoundFile, ref jsonChemicals);
+			validateFile(projectFile, ref jsonProjects);
 
 			deserialiseJsonChem();
 			deserialiseJsonProjets();
@@ -38,25 +74,11 @@ namespace Chemlist
 				checkCompoundAvailabilityThroughProjects(chemical);
 
 
-			serialiseJsonChem();
-			serialiseJsonProjects();
+			serialiseJsonChem(compoundFile);
+			serialiseJsonProjects(projectFile);
 
-			lbox_ChemicalList.DisplayMember = "name";
-			lbox_ChemicalList.DataSource = compoundSource;
-			compoundSource.ResetBindings(false);
-			
-			projectSource.ResetBindings(false);
-			
-
-			tbox_CompoundSearch.Text = "Search";
-			cbox_CompoundSort.SelectedIndex = 0;
-			tbox_ProjectSearch.Text = "Search";
-			cbox_ProjectSort.SelectedIndex = 0;
-			lbox_RequiredChem.DisplayMember = "name";
-			lbox_UsedIn.DisplayMember = "name";
-            lbox_ChemMadeIn.DisplayMember = "name";
-			lbox_ProjectMakes.DisplayMember = "name";
-
+			invalidateCompoundNamesList();
+			invalidateProjectList();
 		}
 
 		private void lbox_ChemicalList_SelectedIndexChanged(object sender, EventArgs e)
@@ -261,6 +283,28 @@ namespace Chemlist
 				lbox_ChemicalList.SelectedItem = lbox_ProjectMakes.SelectedItem;
 			}
 
+		}
+
+		private void backupListsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			initJson(backupCompoundJson, backupProjectJson);
+		}
+
+		private void loadCompoundsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				initJson(openFileDialog.FileName, projectJSON);
+			}
+			
+		}
+
+		private void loadProjectsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				initJson(compoundJSON, openFileDialog.FileName);
+			}
 		}
 	}
 }

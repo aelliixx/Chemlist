@@ -9,8 +9,10 @@ namespace Chemlist
 	public partial class Form1
 	{
 		// Read and populate from json
-		const String compoundJSON = @".\chemicals.json";
-		const String projectJSON = @".\projects.json";
+		String compoundJSON;
+		String projectJSON;
+		const String backupCompoundJson = @".\chemicals_backup.json";
+		const String backupProjectJson = @".\projects_backup.json";
 		List<String> jsonChemicals;
 		List<String> jsonProjects;
 		void validateFile(String fileName, ref List<String> json)
@@ -32,7 +34,7 @@ namespace Chemlist
 			}
 		}
 
-		// fix empty file same crash
+		// fixme empty file same crash
 		void deserialiseJsonProjets()
 		{
 			List<ProjectObject> NewProject = JsonConvert.DeserializeObject<List<ProjectObject>>(String.Concat(jsonProjects));
@@ -53,17 +55,17 @@ namespace Chemlist
 			invalidateCompoundNamesList();
 		}
 
-		void serialiseJsonProjects()
+		void serialiseJsonProjects(String file)
 		{
 			String newJson = JsonConvert.SerializeObject(projectList);
-			File.WriteAllText(projectJSON, newJson);
+			File.WriteAllText(file, newJson);
 			invalidateProjectList();
 		}
 
-		void serialiseJsonChem()
+		void serialiseJsonChem(String file)
 		{
 			String newJson = JsonConvert.SerializeObject(chemicalList);
-			File.WriteAllText(compoundJSON, newJson);
+			File.WriteAllText(file, newJson);
 			invalidateCompoundNamesList();
 		}
 	}

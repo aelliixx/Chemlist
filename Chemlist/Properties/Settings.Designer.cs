@@ -46,5 +46,29 @@ namespace Chemlist.Properties {
                 this["showGuid"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\chemicals.json")]
+        public string compoundJsonPath {
+            get {
+                return ((string)(this["compoundJsonPath"]));
+            }
+            set {
+                this["compoundJsonPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\projects.json")]
+        public string projectJsonPath {
+            get {
+                return ((string)(this["projectJsonPath"]));
+            }
+            set {
+                this["projectJsonPath"] = value;
+            }
+        }
     }
 }

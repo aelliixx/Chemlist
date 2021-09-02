@@ -192,22 +192,14 @@ namespace Chemlist
 		public void addNewProject(ProjectObject newProject)
 		{
 			projectList.Add(newProject);
-			serialiseJsonProjects();
+			serialiseJsonProjects(projectJSON);
 			invalidateProjectList();
-		}
-
-		void removeSelectedProject(int index)
-		{
-			projectList.RemoveAt(index);
-			serialiseJsonProjects();
-			invalidateProjectList();
-			redrawProjectInfoPanel();
 		}
 
 		void removeSelectedProject(ProjectObject project)
 		{
 			projectList.Remove(project);
-			serialiseJsonProjects();
+			serialiseJsonProjects(projectJSON);
 			invalidateProjectList();
 			redrawProjectInfoPanel();
 		}

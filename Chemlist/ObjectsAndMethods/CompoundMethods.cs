@@ -35,7 +35,7 @@ namespace Chemlist
 		public void addNewChemical(ChemicalObject newChemical)
 		{
 			chemicalList.Add(newChemical);
-			serialiseJsonChem();
+			serialiseJsonChem(compoundJSON);
 			invalidateCompoundNamesList();
 		}
 		// Remove chemical
@@ -44,7 +44,7 @@ namespace Chemlist
 			if (index >= 0)
 			{
 				chemicalList.RemoveAt(index);
-				serialiseJsonChem();
+				serialiseJsonChem(compoundJSON);
 				invalidateCompoundNamesList();
 				redrawCompoundInfoPanel();
 			}
@@ -59,7 +59,7 @@ namespace Chemlist
 				if (edited.chemID == item.chemID)
 				{
 					chemicalList[i] = edited;
-					serialiseJsonChem();
+					serialiseJsonChem(compoundJSON);
 					redrawCompoundInfoPanel();
 					return;
 				}

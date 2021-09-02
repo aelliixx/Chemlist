@@ -8,5 +8,11 @@
     <Setting Name="showGuid" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="compoundJsonPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\chemicals.json</Value>
+    </Setting>
+    <Setting Name="projectJsonPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\projects.json</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
