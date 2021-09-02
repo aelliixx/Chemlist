@@ -29,23 +29,23 @@
 		public void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
-			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
-			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
-			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 4);
-			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 5);
-			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 6);
-			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
-			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 8);
+			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 1);
+			System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 2);
+			System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("", 3);
+			System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("", 4);
+			System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("", 5);
+			System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("", 6);
+			System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("", 7);
+			System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("", 8);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("Phenol");
-			System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Phtalic acid");
-			System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
-            treeNode90});
-			System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
-            treeNode89,
-            treeNode91});
+			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Phenol");
+			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Phtalic acid");
+			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
+            treeNode6});
+			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode7});
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -116,6 +116,8 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loadChemlistJsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.loadCompoundsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.loadProjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,8 +130,7 @@
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.saveFile = new System.Windows.Forms.SaveFileDialog();
-			this.loadCompoundsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.loadProjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.debug_txt = new System.Windows.Forms.ToolStripTextBox();
 			this.tab_Switcher.SuspendLayout();
 			this.tab_Chemicals.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -597,15 +598,15 @@
 			this.lview_Warnings.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lview_Warnings.HideSelection = false;
 			this.lview_Warnings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9});
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18});
 			this.lview_Warnings.LargeImageList = this.hazardImages;
 			this.lview_Warnings.Location = new System.Drawing.Point(10, 20);
 			this.lview_Warnings.MultiSelect = false;
@@ -837,16 +838,16 @@
 			this.tree_Projects.HideSelection = false;
 			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
 			this.tree_Projects.Name = "tree_Projects";
-			treeNode89.Name = "Node1";
-			treeNode89.Text = "Phenol";
-			treeNode90.Name = "Node3";
-			treeNode90.Text = "Phtalic acid";
-			treeNode91.Name = "Node2";
-			treeNode91.Text = "Phtalic anhydride";
-			treeNode92.Name = "Node0";
-			treeNode92.Text = "Phenolphtalein";
+			treeNode5.Name = "Node1";
+			treeNode5.Text = "Phenol";
+			treeNode6.Name = "Node3";
+			treeNode6.Text = "Phtalic acid";
+			treeNode7.Name = "Node2";
+			treeNode7.Text = "Phtalic anhydride";
+			treeNode8.Name = "Node0";
+			treeNode8.Text = "Phenolphtalein";
 			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode92});
+            treeNode8});
 			this.tree_Projects.ShowLines = false;
 			this.tree_Projects.Size = new System.Drawing.Size(330, 438);
 			this.tree_Projects.TabIndex = 1;
@@ -1173,25 +1174,39 @@
             this.loadCompoundsToolStripMenuItem,
             this.loadProjectsToolStripMenuItem});
 			this.loadChemlistJsonToolStripMenuItem.Name = "loadChemlistJsonToolStripMenuItem";
-			this.loadChemlistJsonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.loadChemlistJsonToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
 			this.loadChemlistJsonToolStripMenuItem.Text = "Load Chemlist json";
+			// 
+			// loadCompoundsToolStripMenuItem
+			// 
+			this.loadCompoundsToolStripMenuItem.Name = "loadCompoundsToolStripMenuItem";
+			this.loadCompoundsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+			this.loadCompoundsToolStripMenuItem.Text = "Load Compounds";
+			this.loadCompoundsToolStripMenuItem.Click += new System.EventHandler(this.loadCompoundsToolStripMenuItem_Click);
+			// 
+			// loadProjectsToolStripMenuItem
+			// 
+			this.loadProjectsToolStripMenuItem.Name = "loadProjectsToolStripMenuItem";
+			this.loadProjectsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+			this.loadProjectsToolStripMenuItem.Text = "Load Projects";
+			this.loadProjectsToolStripMenuItem.Click += new System.EventHandler(this.loadProjectsToolStripMenuItem_Click);
 			// 
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
 			this.aboutToolStripMenuItem.Text = "About";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(172, 6);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
@@ -1229,7 +1244,8 @@
 			// debugToolStripMenuItem
 			// 
 			this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.backupListsToolStripMenuItem});
+            this.backupListsToolStripMenuItem,
+            this.debug_txt});
 			this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
 			this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
 			this.debugToolStripMenuItem.Text = "Debug";
@@ -1251,19 +1267,11 @@
 			this.openFileDialog.Filter = "JSON File|*.json";
 			this.openFileDialog.Multiselect = true;
 			// 
-			// loadCompoundsToolStripMenuItem
+			// debug_txt
 			// 
-			this.loadCompoundsToolStripMenuItem.Name = "loadCompoundsToolStripMenuItem";
-			this.loadCompoundsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.loadCompoundsToolStripMenuItem.Text = "Load Compounds";
-			this.loadCompoundsToolStripMenuItem.Click += new System.EventHandler(this.loadCompoundsToolStripMenuItem_Click);
-			// 
-			// loadProjectsToolStripMenuItem
-			// 
-			this.loadProjectsToolStripMenuItem.Name = "loadProjectsToolStripMenuItem";
-			this.loadProjectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.loadProjectsToolStripMenuItem.Text = "Load Projects";
-			this.loadProjectsToolStripMenuItem.Click += new System.EventHandler(this.loadProjectsToolStripMenuItem_Click);
+			this.debug_txt.Name = "debug_txt";
+			this.debug_txt.ReadOnly = true;
+			this.debug_txt.Size = new System.Drawing.Size(100, 23);
 			// 
 			// Form1
 			// 
@@ -1422,6 +1430,7 @@
 		private System.Windows.Forms.SaveFileDialog saveFile;
 		private System.Windows.Forms.ToolStripMenuItem loadCompoundsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem loadProjectsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripTextBox debug_txt;
 	}
 }
 

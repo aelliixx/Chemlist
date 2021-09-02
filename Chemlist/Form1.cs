@@ -21,7 +21,7 @@ namespace Chemlist
 			compoundJSON = Properties.Settings.Default.compoundJsonPath;
 			projectJSON = Properties.Settings.Default.projectJsonPath;
 
-			initJson(compoundJSON, projectJSON);
+			initJson(compoundJSON, projectJSON, true);
 
 			lbox_ChemicalList.DisplayMember = "name";
 			lbox_ChemicalList.DataSource = compoundSource;
@@ -46,16 +46,19 @@ namespace Chemlist
 #endif
 		}
 
-		private void initJson(String compoundFile, String projectFile)
+		private void initJson(String compoundFile, String projectFile, bool saveSettings)
 		{
 			chemicalList.Clear();
 			projectList.Clear();
 
-			compoundJSON = compoundFile;
-			projectJSON = projectFile;
-			Properties.Settings.Default.compoundJsonPath = compoundJSON;
-			Properties.Settings.Default.projectJsonPath = projectJSON;
-			Properties.Settings.Default.Save();
+			if (saveSettings)
+			{
+				compoundJSON = compoundFile;
+				projectJSON = projectFile;
+				Properties.Settings.Default.compoundJsonPath = compoundJSON;
+				Properties.Settings.Default.projectJsonPath = projectJSON;
+				Properties.Settings.Default.Save();
+			}
 
 
 			validateFile(compoundFile, ref jsonChemicals);
@@ -79,6 +82,11 @@ namespace Chemlist
 
 			invalidateCompoundNamesList();
 			invalidateProjectList();
+
+			debug_txt.Text = "Compounds: ";
+			debug_txt.Text += compoundJSON;
+			debug_txt.Text += "; Projects: ";
+			debug_txt.Text += projectJSON;
 		}
 
 		private void lbox_ChemicalList_SelectedIndexChanged(object sender, EventArgs e)
@@ -287,14 +295,14 @@ namespace Chemlist
 
 		private void backupListsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			initJson(backupCompoundJson, backupProjectJson);
+			initJson(backupCompoundJson, backupProjectJson, false);
 		}
 
 		private void loadCompoundsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
-				initJson(openFileDialog.FileName, projectJSON);
+				initJson(openFileDialog.FileName, projectJSON, true);
 			}
 			
 		}
@@ -303,7 +311,7 @@ namespace Chemlist
 		{
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
-				initJson(compoundJSON, openFileDialog.FileName);
+				initJson(compoundJSON, openFileDialog.FileName, true);
 			}
 		}
 	}
