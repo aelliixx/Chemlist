@@ -39,13 +39,13 @@
 			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
 			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 8);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Phenol");
-			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Phtalic acid");
-			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
-            treeNode2});
-			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode3});
+			System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Phenol");
+			System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Phtalic acid");
+			System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
+            treeNode26});
+			System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
+            treeNode25,
+            treeNode27});
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -128,10 +128,10 @@
 			this.lbox_RequiredChem = new System.Windows.Forms.ListBox();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
 			this.rtb_BalancedReaction = new System.Windows.Forms.RichTextBox();
-			this.pguid = new System.Windows.Forms.Label();
 			this.txt_ProjectDoable = new System.Windows.Forms.Label();
 			this.txt_Project = new System.Windows.Forms.Label();
 			this.rtb_ProjectChemFormula = new System.Windows.Forms.RichTextBox();
+			this.pguid = new System.Windows.Forms.Label();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -865,7 +865,7 @@
 			// 
 			this.cguid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.cguid.AutoSize = true;
-			this.cguid.Location = new System.Drawing.Point(11, 98);
+			this.cguid.Location = new System.Drawing.Point(9, 97);
 			this.cguid.Name = "cguid";
 			this.cguid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.cguid.Size = new System.Drawing.Size(34, 13);
@@ -951,16 +951,16 @@
 			this.tree_Projects.HideSelection = false;
 			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
 			this.tree_Projects.Name = "tree_Projects";
-			treeNode1.Name = "Node1";
-			treeNode1.Text = "Phenol";
-			treeNode2.Name = "Node3";
-			treeNode2.Text = "Phtalic acid";
-			treeNode3.Name = "Node2";
-			treeNode3.Text = "Phtalic anhydride";
-			treeNode4.Name = "Node0";
-			treeNode4.Text = "Phenolphtalein";
+			treeNode25.Name = "Node1";
+			treeNode25.Text = "Phenol";
+			treeNode26.Name = "Node3";
+			treeNode26.Text = "Phtalic acid";
+			treeNode27.Name = "Node2";
+			treeNode27.Text = "Phtalic anhydride";
+			treeNode28.Name = "Node0";
+			treeNode28.Text = "Phenolphtalein";
 			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode28});
 			this.tree_Projects.ShowLines = false;
 			this.tree_Projects.Size = new System.Drawing.Size(330, 438);
 			this.tree_Projects.TabIndex = 1;
@@ -1217,7 +1217,7 @@
 			this.rtb_BalancedReaction.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtb_BalancedReaction.Cursor = System.Windows.Forms.Cursors.Arrow;
 			this.rtb_BalancedReaction.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.rtb_BalancedReaction.Location = new System.Drawing.Point(11, 72);
+			this.rtb_BalancedReaction.Location = new System.Drawing.Point(7, 99);
 			this.rtb_BalancedReaction.Multiline = false;
 			this.rtb_BalancedReaction.Name = "rtb_BalancedReaction";
 			this.rtb_BalancedReaction.ReadOnly = true;
@@ -1226,27 +1226,14 @@
 			this.rtb_BalancedReaction.Text = "Reaction";
 			this.rtb_BalancedReaction.Visible = false;
 			// 
-			// pguid
-			// 
-			this.pguid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.pguid.AutoSize = true;
-			this.pguid.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-			this.pguid.Location = new System.Drawing.Point(79, 96);
-			this.pguid.Name = "pguid";
-			this.pguid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.pguid.Size = new System.Drawing.Size(34, 13);
-			this.pguid.TabIndex = 5;
-			this.pguid.Text = "GUID";
-			this.pguid.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.pguid.Visible = false;
-			// 
 			// txt_ProjectDoable
 			// 
 			this.txt_ProjectDoable.AutoSize = true;
-			this.txt_ProjectDoable.Location = new System.Drawing.Point(8, 96);
+			this.txt_ProjectDoable.Location = new System.Drawing.Point(7, 69);
 			this.txt_ProjectDoable.Name = "txt_ProjectDoable";
-			this.txt_ProjectDoable.Size = new System.Drawing.Size(0, 13);
+			this.txt_ProjectDoable.Size = new System.Drawing.Size(50, 13);
 			this.txt_ProjectDoable.TabIndex = 7;
+			this.txt_ProjectDoable.Text = "Available";
 			// 
 			// txt_Project
 			// 
@@ -1273,7 +1260,19 @@
 			this.rtb_ProjectChemFormula.ReadOnly = true;
 			this.rtb_ProjectChemFormula.Size = new System.Drawing.Size(417, 21);
 			this.rtb_ProjectChemFormula.TabIndex = 2;
-			this.rtb_ProjectChemFormula.Text = "";
+			this.rtb_ProjectChemFormula.Text = "Test";
+			// 
+			// pguid
+			// 
+			this.pguid.AutoSize = true;
+			this.pguid.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+			this.pguid.Location = new System.Drawing.Point(7, 83);
+			this.pguid.Name = "pguid";
+			this.pguid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.pguid.Size = new System.Drawing.Size(34, 13);
+			this.pguid.TabIndex = 5;
+			this.pguid.Text = "GUID";
+			this.pguid.Visible = false;
 			// 
 			// menuStrip1
 			// 
