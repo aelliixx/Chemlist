@@ -29,23 +29,23 @@
 		public void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 1);
-			System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 2);
-			System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("", 3);
-			System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("", 4);
-			System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("", 5);
-			System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("", 6);
-			System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("", 7);
-			System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("", 8);
+			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
+			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
+			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
+			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 4);
+			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 5);
+			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 6);
+			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
+			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 8);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Phenol");
-			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Phtalic acid");
-			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode7});
+			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Phenol");
+			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Phtalic acid");
+			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode3});
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -127,10 +127,12 @@
 			this.showGUIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.backupListsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.debug_txt = new System.Windows.Forms.ToolStripTextBox();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.saveFile = new System.Windows.Forms.SaveFileDialog();
-			this.debug_txt = new System.Windows.Forms.ToolStripTextBox();
+			this.debugStatusStrip = new System.Windows.Forms.StatusStrip();
+			this.instanceCounter = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tab_Switcher.SuspendLayout();
 			this.tab_Chemicals.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -176,19 +178,23 @@
 			this.groupBox5.SuspendLayout();
 			this.groupBox6.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
+			this.debugStatusStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tab_Switcher
 			// 
+			this.tab_Switcher.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.tab_Switcher.Controls.Add(this.tab_Chemicals);
 			this.tab_Switcher.Controls.Add(this.tab_Projects);
 			this.tab_Switcher.Cursor = System.Windows.Forms.Cursors.Arrow;
-			this.tab_Switcher.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tab_Switcher.Location = new System.Drawing.Point(0, 24);
 			this.tab_Switcher.Name = "tab_Switcher";
 			this.tab_Switcher.Padding = new System.Drawing.Point(0, 0);
 			this.tab_Switcher.SelectedIndex = 0;
-			this.tab_Switcher.Size = new System.Drawing.Size(998, 531);
+			this.tab_Switcher.Size = new System.Drawing.Size(999, 506);
+			this.tab_Switcher.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
 			this.tab_Switcher.TabIndex = 0;
 			// 
 			// tab_Chemicals
@@ -197,7 +203,7 @@
 			this.tab_Chemicals.Controls.Add(this.splitContainer1);
 			this.tab_Chemicals.Location = new System.Drawing.Point(4, 22);
 			this.tab_Chemicals.Name = "tab_Chemicals";
-			this.tab_Chemicals.Size = new System.Drawing.Size(990, 505);
+			this.tab_Chemicals.Size = new System.Drawing.Size(991, 480);
 			this.tab_Chemicals.TabIndex = 1;
 			this.tab_Chemicals.Text = "Chemicals";
 			// 
@@ -219,7 +225,7 @@
 			// 
 			this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Window;
 			this.splitContainer1.Panel2.Controls.Add(this.panel_Info);
-			this.splitContainer1.Size = new System.Drawing.Size(990, 505);
+			this.splitContainer1.Size = new System.Drawing.Size(991, 480);
 			this.splitContainer1.SplitterDistance = 330;
 			this.splitContainer1.TabIndex = 0;
 			// 
@@ -246,8 +252,8 @@
 			this.splitContainer2.Panel2.Controls.Add(this.btn_RemoveChemicalFromList);
 			this.splitContainer2.Panel2.Controls.Add(this.btn_AddNew);
 			this.splitContainer2.Panel2.Controls.Add(this.btn_EditCurrentChemical);
-			this.splitContainer2.Size = new System.Drawing.Size(330, 505);
-			this.splitContainer2.SplitterDistance = 438;
+			this.splitContainer2.Size = new System.Drawing.Size(330, 480);
+			this.splitContainer2.SplitterDistance = 415;
 			this.splitContainer2.TabIndex = 0;
 			// 
 			// lbox_ChemicalList
@@ -262,7 +268,7 @@
 			this.lbox_ChemicalList.Location = new System.Drawing.Point(0, 0);
 			this.lbox_ChemicalList.Margin = new System.Windows.Forms.Padding(0);
 			this.lbox_ChemicalList.Name = "lbox_ChemicalList";
-			this.lbox_ChemicalList.Size = new System.Drawing.Size(330, 438);
+			this.lbox_ChemicalList.Size = new System.Drawing.Size(330, 415);
 			this.lbox_ChemicalList.Sorted = true;
 			this.lbox_ChemicalList.TabIndex = 0;
 			this.lbox_ChemicalList.SelectedIndexChanged += new System.EventHandler(this.lbox_ChemicalList_SelectedIndexChanged);
@@ -299,7 +305,7 @@
 			this.btn_RemoveChemicalFromList.BackColor = System.Drawing.SystemColors.Control;
 			this.btn_RemoveChemicalFromList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btn_RemoveChemicalFromList.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.btn_RemoveChemicalFromList.Location = new System.Drawing.Point(228, 30);
+			this.btn_RemoveChemicalFromList.Location = new System.Drawing.Point(228, 28);
 			this.btn_RemoveChemicalFromList.Name = "btn_RemoveChemicalFromList";
 			this.btn_RemoveChemicalFromList.Size = new System.Drawing.Size(98, 25);
 			this.btn_RemoveChemicalFromList.TabIndex = 3;
@@ -311,7 +317,7 @@
 			// 
 			this.btn_AddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_AddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btn_AddNew.Location = new System.Drawing.Point(8, 30);
+			this.btn_AddNew.Location = new System.Drawing.Point(8, 28);
 			this.btn_AddNew.Name = "btn_AddNew";
 			this.btn_AddNew.Size = new System.Drawing.Size(98, 25);
 			this.btn_AddNew.TabIndex = 5;
@@ -323,7 +329,7 @@
 			// 
 			this.btn_EditCurrentChemical.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_EditCurrentChemical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btn_EditCurrentChemical.Location = new System.Drawing.Point(118, 30);
+			this.btn_EditCurrentChemical.Location = new System.Drawing.Point(118, 28);
 			this.btn_EditCurrentChemical.Name = "btn_EditCurrentChemical";
 			this.btn_EditCurrentChemical.Size = new System.Drawing.Size(98, 25);
 			this.btn_EditCurrentChemical.TabIndex = 4;
@@ -343,7 +349,7 @@
 			this.panel_Info.Margin = new System.Windows.Forms.Padding(5);
 			this.panel_Info.Name = "panel_Info";
 			this.panel_Info.Padding = new System.Windows.Forms.Padding(3);
-			this.panel_Info.Size = new System.Drawing.Size(656, 505);
+			this.panel_Info.Size = new System.Drawing.Size(657, 480);
 			this.panel_Info.TabIndex = 6;
 			// 
 			// groupBox3
@@ -354,7 +360,7 @@
 			this.groupBox3.Controls.Add(this.desc_Splitter);
 			this.groupBox3.Location = new System.Drawing.Point(6, 151);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(642, 250);
+			this.groupBox3.Size = new System.Drawing.Size(643, 224);
 			this.groupBox3.TabIndex = 9;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Description";
@@ -373,7 +379,7 @@
 			// desc_Splitter.Panel2
 			// 
 			this.desc_Splitter.Panel2.Controls.Add(this.names_hazards);
-			this.desc_Splitter.Size = new System.Drawing.Size(636, 231);
+			this.desc_Splitter.Size = new System.Drawing.Size(637, 205);
 			this.desc_Splitter.SplitterDistance = 330;
 			this.desc_Splitter.TabIndex = 8;
 			// 
@@ -392,8 +398,8 @@
 			// desc_madein.Panel2
 			// 
 			this.desc_madein.Panel2.Controls.Add(this.groupBox4);
-			this.desc_madein.Size = new System.Drawing.Size(330, 231);
-			this.desc_madein.SplitterDistance = 143;
+			this.desc_madein.Size = new System.Drawing.Size(330, 205);
+			this.desc_madein.SplitterDistance = 139;
 			this.desc_madein.TabIndex = 0;
 			// 
 			// rtb_Description
@@ -417,7 +423,7 @@
 			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox4.Location = new System.Drawing.Point(0, 0);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(330, 84);
+			this.groupBox4.Size = new System.Drawing.Size(330, 62);
 			this.groupBox4.TabIndex = 7;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Used In";
@@ -430,7 +436,7 @@
 			this.lbox_UsedIn.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.lbox_UsedIn.Location = new System.Drawing.Point(3, 16);
 			this.lbox_UsedIn.Name = "lbox_UsedIn";
-			this.lbox_UsedIn.Size = new System.Drawing.Size(324, 65);
+			this.lbox_UsedIn.Size = new System.Drawing.Size(324, 43);
 			this.lbox_UsedIn.TabIndex = 0;
 			this.lbox_UsedIn.DoubleClick += new System.EventHandler(this.lbox_UsedIn_DoubleClick);
 			// 
@@ -455,8 +461,8 @@
 			// names_hazards.Panel2
 			// 
 			this.names_hazards.Panel2.Controls.Add(this.groupBox2);
-			this.names_hazards.Size = new System.Drawing.Size(302, 231);
-			this.names_hazards.SplitterDistance = 143;
+			this.names_hazards.Size = new System.Drawing.Size(303, 205);
+			this.names_hazards.SplitterDistance = 139;
 			this.names_hazards.TabIndex = 0;
 			// 
 			// rtb_Properties
@@ -467,10 +473,9 @@
 			this.rtb_Properties.Location = new System.Drawing.Point(0, 0);
 			this.rtb_Properties.Name = "rtb_Properties";
 			this.rtb_Properties.ReadOnly = true;
-			this.rtb_Properties.Size = new System.Drawing.Size(302, 143);
+			this.rtb_Properties.Size = new System.Drawing.Size(303, 139);
 			this.rtb_Properties.TabIndex = 5;
-			this.rtb_Properties.Text = "Molar mass:\nDensity:\nMelting point:\nBoiling point:\nSolubility in water:\nVapour Pr" +
-    "essure:\nAcidity (pKa):\nFlash point:\nLD50:\nLC50:\nNames:\nAppearance:\nSolubility:";
+			this.rtb_Properties.Text = "Molar mass:";
 			// 
 			// rtb_Solubility
 			// 
@@ -483,7 +488,7 @@
 			this.rtb_Solubility.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
 			this.rtb_Solubility.Name = "rtb_Solubility";
 			this.rtb_Solubility.ReadOnly = true;
-			this.rtb_Solubility.Size = new System.Drawing.Size(595, 0);
+			this.rtb_Solubility.Size = new System.Drawing.Size(596, 0);
 			this.rtb_Solubility.TabIndex = 4;
 			this.rtb_Solubility.Text = "";
 			// 
@@ -556,7 +561,7 @@
 			this.groupBox2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.groupBox2.Location = new System.Drawing.Point(0, 0);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(302, 84);
+			this.groupBox2.Size = new System.Drawing.Size(303, 62);
 			this.groupBox2.TabIndex = 7;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Made In";
@@ -569,7 +574,7 @@
 			this.lbox_ChemMadeIn.FormattingEnabled = true;
 			this.lbox_ChemMadeIn.Location = new System.Drawing.Point(3, 16);
 			this.lbox_ChemMadeIn.Name = "lbox_ChemMadeIn";
-			this.lbox_ChemMadeIn.Size = new System.Drawing.Size(296, 65);
+			this.lbox_ChemMadeIn.Size = new System.Drawing.Size(297, 43);
 			this.lbox_ChemMadeIn.TabIndex = 0;
 			this.lbox_ChemMadeIn.DoubleClick += new System.EventHandler(this.lbox_ChemMadeIn_DoubleClick);
 			// 
@@ -581,11 +586,11 @@
 			this.gbox_Properties.BackColor = System.Drawing.SystemColors.Control;
 			this.gbox_Properties.Controls.Add(this.lview_Warnings);
 			this.gbox_Properties.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.gbox_Properties.Location = new System.Drawing.Point(6, 408);
+			this.gbox_Properties.Location = new System.Drawing.Point(6, 382);
 			this.gbox_Properties.Margin = new System.Windows.Forms.Padding(10);
 			this.gbox_Properties.Name = "gbox_Properties";
 			this.gbox_Properties.Padding = new System.Windows.Forms.Padding(10, 7, 10, 10);
-			this.gbox_Properties.Size = new System.Drawing.Size(642, 89);
+			this.gbox_Properties.Size = new System.Drawing.Size(643, 89);
 			this.gbox_Properties.TabIndex = 8;
 			this.gbox_Properties.TabStop = false;
 			this.gbox_Properties.Text = "Hazards";
@@ -598,21 +603,21 @@
 			this.lview_Warnings.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lview_Warnings.HideSelection = false;
 			this.lview_Warnings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9});
 			this.lview_Warnings.LargeImageList = this.hazardImages;
 			this.lview_Warnings.Location = new System.Drawing.Point(10, 20);
 			this.lview_Warnings.MultiSelect = false;
 			this.lview_Warnings.Name = "lview_Warnings";
 			this.lview_Warnings.ShowItemToolTips = true;
-			this.lview_Warnings.Size = new System.Drawing.Size(622, 59);
+			this.lview_Warnings.Size = new System.Drawing.Size(623, 59);
 			this.lview_Warnings.TabIndex = 6;
 			this.lview_Warnings.TileSize = new System.Drawing.Size(55, 55);
 			this.lview_Warnings.UseCompatibleStateImageBehavior = false;
@@ -651,7 +656,7 @@
 			this.groupBox1.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.groupBox1.Location = new System.Drawing.Point(6, 6);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(642, 139);
+			this.groupBox1.Size = new System.Drawing.Size(643, 139);
 			this.groupBox1.TabIndex = 6;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Compound";
@@ -776,7 +781,7 @@
 			this.tab_Projects.Controls.Add(this.splitContainer3);
 			this.tab_Projects.Location = new System.Drawing.Point(4, 22);
 			this.tab_Projects.Name = "tab_Projects";
-			this.tab_Projects.Size = new System.Drawing.Size(990, 505);
+			this.tab_Projects.Size = new System.Drawing.Size(990, 480);
 			this.tab_Projects.TabIndex = 2;
 			this.tab_Projects.Text = "Projects";
 			// 
@@ -798,7 +803,7 @@
 			// 
 			this.splitContainer3.Panel2.BackColor = System.Drawing.SystemColors.Control;
 			this.splitContainer3.Panel2.Controls.Add(this.panel1);
-			this.splitContainer3.Size = new System.Drawing.Size(990, 505);
+			this.splitContainer3.Size = new System.Drawing.Size(990, 480);
 			this.splitContainer3.SplitterDistance = 330;
 			this.splitContainer3.TabIndex = 1;
 			// 
@@ -825,8 +830,8 @@
 			this.splitContainer4.Panel2.Controls.Add(this.btn_DeleteProject);
 			this.splitContainer4.Panel2.Controls.Add(this.btn_AddNewProject);
 			this.splitContainer4.Panel2.Controls.Add(this.btn_EditProject);
-			this.splitContainer4.Size = new System.Drawing.Size(330, 505);
-			this.splitContainer4.SplitterDistance = 438;
+			this.splitContainer4.Size = new System.Drawing.Size(330, 480);
+			this.splitContainer4.SplitterDistance = 413;
 			this.splitContainer4.TabIndex = 0;
 			// 
 			// tree_Projects
@@ -838,18 +843,18 @@
 			this.tree_Projects.HideSelection = false;
 			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
 			this.tree_Projects.Name = "tree_Projects";
-			treeNode5.Name = "Node1";
-			treeNode5.Text = "Phenol";
-			treeNode6.Name = "Node3";
-			treeNode6.Text = "Phtalic acid";
-			treeNode7.Name = "Node2";
-			treeNode7.Text = "Phtalic anhydride";
-			treeNode8.Name = "Node0";
-			treeNode8.Text = "Phenolphtalein";
+			treeNode1.Name = "Node1";
+			treeNode1.Text = "Phenol";
+			treeNode2.Name = "Node3";
+			treeNode2.Text = "Phtalic acid";
+			treeNode3.Name = "Node2";
+			treeNode3.Text = "Phtalic anhydride";
+			treeNode4.Name = "Node0";
+			treeNode4.Text = "Phenolphtalein";
 			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
+            treeNode4});
 			this.tree_Projects.ShowLines = false;
-			this.tree_Projects.Size = new System.Drawing.Size(330, 438);
+			this.tree_Projects.Size = new System.Drawing.Size(330, 413);
 			this.tree_Projects.TabIndex = 1;
 			this.tree_Projects.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tree_Projects_AfterSelect);
 			// 
@@ -931,7 +936,7 @@
 			this.panel1.Margin = new System.Windows.Forms.Padding(5);
 			this.panel1.Name = "panel1";
 			this.panel1.Padding = new System.Windows.Forms.Padding(3);
-			this.panel1.Size = new System.Drawing.Size(656, 505);
+			this.panel1.Size = new System.Drawing.Size(656, 480);
 			this.panel1.TabIndex = 6;
 			// 
 			// tab_ProjectInfo
@@ -945,7 +950,7 @@
 			this.tab_ProjectInfo.Location = new System.Drawing.Point(6, 135);
 			this.tab_ProjectInfo.Name = "tab_ProjectInfo";
 			this.tab_ProjectInfo.SelectedIndex = 0;
-			this.tab_ProjectInfo.Size = new System.Drawing.Size(435, 362);
+			this.tab_ProjectInfo.Size = new System.Drawing.Size(435, 337);
 			this.tab_ProjectInfo.TabIndex = 9;
 			// 
 			// tab_Description
@@ -955,7 +960,7 @@
 			this.tab_Description.Location = new System.Drawing.Point(4, 22);
 			this.tab_Description.Name = "tab_Description";
 			this.tab_Description.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_Description.Size = new System.Drawing.Size(427, 336);
+			this.tab_Description.Size = new System.Drawing.Size(427, 311);
 			this.tab_Description.TabIndex = 0;
 			this.tab_Description.Text = "Abstract";
 			// 
@@ -970,7 +975,7 @@
 			this.rtb_ProjectDescription.ReadOnly = true;
 			this.rtb_ProjectDescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.rtb_ProjectDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-			this.rtb_ProjectDescription.Size = new System.Drawing.Size(421, 330);
+			this.rtb_ProjectDescription.Size = new System.Drawing.Size(421, 305);
 			this.rtb_ProjectDescription.TabIndex = 3;
 			this.rtb_ProjectDescription.Text = "";
 			// 
@@ -1043,7 +1048,7 @@
 			this.groupBox5.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.groupBox5.Location = new System.Drawing.Point(447, 149);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(198, 348);
+			this.groupBox5.Size = new System.Drawing.Size(198, 323);
 			this.groupBox5.TabIndex = 7;
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Requires";
@@ -1056,7 +1061,7 @@
 			this.lbox_RequiredChem.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.lbox_RequiredChem.Location = new System.Drawing.Point(3, 16);
 			this.lbox_RequiredChem.Name = "lbox_RequiredChem";
-			this.lbox_RequiredChem.Size = new System.Drawing.Size(192, 329);
+			this.lbox_RequiredChem.Size = new System.Drawing.Size(192, 304);
 			this.lbox_RequiredChem.TabIndex = 0;
 			this.lbox_RequiredChem.DoubleClick += new System.EventHandler(this.lbox_RequiredChem_DoubleClick);
 			// 
@@ -1253,9 +1258,15 @@
 			// backupListsToolStripMenuItem
 			// 
 			this.backupListsToolStripMenuItem.Name = "backupListsToolStripMenuItem";
-			this.backupListsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.backupListsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
 			this.backupListsToolStripMenuItem.Text = "Backup lists";
 			this.backupListsToolStripMenuItem.Click += new System.EventHandler(this.backupListsToolStripMenuItem_Click);
+			// 
+			// debug_txt
+			// 
+			this.debug_txt.Name = "debug_txt";
+			this.debug_txt.ReadOnly = true;
+			this.debug_txt.Size = new System.Drawing.Size(100, 23);
 			// 
 			// contextMenuStrip1
 			// 
@@ -1267,11 +1278,22 @@
 			this.openFileDialog.Filter = "JSON File|*.json";
 			this.openFileDialog.Multiselect = true;
 			// 
-			// debug_txt
+			// debugStatusStrip
 			// 
-			this.debug_txt.Name = "debug_txt";
-			this.debug_txt.ReadOnly = true;
-			this.debug_txt.Size = new System.Drawing.Size(100, 23);
+			this.debugStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.instanceCounter});
+			this.debugStatusStrip.Location = new System.Drawing.Point(0, 533);
+			this.debugStatusStrip.Name = "debugStatusStrip";
+			this.debugStatusStrip.Size = new System.Drawing.Size(998, 22);
+			this.debugStatusStrip.TabIndex = 2;
+			this.debugStatusStrip.Text = "statusStrip1";
+			// 
+			// instanceCounter
+			// 
+			this.instanceCounter.Name = "instanceCounter";
+			this.instanceCounter.Size = new System.Drawing.Size(59, 17);
+			this.instanceCounter.Text = "Instances:";
+			this.instanceCounter.Click += new System.EventHandler(this.instanceCounter_Click);
 			// 
 			// Form1
 			// 
@@ -1279,6 +1301,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.ClientSize = new System.Drawing.Size(998, 555);
+			this.Controls.Add(this.debugStatusStrip);
 			this.Controls.Add(this.tab_Switcher);
 			this.Controls.Add(this.menuStrip1);
 			this.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1339,6 +1362,8 @@
 			this.groupBox6.PerformLayout();
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			this.debugStatusStrip.ResumeLayout(false);
+			this.debugStatusStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1431,6 +1456,8 @@
 		private System.Windows.Forms.ToolStripMenuItem loadCompoundsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem loadProjectsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripTextBox debug_txt;
+		private System.Windows.Forms.StatusStrip debugStatusStrip;
+		private System.Windows.Forms.ToolStripStatusLabel instanceCounter;
 	}
 }
 

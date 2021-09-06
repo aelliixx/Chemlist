@@ -26,8 +26,12 @@ namespace Chemlist
 		public ChemicalObject()
 		{
 			chemID = Guid.NewGuid();
-
+			instances++;
 			//molecules = parseMolecule(chemFormula);
+		}
+		~ChemicalObject()
+		{
+			instances--;
 		}
 
 
@@ -97,6 +101,8 @@ namespace Chemlist
 
 
 		public Guid chemID { get; set; } // FIXME: Const readonly?
+
+		public static int instances;
 
 
 		public static List<Molecule> parseMolecule(String formula)

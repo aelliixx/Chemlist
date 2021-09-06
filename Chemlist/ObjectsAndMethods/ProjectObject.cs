@@ -43,9 +43,17 @@ namespace Chemlist
 
 		public Guid projectID { get; set; }
 
+		public static int instances;
+
 		public ProjectObject()
 		{
 			projectID = Guid.NewGuid();
+			instances++;
+		}
+
+		~ProjectObject()
+		{
+			instances--;
 		}
 	}
 }

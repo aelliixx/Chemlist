@@ -41,8 +41,14 @@ namespace Chemlist
 
 #if DEBUG
 			debugToolStripMenuItem.Visible = true;
+			debugStatusStrip.Visible = true;
+			debugStatusStrip.Dock = DockStyle.Bottom;
+			tab_Switcher.Dock = DockStyle.Top;
+			tab_Switcher.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 #else
 			debugToolStripMenuItem.Visible = false;
+			debugStatusStrip.Visible = false;
+			tab_Switcher.Dock = DockStyle.Fill;
 #endif
 		}
 
@@ -82,11 +88,6 @@ namespace Chemlist
 
 			invalidateCompoundNamesList();
 			invalidateProjectList();
-
-			debug_txt.Text = "Compounds: ";
-			debug_txt.Text += compoundJSON;
-			debug_txt.Text += "; Projects: ";
-			debug_txt.Text += projectJSON;
 		}
 
 		private void lbox_ChemicalList_SelectedIndexChanged(object sender, EventArgs e)
@@ -313,6 +314,11 @@ namespace Chemlist
 			{
 				initJson(compoundJSON, openFileDialog.FileName, true);
 			}
+		}
+
+		private void instanceCounter_Click(object sender, EventArgs e)
+		{
+			instanceCounter.Text = "Chemical objects: " + ChemicalObject.instances + "; Project objects: " + ProjectObject.instances;
 		}
 	}
 }
