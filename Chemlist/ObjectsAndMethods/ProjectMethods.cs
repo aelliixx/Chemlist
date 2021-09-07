@@ -37,7 +37,7 @@ namespace Chemlist
 			foreach (ProjectObject project in toAdd)
 			{
 				
-				if (project.parentProject.name == null || !projectTreeViewToolStripMenuItem.Checked)
+				if (project.parentProject == null || !projectTreeViewToolStripMenuItem.Checked)
 					tree_Projects.Nodes.Add(project.name).Tag = project;
 				else
 				{

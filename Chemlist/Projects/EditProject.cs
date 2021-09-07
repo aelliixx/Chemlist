@@ -19,10 +19,12 @@ namespace Chemlist
 		private List<ProjectObject.RequiredChemicals> requiredChemicals = new List<ProjectObject.RequiredChemicals>();
 		private List<ChemicalObject> makesChemicals = new List<ChemicalObject>();
 		private ProjectObject parentProject = new ProjectObject();
+		private ProjectObject currentEditable;
 		private Guid currentGuid;
 
-		public EditProject(ProjectObject current, List<ChemicalObject> chemicals)
+		public EditProject(ProjectObject editable, List<ChemicalObject> chemicals)
 		{
+			currentEditable = editable;
 			InitializeComponent();
 			chemicalList = chemicals;
 
@@ -30,14 +32,16 @@ namespace Chemlist
 			cbox_CompoundList.DisplayMember = "name";
 			cbox_ParentProject.DisplayMember = "name";
 
-			tbox_ProjectName.Text = current.name;
-			rtb_ProjectFormula.Text = current.chemFormula;
-			tbox_Description.Text = current.description;
-			cbox_ParentProject.Text = current.parentProject.name;
-			rtb_Methods.Text = current.methods;
+			tbox_ProjectName.Text = currentEditable.name;
+			rtb_ProjectFormula.Text = currentEditable.chemFormula;
+			tbox_Description.Text = currentEditable.description;
+			cbox_ParentProject.Text = currentEditable.parentProject != null ? currentEditable.parentProject.name : "";
+			rtb_Methods.Text = currentEditable.methods;
 
-			requiredChemicals = current.requiredChemicals;
-			currentGuid = current.projectID;
+			parentProject = currentEditable.parentProject;
+			requiredChemicals = currentEditable.requiredChemicals;
+			makesChemicals = currentEditable.makesChemicals;
+			currentGuid = currentEditable.projectID;
 
 
 			invalidateRequiredCompounds();
@@ -46,7 +50,7 @@ namespace Chemlist
 
 			foreach (ChemicalObject chemical in chemicalList)
 			{
-				foreach (ChemicalObject chemicalObject in current.makesChemicals)
+				foreach (ChemicalObject chemicalObject in makesChemicals)
 				{
 					if (chemical.name == chemicalObject.name)
 					{
@@ -56,7 +60,7 @@ namespace Chemlist
 			}
 
 
-			foreach (Hazards hazards in current.hazards)
+			foreach (Hazards hazards in currentEditable.hazards)
 			{
 				switch (hazards.symbols)
 				{
@@ -123,7 +127,6 @@ namespace Chemlist
 						compoundID.Add(chemical.chemID);
 					}
 				}
-
 			}
 
 		}
@@ -133,15 +136,8 @@ namespace Chemlist
 			cbox_ParentProject.Items.Clear();
 			cbox_ParentProject.Items.Add(new ProjectObject());
 			foreach (ProjectObject project in parentForm.projectList)
-				cbox_ParentProject.Items.Add(project);
-		}
-
-		private void cbox_CompoundList_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			cbox_CompoundList.Items.Clear();
-			foreach (ChemicalObject chemicalObject in parentForm.chemicalList)
-				cbox_CompoundList.Items.Add(chemicalObject);
-
+				 if (project != currentEditable)
+					cbox_ParentProject.Items.Add(project);
 		}
 
 		private void btn_Cancel_Click(object sender, EventArgs e)
@@ -190,6 +186,81 @@ namespace Chemlist
 				return false;
 			}
 			return true;
+		}
+
+		private void btn_RemoveRequirement_Click(object sender, EventArgs e)
+		{
+			if (dg_CompoundList.SelectedRows.Count > 0)
+			{
+				foreach (ProjectObject.RequiredChemicals chemical in requiredChemicals)
+				{
+					if (dg_CompoundList.SelectedRows[0].Cells[0].Value.ToString() == chemical.compound.name)
+					{
+						requiredChemicals.Remove(chemical);
+						invalidateRequiredCompounds();
+						break;
+					}
+				}
+
+			}
+		}
+
+		private void cbox_CompoundList_DropDown(object sender, EventArgs e)
+		{
+			cbox_CompoundList.Items.Clear();
+			foreach (ChemicalObject chemicalObject in parentForm.chemicalList)
+				cbox_CompoundList.Items.Add(chemicalObject);
+		}
+
+		private void btn_AddRequirement_Click(object sender, EventArgs e)
+		{
+			if (cbox_CompoundList.SelectedItem != null)
+			{
+				errorProvider.SetError(cbox_CompoundList, "");
+				ChemicalObject selectedChemical = (ChemicalObject)cbox_CompoundList.SelectedItem;
+				ProjectObject.RequiredChemicals chemical = new ProjectObject.RequiredChemicals()
+				{
+					compound = selectedChemical,
+					unit = (check_MiliPrefix.Checked ? " m" : " ") + (rb_Grams.Checked ? "g" : "L"),
+					quantity = (float)num_Quantity.Value,
+					concentration = (float)num_Concentration.Value
+				};
+				requiredChemicals.Add(chemical);
+				invalidateRequiredCompounds();
+
+			}
+			else
+				errorProvider.SetError(cbox_CompoundList, "Please add a valid compound.");
+		}
+
+		private void lbox_MakesChemicalList_Click(object sender, EventArgs e)
+		{
+			rtb_ProjectFormula.Clear();
+			makesChemicals.Clear();
+			foreach (ChemicalObject chemical in lbox_MakesChemicalList.SelectedItems)
+			{
+				rtb_ProjectFormula.Text += chemical.chemFormula + (lbox_MakesChemicalList.SelectedItems.Count > 1 ? "; " : "");
+				makesChemicals.Add(chemical);
+			}
+
+			float FontSize = rtb_ProjectFormula.Font.Size;
+			Font Small_font = new Font(rtb_ProjectFormula.Font.FontFamily, FontSize * .8f);
+			foreach (int position in parentForm.subscripts(rtb_ProjectFormula.Text))
+			{
+				rtb_ProjectFormula.Select(position, 1);
+				rtb_ProjectFormula.SelectionCharOffset = -4;
+				rtb_ProjectFormula.SelectionFont = Small_font;
+				rtb_ProjectFormula.Select(0, 0);
+			}
+		}
+
+		private void cbox_ParentProject_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			ProjectObject selected = (ProjectObject)cbox_ParentProject.SelectedItem;
+			if (selected.name == string.Empty || selected.name == null)
+				parentProject = null;
+			else
+				parentProject = (ProjectObject)cbox_ParentProject.SelectedItem;
 		}
 	}
 }

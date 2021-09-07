@@ -77,6 +77,25 @@ namespace Chemlist
 		{
 			Close();
 		}
+		
+		private void invalidateRequiredCompounds()
+		{
+			dg_CompoundList.Rows.Clear();
+			compoundID.Clear();
+			foreach (ProjectObject.RequiredChemicals selected in requiredChemicals)
+			{
+				dg_CompoundList.Rows.Add(selected.compound.name, selected.quantity + selected.unit );
+				foreach (ChemicalObject chemical in parentForm.chemicalList)
+				{
+					if (chemical.chemID == selected.compound.chemID)
+					{
+						compoundID.Add(chemical.chemID);
+					}
+				}
+
+			}
+
+		}
 
 		private void btn_AddRequirement_Click(object sender, EventArgs e)
 		{
@@ -97,25 +116,6 @@ namespace Chemlist
 			}
 			else
 				errorProvider1.SetError(cbox_CompoundList, "Please add a valid compound.");
-		}
-
-		private void invalidateRequiredCompounds()
-		{
-			dg_CompoundList.Rows.Clear();
-			compoundID.Clear();
-			foreach (ProjectObject.RequiredChemicals selected in requiredChemicals)
-			{
-				dg_CompoundList.Rows.Add(selected.compound.name, selected.quantity + selected.unit );
-				foreach (ChemicalObject chemical in parentForm.chemicalList)
-				{
-					if (chemical.chemID == selected.compound.chemID)
-					{
-						compoundID.Add(chemical.chemID);
-					}
-				}
-
-			}
-
 		}
 
 		private void btn_RemoveRequirement_Click(object sender, EventArgs e)
