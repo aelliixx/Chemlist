@@ -88,6 +88,8 @@ namespace Chemlist
 
 			invalidateCompoundNamesList();
 			invalidateProjectList();
+			redrawCompoundInfoPanel();
+			redrawProjectInfoPanel();
 		}
 
 		private void lbox_ChemicalList_SelectedIndexChanged(object sender, EventArgs e)

@@ -48,9 +48,6 @@ namespace Chemlist
 					else if (!selectProjectByTag(project.parentProject) && findProjectInList(toAdd, project.parentProject) == null)
 						tree_Projects.Nodes.Add(project.name).Tag = project;
 				}
-
-				if (checkProjectAvailability(project)) { }
-				else if (checkProjectAvailabilityThroughOtherProjects(project)) { }
 			}
 
 			if (leftOver.Count > 0)
@@ -58,7 +55,11 @@ namespace Chemlist
 			else
 			{
 				tree_Projects.ExpandAll();
-				tree_Projects.Update();
+				tree_Projects.SelectedNode = null;
+				foreach (ProjectObject project in projectList)
+				{
+					colourAvailabilities(project);
+				}
 			}
 		}
 
@@ -145,6 +146,7 @@ namespace Chemlist
 				txt_Project.Text = "Please select or add a new project.";
 				rtb_ProjectChemFormula.Text = "";
 				rtb_ProjectDescription.Text = "";
+				txt_ProjectDoable.Text = "";
 				pguid.Text = "";
 				lbox_RequiredChem.Items.Clear();
 				lbox_ProjectMakes.Items.Clear();
@@ -153,37 +155,31 @@ namespace Chemlist
 
 		}
 
-		bool checkProjectAvailability(ProjectObject project)
+		private bool checkProjectAvailability(ProjectObject project)
 		{
-			var node = findProjectByTag(project);
 			foreach (ProjectObject.RequiredChemicals requiredChemical in project.requiredChemicals)
 			{
 				if (!matchChemicalObject(requiredChemical.compound).inStorage)
 				{
-					if (node != null) { node.ForeColor = Color.Red; }
 					project.available = false;
 					return false;
 				}
 			}
-			if (node != null) { node.ForeColor = Color.Green; }
 			project.available = true;
 			return true;
 		}
 
 		bool checkProjectAvailabilityThroughOtherProjects(ProjectObject project)
 		{
-			var node = findProjectByTag(project);
 			foreach (ProjectObject.RequiredChemicals requiredChemical in project.requiredChemicals)
 			{
 				if (!matchChemicalObject(requiredChemical.compound).availableThroughProject
 					&& !matchChemicalObject(requiredChemical.compound).inStorage)
 				{
-					if (node != null) { node.ForeColor = Color.Red; }
 					project.availableThroughProjects = false;
 					return false;
 				}
 			}
-			if (node != null) { node.ForeColor = Color.Orange; }
 			project.availableThroughProjects = true;
 
 			return true;
@@ -208,6 +204,14 @@ namespace Chemlist
 					return;
 				}
 			}
+		}
+
+		private void colourAvailabilities(ProjectObject project)
+		{
+			var node = findProjectByTag(project);
+			if (project.available) { node.ForeColor = Color.Green; return;  }
+			else if (project.availableThroughProjects) { node.ForeColor = Color.DarkOrange; return; }
+			node.ForeColor = Color.Red;
 		}
 
 		private void removeSelectedProject(ProjectObject project)

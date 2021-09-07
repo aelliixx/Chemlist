@@ -39,13 +39,13 @@
 			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
 			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 8);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Phenol");
-			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Phtalic acid");
-			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
-            treeNode2});
-			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode3});
+			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Phenol");
+			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Phtalic acid");
+			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
+            treeNode10});
+			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode11});
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -781,7 +781,7 @@
 			this.tab_Projects.Controls.Add(this.splitContainer3);
 			this.tab_Projects.Location = new System.Drawing.Point(4, 22);
 			this.tab_Projects.Name = "tab_Projects";
-			this.tab_Projects.Size = new System.Drawing.Size(990, 480);
+			this.tab_Projects.Size = new System.Drawing.Size(991, 480);
 			this.tab_Projects.TabIndex = 2;
 			this.tab_Projects.Text = "Projects";
 			// 
@@ -803,7 +803,7 @@
 			// 
 			this.splitContainer3.Panel2.BackColor = System.Drawing.SystemColors.Control;
 			this.splitContainer3.Panel2.Controls.Add(this.panel1);
-			this.splitContainer3.Size = new System.Drawing.Size(990, 480);
+			this.splitContainer3.Size = new System.Drawing.Size(991, 480);
 			this.splitContainer3.SplitterDistance = 330;
 			this.splitContainer3.TabIndex = 1;
 			// 
@@ -843,16 +843,16 @@
 			this.tree_Projects.HideSelection = false;
 			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
 			this.tree_Projects.Name = "tree_Projects";
-			treeNode1.Name = "Node1";
-			treeNode1.Text = "Phenol";
-			treeNode2.Name = "Node3";
-			treeNode2.Text = "Phtalic acid";
-			treeNode3.Name = "Node2";
-			treeNode3.Text = "Phtalic anhydride";
-			treeNode4.Name = "Node0";
-			treeNode4.Text = "Phenolphtalein";
+			treeNode9.Name = "Node1";
+			treeNode9.Text = "Phenol";
+			treeNode10.Name = "Node3";
+			treeNode10.Text = "Phtalic acid";
+			treeNode11.Name = "Node2";
+			treeNode11.Text = "Phtalic anhydride";
+			treeNode12.Name = "Node0";
+			treeNode12.Text = "Phenolphtalein";
 			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode12});
 			this.tree_Projects.ShowLines = false;
 			this.tree_Projects.Size = new System.Drawing.Size(330, 413);
 			this.tree_Projects.TabIndex = 1;
@@ -936,7 +936,7 @@
 			this.panel1.Margin = new System.Windows.Forms.Padding(5);
 			this.panel1.Name = "panel1";
 			this.panel1.Padding = new System.Windows.Forms.Padding(3);
-			this.panel1.Size = new System.Drawing.Size(656, 480);
+			this.panel1.Size = new System.Drawing.Size(657, 480);
 			this.panel1.TabIndex = 6;
 			// 
 			// tab_ProjectInfo
@@ -950,7 +950,7 @@
 			this.tab_ProjectInfo.Location = new System.Drawing.Point(6, 135);
 			this.tab_ProjectInfo.Name = "tab_ProjectInfo";
 			this.tab_ProjectInfo.SelectedIndex = 0;
-			this.tab_ProjectInfo.Size = new System.Drawing.Size(435, 337);
+			this.tab_ProjectInfo.Size = new System.Drawing.Size(436, 337);
 			this.tab_ProjectInfo.TabIndex = 9;
 			// 
 			// tab_Description
@@ -960,7 +960,7 @@
 			this.tab_Description.Location = new System.Drawing.Point(4, 22);
 			this.tab_Description.Name = "tab_Description";
 			this.tab_Description.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_Description.Size = new System.Drawing.Size(427, 311);
+			this.tab_Description.Size = new System.Drawing.Size(428, 311);
 			this.tab_Description.TabIndex = 0;
 			this.tab_Description.Text = "Abstract";
 			// 
@@ -975,7 +975,7 @@
 			this.rtb_ProjectDescription.ReadOnly = true;
 			this.rtb_ProjectDescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.rtb_ProjectDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-			this.rtb_ProjectDescription.Size = new System.Drawing.Size(421, 305);
+			this.rtb_ProjectDescription.Size = new System.Drawing.Size(422, 305);
 			this.rtb_ProjectDescription.TabIndex = 3;
 			this.rtb_ProjectDescription.Text = "";
 			// 
@@ -986,7 +986,7 @@
 			this.tab_Methods.Location = new System.Drawing.Point(4, 22);
 			this.tab_Methods.Name = "tab_Methods";
 			this.tab_Methods.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_Methods.Size = new System.Drawing.Size(427, 336);
+			this.tab_Methods.Size = new System.Drawing.Size(427, 311);
 			this.tab_Methods.TabIndex = 1;
 			this.tab_Methods.Text = "Methods";
 			// 
@@ -998,7 +998,7 @@
 			this.rtb_Methods.Location = new System.Drawing.Point(3, 3);
 			this.rtb_Methods.Name = "rtb_Methods";
 			this.rtb_Methods.ReadOnly = true;
-			this.rtb_Methods.Size = new System.Drawing.Size(421, 330);
+			this.rtb_Methods.Size = new System.Drawing.Size(421, 305);
 			this.rtb_Methods.TabIndex = 0;
 			this.rtb_Methods.Text = "";
 			// 
@@ -1008,7 +1008,7 @@
 			this.tab_Yields.Location = new System.Drawing.Point(4, 22);
 			this.tab_Yields.Name = "tab_Yields";
 			this.tab_Yields.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_Yields.Size = new System.Drawing.Size(427, 336);
+			this.tab_Yields.Size = new System.Drawing.Size(427, 311);
 			this.tab_Yields.TabIndex = 2;
 			this.tab_Yields.Text = "Yields";
 			// 
@@ -1019,7 +1019,7 @@
 			this.groupBox7.BackColor = System.Drawing.SystemColors.Control;
 			this.groupBox7.Controls.Add(this.lbox_ProjectMakes);
 			this.groupBox7.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.groupBox7.Location = new System.Drawing.Point(447, 6);
+			this.groupBox7.Location = new System.Drawing.Point(448, 6);
 			this.groupBox7.Name = "groupBox7";
 			this.groupBox7.Size = new System.Drawing.Size(201, 123);
 			this.groupBox7.TabIndex = 7;
@@ -1046,7 +1046,7 @@
 			this.groupBox5.BackColor = System.Drawing.SystemColors.Control;
 			this.groupBox5.Controls.Add(this.lbox_RequiredChem);
 			this.groupBox5.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.groupBox5.Location = new System.Drawing.Point(447, 149);
+			this.groupBox5.Location = new System.Drawing.Point(448, 149);
 			this.groupBox5.Name = "groupBox5";
 			this.groupBox5.Size = new System.Drawing.Size(198, 323);
 			this.groupBox5.TabIndex = 7;
@@ -1079,7 +1079,7 @@
 			this.groupBox6.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.groupBox6.Location = new System.Drawing.Point(6, 6);
 			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(435, 123);
+			this.groupBox6.Size = new System.Drawing.Size(436, 123);
 			this.groupBox6.TabIndex = 6;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "Project";
@@ -1090,11 +1090,11 @@
 			this.rtb_BalancedReaction.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtb_BalancedReaction.Cursor = System.Windows.Forms.Cursors.Arrow;
 			this.rtb_BalancedReaction.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.rtb_BalancedReaction.Location = new System.Drawing.Point(7, 99);
+			this.rtb_BalancedReaction.Location = new System.Drawing.Point(11, 99);
 			this.rtb_BalancedReaction.Multiline = false;
 			this.rtb_BalancedReaction.Name = "rtb_BalancedReaction";
 			this.rtb_BalancedReaction.ReadOnly = true;
-			this.rtb_BalancedReaction.Size = new System.Drawing.Size(417, 21);
+			this.rtb_BalancedReaction.Size = new System.Drawing.Size(413, 21);
 			this.rtb_BalancedReaction.TabIndex = 8;
 			this.rtb_BalancedReaction.Text = "Reaction";
 			this.rtb_BalancedReaction.Visible = false;
@@ -1103,7 +1103,7 @@
 			// 
 			this.pguid.AutoSize = true;
 			this.pguid.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-			this.pguid.Location = new System.Drawing.Point(7, 83);
+			this.pguid.Location = new System.Drawing.Point(8, 83);
 			this.pguid.Name = "pguid";
 			this.pguid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.pguid.Size = new System.Drawing.Size(34, 13);
@@ -1114,7 +1114,7 @@
 			// txt_ProjectDoable
 			// 
 			this.txt_ProjectDoable.AutoSize = true;
-			this.txt_ProjectDoable.Location = new System.Drawing.Point(7, 69);
+			this.txt_ProjectDoable.Location = new System.Drawing.Point(8, 69);
 			this.txt_ProjectDoable.Name = "txt_ProjectDoable";
 			this.txt_ProjectDoable.Size = new System.Drawing.Size(50, 13);
 			this.txt_ProjectDoable.TabIndex = 7;
