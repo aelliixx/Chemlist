@@ -253,7 +253,8 @@ namespace Chemlist
 
 		private void btn_EditProject_Click(object sender, EventArgs e)
 		{
-			EditProject editProject = new EditProject();
+			EditProject editProject =
+				new EditProject(tree_Projects.SelectedNode.Tag as ProjectObject, chemicalList) { parentForm = this };
 			editProject.Show();
 		}
 

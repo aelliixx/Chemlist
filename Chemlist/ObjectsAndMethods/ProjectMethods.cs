@@ -196,7 +196,21 @@ namespace Chemlist
 			invalidateProjectList();
 		}
 
-		void removeSelectedProject(ProjectObject project)
+		public void editProject(ProjectObject editedProject)
+		{
+			for (int i = 0; i < projectList.Count; i++)
+			{
+				if (projectList[i].projectID == editedProject.projectID)
+				{
+					projectList[i] = editedProject;
+					serialiseJsonProjects(projectJSON);
+					redrawProjectInfoPanel();
+					return;
+				}
+			}
+		}
+
+		private void removeSelectedProject(ProjectObject project)
 		{
 			projectList.Remove(project);
 			serialiseJsonProjects(projectJSON);

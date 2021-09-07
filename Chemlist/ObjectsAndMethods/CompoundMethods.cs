@@ -39,7 +39,7 @@ namespace Chemlist
 			invalidateCompoundNamesList();
 		}
 		// Remove chemical
-		void removeChemical(int index)
+		private void removeChemical(int index)
 		{
 			if (index >= 0)
 			{

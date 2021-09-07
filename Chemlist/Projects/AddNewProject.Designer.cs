@@ -121,7 +121,7 @@
 			this.groupBox1.Size = new System.Drawing.Size(668, 194);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Acute Toxic";
+			this.groupBox1.Text = "Details";
 			// 
 			// cbox_ParentProject
 			// 

@@ -41,6 +41,8 @@ namespace Chemlist
 
 		public ProjectObject parentProject { get; set; }
 
+		public List<Hazards> hazards = new List<Hazards>();
+
 		public Guid projectID { get; set; }
 
 		public static int instances;

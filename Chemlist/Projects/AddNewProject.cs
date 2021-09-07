@@ -8,12 +8,12 @@ namespace Chemlist
 	public partial class AddNewProject : Form
 	{
 		public Form1 parentForm { get; set; }
-		public List<Guid> compoundID = new List<Guid>();
-		public List<ChemicalObject> chemicalList = new List<ChemicalObject>();
-		bool allowAdding = true;
-		public List<ProjectObject.RequiredChemicals> requiredChemicals = new List<ProjectObject.RequiredChemicals>();
-        public List<ChemicalObject> makesChemicals = new List<ChemicalObject>();
-		public ProjectObject parentProject = new ProjectObject();
+		private List<Guid> compoundID = new List<Guid>();
+		private List<ChemicalObject> chemicalList = new List<ChemicalObject>();
+		private bool allowAdding = true;
+		private List<ProjectObject.RequiredChemicals> requiredChemicals = new List<ProjectObject.RequiredChemicals>();
+        private List<ChemicalObject> makesChemicals = new List<ChemicalObject>();
+		private ProjectObject parentProject = new ProjectObject();
 		
 
 		private void btn_Confirm_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace Chemlist
 			cbox_ParentProject.DisplayMember = "name";
 		}
 
-		void populateMakesList()
+		private void populateMakesList()
 		{
 			lbox_MakesChemicalList.Items.Clear();
 			foreach (ChemicalObject chemical in chemicalList)
@@ -135,7 +135,7 @@ namespace Chemlist
 			}
 		}
 
-		public void validateConfirmation()
+		private void validateConfirmation()
 		{
 			if (
 			validateTextbox(tbox_ProjectName) &&
@@ -148,7 +148,7 @@ namespace Chemlist
 			return;
 		}
 
-		public bool validateTextbox(TextBox textBox)
+		private bool validateTextbox(TextBox textBox)
 		{
 			errorProvider1.SetError(textBox, "");
 			if (textBox.Text == "")

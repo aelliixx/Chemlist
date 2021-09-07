@@ -28,9 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -40,21 +41,21 @@
 			this.cbox_ParentProject = new System.Windows.Forms.ComboBox();
 			this.tbox_Description = new System.Windows.Forms.TextBox();
 			this.tbox_ProjectName = new System.Windows.Forms.TextBox();
-			this.checkBox4 = new System.Windows.Forms.CheckBox();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.checkBox6 = new System.Windows.Forms.CheckBox();
+			this.check_Flamable = new System.Windows.Forms.CheckBox();
+			this.check_Explosive = new System.Windows.Forms.CheckBox();
+			this.check_HealthHazard = new System.Windows.Forms.CheckBox();
+			this.check_Corrosive = new System.Windows.Forms.CheckBox();
 			this.rtb_ProjectFormula = new System.Windows.Forms.RichTextBox();
-			this.checkBox5 = new System.Windows.Forms.CheckBox();
+			this.check_CompressedGas = new System.Windows.Forms.CheckBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.checkBox3 = new System.Windows.Forms.CheckBox();
+			this.check_Oxidising = new System.Windows.Forms.CheckBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.checkBox8 = new System.Windows.Forms.CheckBox();
+			this.check_HarmfulIrritant = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.checkBox7 = new System.Windows.Forms.CheckBox();
+			this.check_AccutelyToxic = new System.Windows.Forms.CheckBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.checkBox9 = new System.Windows.Forms.CheckBox();
+			this.check_EnvHazard = new System.Windows.Forms.CheckBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.dg_CompoundList = new System.Windows.Forms.DataGridView();
@@ -76,6 +77,7 @@
 			this.rtb_Methods = new System.Windows.Forms.RichTextBox();
 			this.btn_Cancel = new System.Windows.Forms.Button();
 			this.btn_Confirm = new System.Windows.Forms.Button();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox4.SuspendLayout();
@@ -90,6 +92,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_Quantity)).BeginInit();
 			this.tabPage2.SuspendLayout();
 			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -150,27 +153,27 @@
 			this.groupBox1.Controls.Add(this.cbox_ParentProject);
 			this.groupBox1.Controls.Add(this.tbox_Description);
 			this.groupBox1.Controls.Add(this.tbox_ProjectName);
-			this.groupBox1.Controls.Add(this.checkBox4);
-			this.groupBox1.Controls.Add(this.checkBox2);
-			this.groupBox1.Controls.Add(this.checkBox1);
-			this.groupBox1.Controls.Add(this.checkBox6);
+			this.groupBox1.Controls.Add(this.check_Flamable);
+			this.groupBox1.Controls.Add(this.check_Explosive);
+			this.groupBox1.Controls.Add(this.check_HealthHazard);
+			this.groupBox1.Controls.Add(this.check_Corrosive);
 			this.groupBox1.Controls.Add(this.rtb_ProjectFormula);
-			this.groupBox1.Controls.Add(this.checkBox5);
+			this.groupBox1.Controls.Add(this.check_CompressedGas);
 			this.groupBox1.Controls.Add(this.label8);
 			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Controls.Add(this.checkBox3);
+			this.groupBox1.Controls.Add(this.check_Oxidising);
 			this.groupBox1.Controls.Add(this.label3);
-			this.groupBox1.Controls.Add(this.checkBox8);
+			this.groupBox1.Controls.Add(this.check_HarmfulIrritant);
 			this.groupBox1.Controls.Add(this.label4);
-			this.groupBox1.Controls.Add(this.checkBox7);
+			this.groupBox1.Controls.Add(this.check_AccutelyToxic);
 			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Controls.Add(this.checkBox9);
+			this.groupBox1.Controls.Add(this.check_EnvHazard);
 			this.groupBox1.Location = new System.Drawing.Point(3, 3);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(668, 194);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Acute Toxic";
+			this.groupBox1.Text = "Details";
 			// 
 			// cbox_ParentProject
 			// 
@@ -179,6 +182,7 @@
 			this.cbox_ParentProject.Name = "cbox_ParentProject";
 			this.cbox_ParentProject.Size = new System.Drawing.Size(225, 21);
 			this.cbox_ParentProject.TabIndex = 23;
+			this.cbox_ParentProject.DropDown += new System.EventHandler(this.cbox_ParentProject_DropDown);
 			// 
 			// tbox_Description
 			// 
@@ -196,45 +200,45 @@
 			this.tbox_ProjectName.Size = new System.Drawing.Size(289, 20);
 			this.tbox_ProjectName.TabIndex = 21;
 			// 
-			// checkBox4
+			// check_Flamable
 			// 
-			this.checkBox4.AutoSize = true;
-			this.checkBox4.Location = new System.Drawing.Point(433, 19);
-			this.checkBox4.Name = "checkBox4";
-			this.checkBox4.Size = new System.Drawing.Size(68, 17);
-			this.checkBox4.TabIndex = 20;
-			this.checkBox4.Text = "Flamable";
-			this.checkBox4.UseVisualStyleBackColor = true;
+			this.check_Flamable.AutoSize = true;
+			this.check_Flamable.Location = new System.Drawing.Point(433, 19);
+			this.check_Flamable.Name = "check_Flamable";
+			this.check_Flamable.Size = new System.Drawing.Size(68, 17);
+			this.check_Flamable.TabIndex = 20;
+			this.check_Flamable.Text = "Flamable";
+			this.check_Flamable.UseVisualStyleBackColor = true;
 			// 
-			// checkBox2
+			// check_Explosive
 			// 
-			this.checkBox2.AutoSize = true;
-			this.checkBox2.Location = new System.Drawing.Point(433, 42);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(71, 17);
-			this.checkBox2.TabIndex = 20;
-			this.checkBox2.Text = "Explosive";
-			this.checkBox2.UseVisualStyleBackColor = true;
+			this.check_Explosive.AutoSize = true;
+			this.check_Explosive.Location = new System.Drawing.Point(433, 42);
+			this.check_Explosive.Name = "check_Explosive";
+			this.check_Explosive.Size = new System.Drawing.Size(71, 17);
+			this.check_Explosive.TabIndex = 20;
+			this.check_Explosive.Text = "Explosive";
+			this.check_Explosive.UseVisualStyleBackColor = true;
 			// 
-			// checkBox1
+			// check_HealthHazard
 			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(433, 65);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(94, 17);
-			this.checkBox1.TabIndex = 20;
-			this.checkBox1.Text = "Health Hazard";
-			this.checkBox1.UseVisualStyleBackColor = true;
+			this.check_HealthHazard.AutoSize = true;
+			this.check_HealthHazard.Location = new System.Drawing.Point(433, 65);
+			this.check_HealthHazard.Name = "check_HealthHazard";
+			this.check_HealthHazard.Size = new System.Drawing.Size(94, 17);
+			this.check_HealthHazard.TabIndex = 20;
+			this.check_HealthHazard.Text = "Health Hazard";
+			this.check_HealthHazard.UseVisualStyleBackColor = true;
 			// 
-			// checkBox6
+			// check_Corrosive
 			// 
-			this.checkBox6.AutoSize = true;
-			this.checkBox6.Location = new System.Drawing.Point(433, 88);
-			this.checkBox6.Name = "checkBox6";
-			this.checkBox6.Size = new System.Drawing.Size(70, 17);
-			this.checkBox6.TabIndex = 20;
-			this.checkBox6.Text = "Corrosive";
-			this.checkBox6.UseVisualStyleBackColor = true;
+			this.check_Corrosive.AutoSize = true;
+			this.check_Corrosive.Location = new System.Drawing.Point(433, 88);
+			this.check_Corrosive.Name = "check_Corrosive";
+			this.check_Corrosive.Size = new System.Drawing.Size(70, 17);
+			this.check_Corrosive.TabIndex = 20;
+			this.check_Corrosive.Text = "Corrosive";
+			this.check_Corrosive.UseVisualStyleBackColor = true;
 			// 
 			// rtb_ProjectFormula
 			// 
@@ -248,15 +252,15 @@
 			this.rtb_ProjectFormula.TabIndex = 17;
 			this.rtb_ProjectFormula.Text = "";
 			// 
-			// checkBox5
+			// check_CompressedGas
 			// 
-			this.checkBox5.AutoSize = true;
-			this.checkBox5.Location = new System.Drawing.Point(545, 88);
-			this.checkBox5.Name = "checkBox5";
-			this.checkBox5.Size = new System.Drawing.Size(106, 17);
-			this.checkBox5.TabIndex = 20;
-			this.checkBox5.Text = "Compressed Gas";
-			this.checkBox5.UseVisualStyleBackColor = true;
+			this.check_CompressedGas.AutoSize = true;
+			this.check_CompressedGas.Location = new System.Drawing.Point(545, 88);
+			this.check_CompressedGas.Name = "check_CompressedGas";
+			this.check_CompressedGas.Size = new System.Drawing.Size(106, 17);
+			this.check_CompressedGas.TabIndex = 20;
+			this.check_CompressedGas.Text = "Compressed Gas";
+			this.check_CompressedGas.UseVisualStyleBackColor = true;
 			// 
 			// label8
 			// 
@@ -276,15 +280,15 @@
 			this.label5.TabIndex = 16;
 			this.label5.Text = "Hazards:";
 			// 
-			// checkBox3
+			// check_Oxidising
 			// 
-			this.checkBox3.AutoSize = true;
-			this.checkBox3.Location = new System.Drawing.Point(545, 19);
-			this.checkBox3.Name = "checkBox3";
-			this.checkBox3.Size = new System.Drawing.Size(68, 17);
-			this.checkBox3.TabIndex = 20;
-			this.checkBox3.Text = "Oxidising";
-			this.checkBox3.UseVisualStyleBackColor = true;
+			this.check_Oxidising.AutoSize = true;
+			this.check_Oxidising.Location = new System.Drawing.Point(545, 19);
+			this.check_Oxidising.Name = "check_Oxidising";
+			this.check_Oxidising.Size = new System.Drawing.Size(68, 17);
+			this.check_Oxidising.TabIndex = 20;
+			this.check_Oxidising.Text = "Oxidising";
+			this.check_Oxidising.UseVisualStyleBackColor = true;
 			// 
 			// label3
 			// 
@@ -295,15 +299,15 @@
 			this.label3.TabIndex = 16;
 			this.label3.Text = "Description:";
 			// 
-			// checkBox8
+			// check_HarmfulIrritant
 			// 
-			this.checkBox8.AutoSize = true;
-			this.checkBox8.Location = new System.Drawing.Point(545, 42);
-			this.checkBox8.Name = "checkBox8";
-			this.checkBox8.Size = new System.Drawing.Size(94, 17);
-			this.checkBox8.TabIndex = 20;
-			this.checkBox8.Text = "Harmful Irritant";
-			this.checkBox8.UseVisualStyleBackColor = true;
+			this.check_HarmfulIrritant.AutoSize = true;
+			this.check_HarmfulIrritant.Location = new System.Drawing.Point(545, 42);
+			this.check_HarmfulIrritant.Name = "check_HarmfulIrritant";
+			this.check_HarmfulIrritant.Size = new System.Drawing.Size(94, 17);
+			this.check_HarmfulIrritant.TabIndex = 20;
+			this.check_HarmfulIrritant.Text = "Harmful Irritant";
+			this.check_HarmfulIrritant.UseVisualStyleBackColor = true;
 			// 
 			// label4
 			// 
@@ -314,15 +318,15 @@
 			this.label4.TabIndex = 16;
 			this.label4.Text = "Formula:";
 			// 
-			// checkBox7
+			// check_AccutelyToxic
 			// 
-			this.checkBox7.AutoSize = true;
-			this.checkBox7.Location = new System.Drawing.Point(545, 65);
-			this.checkBox7.Name = "checkBox7";
-			this.checkBox7.Size = new System.Drawing.Size(90, 17);
-			this.checkBox7.TabIndex = 20;
-			this.checkBox7.Text = "Acutely Toxic";
-			this.checkBox7.UseVisualStyleBackColor = true;
+			this.check_AccutelyToxic.AutoSize = true;
+			this.check_AccutelyToxic.Location = new System.Drawing.Point(545, 65);
+			this.check_AccutelyToxic.Name = "check_AccutelyToxic";
+			this.check_AccutelyToxic.Size = new System.Drawing.Size(90, 17);
+			this.check_AccutelyToxic.TabIndex = 20;
+			this.check_AccutelyToxic.Text = "Acutely Toxic";
+			this.check_AccutelyToxic.UseVisualStyleBackColor = true;
 			// 
 			// label2
 			// 
@@ -333,15 +337,15 @@
 			this.label2.TabIndex = 16;
 			this.label2.Text = "Name:";
 			// 
-			// checkBox9
+			// check_EnvHazard
 			// 
-			this.checkBox9.AutoSize = true;
-			this.checkBox9.Location = new System.Drawing.Point(433, 111);
-			this.checkBox9.Name = "checkBox9";
-			this.checkBox9.Size = new System.Drawing.Size(130, 17);
-			this.checkBox9.TabIndex = 20;
-			this.checkBox9.Text = "Environmental Hazard";
-			this.checkBox9.UseVisualStyleBackColor = true;
+			this.check_EnvHazard.AutoSize = true;
+			this.check_EnvHazard.Location = new System.Drawing.Point(433, 111);
+			this.check_EnvHazard.Name = "check_EnvHazard";
+			this.check_EnvHazard.Size = new System.Drawing.Size(130, 17);
+			this.check_EnvHazard.TabIndex = 20;
+			this.check_EnvHazard.Text = "Environmental Hazard";
+			this.check_EnvHazard.UseVisualStyleBackColor = true;
 			// 
 			// groupBox3
 			// 
@@ -390,26 +394,26 @@
 			this.dg_CompoundList.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dg_CompoundList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dg_CompoundList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dg_CompoundList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dg_CompoundList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
 			this.dg_CompoundList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dg_CompoundList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Compounds,
             this.Quantity});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dg_CompoundList.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dg_CompoundList.DefaultCellStyle = dataGridViewCellStyle14;
 			this.dg_CompoundList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dg_CompoundList.GridColor = System.Drawing.SystemColors.Control;
 			this.dg_CompoundList.Location = new System.Drawing.Point(0, 0);
@@ -417,14 +421,14 @@
 			this.dg_CompoundList.Name = "dg_CompoundList";
 			this.dg_CompoundList.ReadOnly = true;
 			this.dg_CompoundList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dg_CompoundList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dg_CompoundList.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
 			this.dg_CompoundList.RowHeadersVisible = false;
 			this.dg_CompoundList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dg_CompoundList.Size = new System.Drawing.Size(341, 140);
@@ -556,6 +560,7 @@
 			this.cbox_CompoundList.Name = "cbox_CompoundList";
 			this.cbox_CompoundList.Size = new System.Drawing.Size(304, 21);
 			this.cbox_CompoundList.TabIndex = 1;
+			this.cbox_CompoundList.SelectedIndexChanged += new System.EventHandler(this.cbox_CompoundList_SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -609,6 +614,7 @@
 			this.btn_Cancel.TabIndex = 26;
 			this.btn_Cancel.Text = "Cancel";
 			this.btn_Cancel.UseVisualStyleBackColor = false;
+			this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
 			// 
 			// btn_Confirm
 			// 
@@ -621,11 +627,19 @@
 			this.btn_Confirm.TabIndex = 25;
 			this.btn_Confirm.Text = "Confirm";
 			this.btn_Confirm.UseVisualStyleBackColor = false;
+			this.btn_Confirm.Click += new System.EventHandler(this.btn_Confirm_Click);
+			// 
+			// errorProvider
+			// 
+			this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+			this.errorProvider.ContainerControl = this;
 			// 
 			// EditProject
 			// 
+			this.AcceptButton = this.btn_Confirm;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.btn_Confirm;
 			this.ClientSize = new System.Drawing.Size(885, 438);
 			this.Controls.Add(this.btn_Cancel);
 			this.Controls.Add(this.btn_Confirm);
@@ -649,6 +663,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.num_Quantity)).EndInit();
 			this.tabPage2.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -664,21 +679,21 @@
 		private System.Windows.Forms.ComboBox cbox_ParentProject;
 		private System.Windows.Forms.TextBox tbox_Description;
 		private System.Windows.Forms.TextBox tbox_ProjectName;
-		private System.Windows.Forms.CheckBox checkBox4;
-		private System.Windows.Forms.CheckBox checkBox2;
-		private System.Windows.Forms.CheckBox checkBox1;
-		private System.Windows.Forms.CheckBox checkBox6;
+		private System.Windows.Forms.CheckBox check_Flamable;
+		private System.Windows.Forms.CheckBox check_Explosive;
+		private System.Windows.Forms.CheckBox check_HealthHazard;
+		private System.Windows.Forms.CheckBox check_Corrosive;
 		private System.Windows.Forms.RichTextBox rtb_ProjectFormula;
-		private System.Windows.Forms.CheckBox checkBox5;
+		private System.Windows.Forms.CheckBox check_CompressedGas;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.CheckBox checkBox3;
+		private System.Windows.Forms.CheckBox check_Oxidising;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.CheckBox checkBox8;
+		private System.Windows.Forms.CheckBox check_HarmfulIrritant;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.CheckBox checkBox7;
+		private System.Windows.Forms.CheckBox check_AccutelyToxic;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.CheckBox checkBox9;
+		private System.Windows.Forms.CheckBox check_EnvHazard;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.DataGridView dg_CompoundList;
@@ -700,5 +715,6 @@
 		private System.Windows.Forms.RichTextBox rtb_Methods;
 		private System.Windows.Forms.Button btn_Cancel;
 		private System.Windows.Forms.Button btn_Confirm;
+		private System.Windows.Forms.ErrorProvider errorProvider;
 	}
 }
