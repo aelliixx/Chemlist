@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chemlist", "Chemlist\Chemli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{88E0109F-5B7F-4892-837A-1F13F7F2F8A2}"
 	ProjectSection(SolutionItems) = preProject
-		Chemlist\bin\Debug\chemicals.json = Chemlist\bin\Debug\chemicals.json
+		Chemlist\bin\x64\Debug\chemicals.json = Chemlist\bin\x64\Debug\chemicals.json
 		..\..\..\Desktop\chemlist.ico = ..\..\..\Desktop\chemlist.ico
-		Chemlist\bin\Debug\projects.json = Chemlist\bin\Debug\projects.json
+		Chemlist\bin\x64\Debug\projects.json = Chemlist\bin\x64\Debug\projects.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chemlist.Tests", "Chemlist.Tests\Chemlist.Tests.csproj", "{DFAE1D59-C34C-47AE-AD18-09FAC5FF5E7D}"
