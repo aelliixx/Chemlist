@@ -29,9 +29,9 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditProject));
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -206,7 +206,7 @@
 			// check_Flamable
 			// 
 			this.check_Flamable.AutoSize = true;
-			this.check_Flamable.Location = new System.Drawing.Point(433, 19);
+			this.check_Flamable.Location = new System.Drawing.Point(433, 20);
 			this.check_Flamable.Name = "check_Flamable";
 			this.check_Flamable.Size = new System.Drawing.Size(68, 17);
 			this.check_Flamable.TabIndex = 20;
@@ -216,7 +216,7 @@
 			// check_Explosive
 			// 
 			this.check_Explosive.AutoSize = true;
-			this.check_Explosive.Location = new System.Drawing.Point(433, 42);
+			this.check_Explosive.Location = new System.Drawing.Point(433, 43);
 			this.check_Explosive.Name = "check_Explosive";
 			this.check_Explosive.Size = new System.Drawing.Size(71, 17);
 			this.check_Explosive.TabIndex = 20;
@@ -226,7 +226,7 @@
 			// check_HealthHazard
 			// 
 			this.check_HealthHazard.AutoSize = true;
-			this.check_HealthHazard.Location = new System.Drawing.Point(433, 65);
+			this.check_HealthHazard.Location = new System.Drawing.Point(433, 66);
 			this.check_HealthHazard.Name = "check_HealthHazard";
 			this.check_HealthHazard.Size = new System.Drawing.Size(94, 17);
 			this.check_HealthHazard.TabIndex = 20;
@@ -236,7 +236,7 @@
 			// check_Corrosive
 			// 
 			this.check_Corrosive.AutoSize = true;
-			this.check_Corrosive.Location = new System.Drawing.Point(433, 88);
+			this.check_Corrosive.Location = new System.Drawing.Point(433, 89);
 			this.check_Corrosive.Name = "check_Corrosive";
 			this.check_Corrosive.Size = new System.Drawing.Size(70, 17);
 			this.check_Corrosive.TabIndex = 20;
@@ -258,7 +258,7 @@
 			// check_CompressedGas
 			// 
 			this.check_CompressedGas.AutoSize = true;
-			this.check_CompressedGas.Location = new System.Drawing.Point(545, 88);
+			this.check_CompressedGas.Location = new System.Drawing.Point(545, 89);
 			this.check_CompressedGas.Name = "check_CompressedGas";
 			this.check_CompressedGas.Size = new System.Drawing.Size(106, 17);
 			this.check_CompressedGas.TabIndex = 20;
@@ -286,7 +286,7 @@
 			// check_Oxidising
 			// 
 			this.check_Oxidising.AutoSize = true;
-			this.check_Oxidising.Location = new System.Drawing.Point(545, 19);
+			this.check_Oxidising.Location = new System.Drawing.Point(545, 20);
 			this.check_Oxidising.Name = "check_Oxidising";
 			this.check_Oxidising.Size = new System.Drawing.Size(68, 17);
 			this.check_Oxidising.TabIndex = 20;
@@ -305,7 +305,7 @@
 			// check_HarmfulIrritant
 			// 
 			this.check_HarmfulIrritant.AutoSize = true;
-			this.check_HarmfulIrritant.Location = new System.Drawing.Point(545, 42);
+			this.check_HarmfulIrritant.Location = new System.Drawing.Point(545, 43);
 			this.check_HarmfulIrritant.Name = "check_HarmfulIrritant";
 			this.check_HarmfulIrritant.Size = new System.Drawing.Size(94, 17);
 			this.check_HarmfulIrritant.TabIndex = 20;
@@ -324,7 +324,7 @@
 			// check_AccutelyToxic
 			// 
 			this.check_AccutelyToxic.AutoSize = true;
-			this.check_AccutelyToxic.Location = new System.Drawing.Point(545, 65);
+			this.check_AccutelyToxic.Location = new System.Drawing.Point(545, 66);
 			this.check_AccutelyToxic.Name = "check_AccutelyToxic";
 			this.check_AccutelyToxic.Size = new System.Drawing.Size(90, 17);
 			this.check_AccutelyToxic.TabIndex = 20;
@@ -343,7 +343,7 @@
 			// check_EnvHazard
 			// 
 			this.check_EnvHazard.AutoSize = true;
-			this.check_EnvHazard.Location = new System.Drawing.Point(433, 111);
+			this.check_EnvHazard.Location = new System.Drawing.Point(433, 112);
 			this.check_EnvHazard.Name = "check_EnvHazard";
 			this.check_EnvHazard.Size = new System.Drawing.Size(130, 17);
 			this.check_EnvHazard.TabIndex = 20;
@@ -397,26 +397,26 @@
 			this.dg_CompoundList.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dg_CompoundList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dg_CompoundList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dg_CompoundList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dg_CompoundList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dg_CompoundList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dg_CompoundList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Compounds,
             this.Quantity});
-			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dg_CompoundList.DefaultCellStyle = dataGridViewCellStyle11;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dg_CompoundList.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dg_CompoundList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dg_CompoundList.GridColor = System.Drawing.SystemColors.Control;
 			this.dg_CompoundList.Location = new System.Drawing.Point(0, 0);
@@ -424,14 +424,14 @@
 			this.dg_CompoundList.Name = "dg_CompoundList";
 			this.dg_CompoundList.ReadOnly = true;
 			this.dg_CompoundList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dg_CompoundList.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dg_CompoundList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.dg_CompoundList.RowHeadersVisible = false;
 			this.dg_CompoundList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dg_CompoundList.Size = new System.Drawing.Size(341, 140);

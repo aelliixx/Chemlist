@@ -9,12 +9,12 @@ namespace Chemlist
 	public partial class Form1
 	{
 		// Read and populate from json
-		String compoundJSON;
-		String projectJSON;
-		const String backupCompoundJson = @".\chemicals_backup.json";
-		const String backupProjectJson = @".\projects_backup.json";
-		List<String> jsonChemicals;
-		List<String> jsonProjects;
+		private String compoundJSON;
+		private String projectJSON;
+		private const String backupCompoundJson = @".\chemicals_backup.json";
+		private const String backupProjectJson = @".\projects_backup.json";
+		private List<String> jsonChemicals;
+		private List<String> jsonProjects;
 		void validateFile(String fileName, ref List<String> json)
 		{
 			if (File.Exists(fileName))

@@ -110,9 +110,7 @@ namespace Chemlist
 					lbox_MakesChemicalList.Items.Add(chemical);
 			}
 		}
-
 		
-
 		private void invalidateRequiredCompounds()
 		{
 			dg_CompoundList.Rows.Clear();
@@ -161,6 +159,26 @@ namespace Chemlist
 					parentProject = parentProject,
 					methods = rtb_Methods.Text
 				};
+				editedProject.hazards.Clear();
+				if (check_AccutelyToxic.Checked)
+					editedProject.hazards.Add(parentForm.hazardSymbols[0]);
+				if (check_Corrosive.Checked)
+					editedProject.hazards.Add(parentForm.hazardSymbols[1]);
+				if (check_EnvHazard.Checked)
+					editedProject.hazards.Add(parentForm.hazardSymbols[2]);
+				if (check_HarmfulIrritant.Checked)
+					editedProject.hazards.Add(parentForm.hazardSymbols[3]);
+				if (check_Explosive.Checked)
+					editedProject.hazards.Add(parentForm.hazardSymbols[4]);
+				if (check_Flamable.Checked)
+					editedProject.hazards.Add(parentForm.hazardSymbols[5]);
+				if (check_CompressedGas.Checked)
+					editedProject.hazards.Add(parentForm.hazardSymbols[6]);
+				if (check_HealthHazard.Checked)
+					editedProject.hazards.Add(parentForm.hazardSymbols[7]);
+				if (check_Oxidising.Checked)
+					editedProject.hazards.Add(parentForm.hazardSymbols[8]);
+
 				parentForm.editProject(editedProject);
 				this.Close();
 			}
@@ -225,6 +243,7 @@ namespace Chemlist
 					quantity = (float)num_Quantity.Value,
 					concentration = (float)num_Concentration.Value
 				};
+
 				requiredChemicals.Add(chemical);
 				invalidateRequiredCompounds();
 

@@ -31,6 +31,26 @@ namespace Chemlist
                     makesChemicals = makesChemicals,
 					parentProject = parentProject
 				};
+
+				if (check_AccutelyToxic.Checked)
+					newProject.hazards.Add(parentForm.hazardSymbols[0]);
+				if (check_Corrosive.Checked)
+					newProject.hazards.Add(parentForm.hazardSymbols[1]);
+				if (check_EnvHazard.Checked)
+					newProject.hazards.Add(parentForm.hazardSymbols[2]);
+				if (check_HarmfulIrritant.Checked)
+					newProject.hazards.Add(parentForm.hazardSymbols[3]);
+				if (check_Explosive.Checked)
+					newProject.hazards.Add(parentForm.hazardSymbols[4]);
+				if (check_Flamable.Checked)
+					newProject.hazards.Add(parentForm.hazardSymbols[5]);
+				if (check_CompressedGas.Checked)
+					newProject.hazards.Add(parentForm.hazardSymbols[6]);
+				if (check_HealthHazard.Checked)
+					newProject.hazards.Add(parentForm.hazardSymbols[7]);
+				if (check_Oxidising.Checked)
+					newProject.hazards.Add(parentForm.hazardSymbols[8]);
+
 				parentForm.addNewProject(newProject);
 				this.Close();
 			}

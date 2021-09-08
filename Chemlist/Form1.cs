@@ -52,45 +52,7 @@ namespace Chemlist
 #endif
 		}
 
-		private void initJson(String compoundFile, String projectFile, bool saveSettings)
-		{
-			chemicalList.Clear();
-			projectList.Clear();
-
-			if (saveSettings)
-			{
-				compoundJSON = compoundFile;
-				projectJSON = projectFile;
-				Properties.Settings.Default.compoundJsonPath = compoundJSON;
-				Properties.Settings.Default.projectJsonPath = projectJSON;
-				Properties.Settings.Default.Save();
-			}
-
-
-			validateFile(compoundFile, ref jsonChemicals);
-			validateFile(projectFile, ref jsonProjects);
-
-			deserialiseJsonChem();
-			deserialiseJsonProjets();
-
-
-			foreach (ProjectObject project in projectList)
-			{
-				checkProjectAvailability(project);
-				checkProjectAvailabilityThroughOtherProjects(project);
-			}
-			foreach (ChemicalObject chemical in chemicalList)
-				checkCompoundAvailabilityThroughProjects(chemical);
-
-
-			serialiseJsonChem(compoundFile);
-			serialiseJsonProjects(projectFile);
-
-			invalidateCompoundNamesList();
-			invalidateProjectList();
-			redrawCompoundInfoPanel();
-			redrawProjectInfoPanel();
-		}
+		
 
 		private void lbox_ChemicalList_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -304,6 +266,7 @@ namespace Chemlist
 
 		private void loadCompoundsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			openFileDialog.Title = "Load Compounds";
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				initJson(openFileDialog.FileName, projectJSON, true);
@@ -313,6 +276,7 @@ namespace Chemlist
 
 		private void loadProjectsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			openFileDialog.Title = "Load Projects";
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				initJson(compoundJSON, openFileDialog.FileName, true);
@@ -321,7 +285,27 @@ namespace Chemlist
 
 		private void instanceCounter_Click(object sender, EventArgs e)
 		{
-			instanceCounter.Text = "Chemical objects: " + ChemicalObject.instances + "; Project objects: " + ProjectObject.instances;
+			instanceCounter.Text = "Saves: " + Properties.Settings.Default.compoundJsonPath + " " + Properties.Settings.Default.projectJsonPath;
+		}
+
+		private void saveCompoundsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			saveFile.Title = "Save Compounds As...";
+			if (saveFile.ShowDialog() == DialogResult.OK)
+			{
+				serialiseJsonChem(saveFile.FileName);
+				setNewReadFiles(saveFile.FileName, projectJSON);
+			}
+		}
+
+		private void saveProjectsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			saveFile.Title = "Save Projects As...";
+			if (saveFile.ShowDialog() == DialogResult.OK)
+			{
+				serialiseJsonProjects(saveFile.FileName);
+				setNewReadFiles(compoundJSON, saveFile.FileName);
+			}
 		}
 	}
 }

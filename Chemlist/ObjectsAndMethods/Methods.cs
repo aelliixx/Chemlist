@@ -38,6 +38,64 @@ namespace Chemlist
 			return digits;
 		}
 
+		private void serialiseAll(String compoundFile, String projectFile)
+		{
+			serialiseJsonChem(compoundFile);
+			serialiseJsonProjects(projectFile);
+		}
 
+		private void invalidateAllLists()
+		{
+			invalidateCompoundNamesList();
+			invalidateProjectList();
+		}
+
+		private void redrawAllDetails()
+		{
+			redrawCompoundInfoPanel();
+			redrawProjectInfoPanel();
+		}
+
+		private void checkAllAvailabilities()
+		{
+			foreach (ProjectObject project in projectList)
+				checkProjectAvailability(project);
+			foreach (ChemicalObject chemical in chemicalList)
+				checkCompoundAvailabilityThroughProjects(chemical);
+			foreach (ProjectObject project in projectList)
+				checkProjectAvailabilityThroughOtherProjects(project);
+		}
+
+		private void deserialiseAll()
+		{
+			deserialiseJsonChem();
+			deserialiseJsonProjets();
+		}
+
+		private void setNewReadFiles(String compoundFile, String projectFile)
+		{
+			compoundJSON = compoundFile;
+			projectJSON = projectFile;
+			Properties.Settings.Default.compoundJsonPath = compoundJSON;
+			Properties.Settings.Default.projectJsonPath = projectJSON;
+			Properties.Settings.Default.Save();
+		}
+
+		private void initJson(String compoundFile, String projectFile, bool saveSettings)
+		{
+			chemicalList.Clear();
+			projectList.Clear();
+
+			if (saveSettings)
+				setNewReadFiles(compoundFile, projectFile);
+			
+			validateFile(compoundFile, ref jsonChemicals);
+			validateFile(projectFile, ref jsonProjects);
+			
+			deserialiseAll();
+			serialiseAll(compoundFile, projectFile);
+			invalidateAllLists();
+			redrawAllDetails();
+		}
 	}
 }

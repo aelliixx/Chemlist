@@ -60,8 +60,7 @@ namespace Chemlist
 				tree_Projects.SelectedNode = null;
 				foreach (ProjectObject project in projectList)
 				{
-					checkProjectAvailabilityThroughOtherProjects(project);
-					checkProjectAvailability(project);
+					checkAllAvailabilities();
 					colourAvailabilities(project);
 				}
 			}
@@ -175,15 +174,16 @@ namespace Chemlist
 
 		bool checkProjectAvailabilityThroughOtherProjects(ProjectObject project)
 		{
-			foreach (ProjectObject.RequiredChemicals requiredChemical in project.requiredChemicals)
-			{
-				if (!matchChemicalObject(requiredChemical.compound).availableThroughProject
-					&& !matchChemicalObject(requiredChemical.compound).inStorage)
+			if (project.requiredChemicals.Count > 0)
+				foreach (ProjectObject.RequiredChemicals requiredChemical in project.requiredChemicals)
 				{
-					project.availableThroughProjects = false;
-					return false;
+					if (!matchChemicalObject(requiredChemical.compound).availableThroughProject
+						&& !matchChemicalObject(requiredChemical.compound).inStorage)
+					{
+						project.availableThroughProjects = false;
+						return false;
+					}
 				}
-			}
 			project.availableThroughProjects = true;
 
 			return true;

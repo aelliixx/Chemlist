@@ -29,23 +29,23 @@
 		public void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 1);
-			System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 2);
-			System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("", 3);
-			System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("", 4);
-			System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("", 5);
-			System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("", 6);
-			System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("", 7);
-			System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("", 8);
+			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
+			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
+			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
+			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 4);
+			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 5);
+			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 6);
+			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
+			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 8);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Phenol");
-			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Phtalic acid");
-			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode7});
+			System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Phenol");
+			System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Phtalic acid");
+			System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
+            treeNode34});
+			System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
+            treeNode33,
+            treeNode35});
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -133,6 +133,9 @@
 			this.saveFile = new System.Windows.Forms.SaveFileDialog();
 			this.debugStatusStrip = new System.Windows.Forms.StatusStrip();
 			this.instanceCounter = new System.Windows.Forms.ToolStripStatusLabel();
+			this.saveChemlistJsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.saveCompoundsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.saveProjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tab_Switcher.SuspendLayout();
 			this.tab_Chemicals.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -253,7 +256,7 @@
 			this.splitContainer2.Panel2.Controls.Add(this.btn_AddNew);
 			this.splitContainer2.Panel2.Controls.Add(this.btn_EditCurrentChemical);
 			this.splitContainer2.Size = new System.Drawing.Size(330, 480);
-			this.splitContainer2.SplitterDistance = 415;
+			this.splitContainer2.SplitterDistance = 413;
 			this.splitContainer2.TabIndex = 0;
 			// 
 			// lbox_ChemicalList
@@ -268,7 +271,7 @@
 			this.lbox_ChemicalList.Location = new System.Drawing.Point(0, 0);
 			this.lbox_ChemicalList.Margin = new System.Windows.Forms.Padding(0);
 			this.lbox_ChemicalList.Name = "lbox_ChemicalList";
-			this.lbox_ChemicalList.Size = new System.Drawing.Size(330, 415);
+			this.lbox_ChemicalList.Size = new System.Drawing.Size(330, 413);
 			this.lbox_ChemicalList.Sorted = true;
 			this.lbox_ChemicalList.TabIndex = 0;
 			this.lbox_ChemicalList.SelectedIndexChanged += new System.EventHandler(this.lbox_ChemicalList_SelectedIndexChanged);
@@ -305,7 +308,7 @@
 			this.btn_RemoveChemicalFromList.BackColor = System.Drawing.SystemColors.Control;
 			this.btn_RemoveChemicalFromList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btn_RemoveChemicalFromList.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.btn_RemoveChemicalFromList.Location = new System.Drawing.Point(228, 28);
+			this.btn_RemoveChemicalFromList.Location = new System.Drawing.Point(228, 30);
 			this.btn_RemoveChemicalFromList.Name = "btn_RemoveChemicalFromList";
 			this.btn_RemoveChemicalFromList.Size = new System.Drawing.Size(98, 25);
 			this.btn_RemoveChemicalFromList.TabIndex = 3;
@@ -317,7 +320,7 @@
 			// 
 			this.btn_AddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_AddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btn_AddNew.Location = new System.Drawing.Point(8, 28);
+			this.btn_AddNew.Location = new System.Drawing.Point(8, 30);
 			this.btn_AddNew.Name = "btn_AddNew";
 			this.btn_AddNew.Size = new System.Drawing.Size(98, 25);
 			this.btn_AddNew.TabIndex = 5;
@@ -329,7 +332,7 @@
 			// 
 			this.btn_EditCurrentChemical.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_EditCurrentChemical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btn_EditCurrentChemical.Location = new System.Drawing.Point(118, 28);
+			this.btn_EditCurrentChemical.Location = new System.Drawing.Point(118, 30);
 			this.btn_EditCurrentChemical.Name = "btn_EditCurrentChemical";
 			this.btn_EditCurrentChemical.Size = new System.Drawing.Size(98, 25);
 			this.btn_EditCurrentChemical.TabIndex = 4;
@@ -603,15 +606,15 @@
 			this.lview_Warnings.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lview_Warnings.HideSelection = false;
 			this.lview_Warnings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9});
 			this.lview_Warnings.LargeImageList = this.hazardImages;
 			this.lview_Warnings.Location = new System.Drawing.Point(10, 20);
 			this.lview_Warnings.MultiSelect = false;
@@ -843,16 +846,16 @@
 			this.tree_Projects.HideSelection = false;
 			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
 			this.tree_Projects.Name = "tree_Projects";
-			treeNode5.Name = "Node1";
-			treeNode5.Text = "Phenol";
-			treeNode6.Name = "Node3";
-			treeNode6.Text = "Phtalic acid";
-			treeNode7.Name = "Node2";
-			treeNode7.Text = "Phtalic anhydride";
-			treeNode8.Name = "Node0";
-			treeNode8.Text = "Phenolphtalein";
+			treeNode33.Name = "Node1";
+			treeNode33.Text = "Phenol";
+			treeNode34.Name = "Node3";
+			treeNode34.Text = "Phtalic acid";
+			treeNode35.Name = "Node2";
+			treeNode35.Text = "Phtalic anhydride";
+			treeNode36.Name = "Node0";
+			treeNode36.Text = "Phenolphtalein";
 			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
+            treeNode36});
 			this.tree_Projects.ShowLines = false;
 			this.tree_Projects.Size = new System.Drawing.Size(330, 413);
 			this.tree_Projects.TabIndex = 1;
@@ -1165,6 +1168,7 @@
 			// 
 			this.fileToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveChemlistJsonToolStripMenuItem,
             this.loadChemlistJsonToolStripMenuItem,
             this.aboutToolStripMenuItem,
             this.toolStripSeparator2,
@@ -1277,7 +1281,10 @@
 			// openFileDialog
 			// 
 			this.openFileDialog.Filter = "JSON File|*.json";
-			this.openFileDialog.Multiselect = true;
+			// 
+			// saveFile
+			// 
+			this.saveFile.Filter = "JSON File|*.json";
 			// 
 			// debugStatusStrip
 			// 
@@ -1295,6 +1302,29 @@
 			this.instanceCounter.Size = new System.Drawing.Size(59, 17);
 			this.instanceCounter.Text = "Instances:";
 			this.instanceCounter.Click += new System.EventHandler(this.instanceCounter_Click);
+			// 
+			// saveChemlistJsonToolStripMenuItem
+			// 
+			this.saveChemlistJsonToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveCompoundsToolStripMenuItem,
+            this.saveProjectsToolStripMenuItem});
+			this.saveChemlistJsonToolStripMenuItem.Name = "saveChemlistJsonToolStripMenuItem";
+			this.saveChemlistJsonToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+			this.saveChemlistJsonToolStripMenuItem.Text = "Save Chemlist json as...";
+			// 
+			// saveCompoundsToolStripMenuItem
+			// 
+			this.saveCompoundsToolStripMenuItem.Name = "saveCompoundsToolStripMenuItem";
+			this.saveCompoundsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.saveCompoundsToolStripMenuItem.Text = "Save compounds";
+			this.saveCompoundsToolStripMenuItem.Click += new System.EventHandler(this.saveCompoundsToolStripMenuItem_Click);
+			// 
+			// saveProjectsToolStripMenuItem
+			// 
+			this.saveProjectsToolStripMenuItem.Name = "saveProjectsToolStripMenuItem";
+			this.saveProjectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.saveProjectsToolStripMenuItem.Text = "Save projects";
+			this.saveProjectsToolStripMenuItem.Click += new System.EventHandler(this.saveProjectsToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -1459,6 +1489,9 @@
 		private System.Windows.Forms.ToolStripTextBox debug_txt;
 		private System.Windows.Forms.StatusStrip debugStatusStrip;
 		private System.Windows.Forms.ToolStripStatusLabel instanceCounter;
+		private System.Windows.Forms.ToolStripMenuItem saveChemlistJsonToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem saveCompoundsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem saveProjectsToolStripMenuItem;
 	}
 }
 
