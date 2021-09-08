@@ -126,5 +126,9 @@ namespace Chemlist
 			return m;
 		}
 
+		public static String balance(String formula)
+		{
+			return formula;
+		}
 	}
 }

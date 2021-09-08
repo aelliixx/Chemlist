@@ -264,8 +264,7 @@ namespace Chemlist
 			}
 			else if (type == typeof(Uri))
 			{
-				Uri uriResult;
-				bool result = Uri.TryCreate(textBox.Text, UriKind.Absolute, out uriResult)
+				bool result = Uri.TryCreate(textBox.Text, UriKind.Absolute, out Uri uriResult)
 				&& (uriResult.Scheme == Uri.UriSchemeHttps || uriResult.Scheme == Uri.UriSchemeHttp);
 				if (!result && textBox.Text != "N/A")
 				{
