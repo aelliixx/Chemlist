@@ -29,23 +29,23 @@
 		public void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
-			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
-			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
-			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
-			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 4);
-			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 5);
-			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 6);
-			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
-			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 8);
+			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 0);
+			System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 1);
+			System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 2);
+			System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("", 3);
+			System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("", 4);
+			System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("", 5);
+			System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("", 6);
+			System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("", 7);
+			System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("", 8);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Phenol");
-			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Phtalic acid");
-			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
-            treeNode10});
-			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode11});
+			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Phenol");
+			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Phtalic acid");
+			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Phtalic anhydride", new System.Windows.Forms.TreeNode[] {
+            treeNode6});
+			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Phenolphtalein", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode7});
 			this.tab_Switcher = new System.Windows.Forms.TabControl();
 			this.tab_Chemicals = new System.Windows.Forms.TabPage();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -603,15 +603,15 @@
 			this.lview_Warnings.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lview_Warnings.HideSelection = false;
 			this.lview_Warnings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9});
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18});
 			this.lview_Warnings.LargeImageList = this.hazardImages;
 			this.lview_Warnings.Location = new System.Drawing.Point(10, 20);
 			this.lview_Warnings.MultiSelect = false;
@@ -843,16 +843,16 @@
 			this.tree_Projects.HideSelection = false;
 			this.tree_Projects.Location = new System.Drawing.Point(0, 0);
 			this.tree_Projects.Name = "tree_Projects";
-			treeNode9.Name = "Node1";
-			treeNode9.Text = "Phenol";
-			treeNode10.Name = "Node3";
-			treeNode10.Text = "Phtalic acid";
-			treeNode11.Name = "Node2";
-			treeNode11.Text = "Phtalic anhydride";
-			treeNode12.Name = "Node0";
-			treeNode12.Text = "Phenolphtalein";
+			treeNode5.Name = "Node1";
+			treeNode5.Text = "Phenol";
+			treeNode6.Name = "Node3";
+			treeNode6.Text = "Phtalic acid";
+			treeNode7.Name = "Node2";
+			treeNode7.Text = "Phtalic anhydride";
+			treeNode8.Name = "Node0";
+			treeNode8.Text = "Phenolphtalein";
 			this.tree_Projects.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode12});
+            treeNode8});
 			this.tree_Projects.ShowLines = false;
 			this.tree_Projects.Size = new System.Drawing.Size(330, 413);
 			this.tree_Projects.TabIndex = 1;
@@ -876,6 +876,7 @@
 			this.cbox_ProjectSort.Items.AddRange(new object[] {
             "All",
             "Only Available",
+            "Only Directly Available",
             "Only Unavailable"});
 			this.cbox_ProjectSort.Location = new System.Drawing.Point(169, 4);
 			this.cbox_ProjectSort.Name = "cbox_ProjectSort";
@@ -986,7 +987,7 @@
 			this.tab_Methods.Location = new System.Drawing.Point(4, 22);
 			this.tab_Methods.Name = "tab_Methods";
 			this.tab_Methods.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_Methods.Size = new System.Drawing.Size(427, 311);
+			this.tab_Methods.Size = new System.Drawing.Size(428, 311);
 			this.tab_Methods.TabIndex = 1;
 			this.tab_Methods.Text = "Methods";
 			// 
@@ -998,7 +999,7 @@
 			this.rtb_Methods.Location = new System.Drawing.Point(3, 3);
 			this.rtb_Methods.Name = "rtb_Methods";
 			this.rtb_Methods.ReadOnly = true;
-			this.rtb_Methods.Size = new System.Drawing.Size(421, 305);
+			this.rtb_Methods.Size = new System.Drawing.Size(422, 305);
 			this.rtb_Methods.TabIndex = 0;
 			this.rtb_Methods.Text = "";
 			// 
@@ -1008,7 +1009,7 @@
 			this.tab_Yields.Location = new System.Drawing.Point(4, 22);
 			this.tab_Yields.Name = "tab_Yields";
 			this.tab_Yields.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_Yields.Size = new System.Drawing.Size(427, 311);
+			this.tab_Yields.Size = new System.Drawing.Size(428, 311);
 			this.tab_Yields.TabIndex = 2;
 			this.tab_Yields.Text = "Yields";
 			// 

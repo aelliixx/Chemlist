@@ -17,7 +17,9 @@ namespace Chemlist
 			{
 				if (cbox_ProjectSort.SelectedIndex == 1 && (!project.available && !project.availableThroughProjects))
 					continue;
-				else if (cbox_ProjectSort.SelectedIndex == 2 && (project.available || project.availableThroughProjects))
+				else if (cbox_ProjectSort.SelectedIndex == 2 && !project.available)
+					continue;
+				else if (cbox_ProjectSort.SelectedIndex == 3 && (project.available || project.availableThroughProjects))
 					continue;
 
 
@@ -58,6 +60,8 @@ namespace Chemlist
 				tree_Projects.SelectedNode = null;
 				foreach (ProjectObject project in projectList)
 				{
+					checkProjectAvailabilityThroughOtherProjects(project);
+					checkProjectAvailability(project);
 					colourAvailabilities(project);
 				}
 			}
@@ -115,8 +119,8 @@ namespace Chemlist
 				pguid.Text = current.projectID.ToString();
 
 				// Availability
-				if (checkProjectAvailability(current)) { txt_ProjectDoable.Text = "Available";	}
-				else if (checkProjectAvailabilityThroughOtherProjects(current)) { txt_ProjectDoable.Text = "Available Through Projects"; }
+				if (current.available) { txt_ProjectDoable.Text = "Available";	}
+				else if (current.availableThroughProjects) { txt_ProjectDoable.Text = "Available Through Projects"; }
 				else { txt_ProjectDoable.Text = "Unavailable"; }
 
 
@@ -209,9 +213,12 @@ namespace Chemlist
 		private void colourAvailabilities(ProjectObject project)
 		{
 			var node = findProjectByTag(project);
-			if (project.available) { node.ForeColor = Color.Green; return;  }
-			else if (project.availableThroughProjects) { node.ForeColor = Color.DarkOrange; return; }
-			node.ForeColor = Color.Red;
+			if (node != null)
+			{
+				if (project.available) { node.ForeColor = Color.Green; return;  }
+				else if (project.availableThroughProjects) { node.ForeColor = Color.DarkOrange; return; }
+				node.ForeColor = Color.Red;
+			}
 		}
 
 		private void removeSelectedProject(ProjectObject project)

@@ -116,7 +116,7 @@ namespace Chemlist
 
 				rtb_Description.Text = current.descripion;
 
-				if (current.inStorage) { txt_Availability.Text = "Available in Storage;    "; }
+				if (current.inStorage) { txt_Availability.Text = "Available in Storage; "; }
 					else { txt_Availability.Text = "Unavailable in Storage;   "; }
 				if (current.availableThroughProject) { txt_Availability.Text += "Available Through Projects"; }
 					else { txt_Availability.Text += "Unavailable Through Projects"; }
